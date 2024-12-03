@@ -4,11 +4,13 @@
             <mat-icon>edit_note</mat-icon>
         </button>
         <mat-menu #inputMenu="matMenu" [dir]="'rtl'">
-            @for (item of inputs; track $index) {
-            <button mat-menu-item [routerLink]="['/input', item.type]" [disabled]="header === item.type">
-                {{ item.title }}
-            </button>
-            }
+            <div class="menu-content">
+                @for (item of inputs; track $index) {
+                <button mat-menu-item [routerLink]="['/input', item.type]" [disabled]="header === item.type">
+                    {{ item.title }}
+                </button>
+                }
+            </div>
             <mat-divider></mat-divider>
             <button mat-menu-item [routerLink]="['/']" [disabled]="!header">فرم کامل</button>
         </mat-menu>
