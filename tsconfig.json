@@ -9,7 +9,7 @@
         "noPropertyAccessFromIndexSignature": true,
         "noImplicitReturns": true,
         "noFallthroughCasesInSwitch": true,
-        "paths": { "@ngx-form-m3": ["./dist/ngx-form-m3"] },
+        "paths": { "@webilix/ngx-form-m3": ["./ngx-form-m3/src/public-api"] },
         "skipLibCheck": true,
         "isolatedModules": true,
         "esModuleInterop": true,

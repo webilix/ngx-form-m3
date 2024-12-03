@@ -1,0 +1,31 @@
+<mat-form-field [appearance]="appearance!">
+    <mat-label>{{ input.title }}</mat-label>
+    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+    <!-- HINT -->
+    @if (focused && input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <!-- COUNTER -->
+    @if (focused && input.counter) {
+    <mat-hint [align]="'end'">
+        {{ formControl.value?.length || 0 | number }}{{ input.maxLength ? ' از ' + (input.maxLength | number) : '' }}
+    </mat-hint>
+    }
+
+    <textarea
+        matInput
+        [name]="input.name"
+        [formControl]="formControl"
+        [ngStyle]="input.english ? enStyle : {}"
+        [dir]="input.english ? 'ltr' : 'rtl'"
+        [style.height]="input.height ? input.height.toString() + 'px' : '75px'"
+        [style.resize]="'none'"
+        [maxLength]="input.maxLength || 524288"
+        [AutoFocusDirective]="autoFocus === input.name"
+        [AutoHeightDirective]="!!input.autoHeight"
+        [minHeight]="input.height || 75"
+        [maxHeight]="input.maxHeight || 0"
+        (focus)="focused = true"
+        (blur)="focused = false"
+    ></textarea>
+</mat-form-field>

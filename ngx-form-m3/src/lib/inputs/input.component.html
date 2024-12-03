@@ -1,0 +1,23 @@
+@switch (input.type) {
+
+<!-- TEXT -->
+@case ('TEXT') {
+<input-text
+    [formControl]="formControl"
+    [input]="input"
+    [appearance]="appearance"
+    [enStyle]="enStyle"
+    [autoFocus]="autoFocus"
+></input-text>
+}
+
+<!-- TEXTAREA -->
+@case ('TEXTAREA') {
+<input-textarea
+    [formControl]="formControl"
+    [input]="input"
+    [appearance]="appearance"
+    [enStyle]="enStyle"
+    [autoFocus]="autoFocus"
+></input-textarea>
+} }

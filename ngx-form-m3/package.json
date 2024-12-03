@@ -20,10 +20,11 @@
     },
     "homepage": "https://github.com/webilix/ngx-form-m3#readme",
     "peerDependencies": {
-        "@angular/common": "^19.0.0",
-        "@angular/core": "^19.0.0",
-        "@angular/forms": "^19.0.0",
-        "@angular/material": "^19.0.1"
+        "@angular/common": ">=19.0.0",
+        "@angular/core": ">=19.0.0",
+        "@angular/forms": ">=19.0.0",
+        "@angular/material": ">=19.0.1",
+        "@webilix/helper-library": ">=5.0.1"
     },
     "dependencies": {
         "tslib": "^2.3.0"

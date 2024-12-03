@@ -1,0 +1,62 @@
+<form [formGroup]="formGroup" (ngSubmit)="checkSubmit()" dir="rtl" class="ngx-form" #formObject="ngForm">
+    <div class="sections">
+        @for (section of sections; track $index) {
+        <!-- CHECK SECTION VIEW -->
+        @if (showSection(section)) {
+        <!-- SECTION HEADER -->
+        @if (section.header) {
+        <div class="header section-header" [ngStyle]="headerStyle">{{ section.header }}</div>
+        }
+
+        <div class="section" [class.section-mobile]="isMobile">
+            <!-- SECTIONS -->
+            @for (column of section.columns; track $index) {
+            <!-- CHECK COLUMN VIEW -->
+            @if (showColumn(column)) {
+            <div class="column" [style.flex]="section.flex[$index]">
+                <!-- COLUMN HEADER -->
+                @if (column.header) {
+                <div class="header column-header" [ngStyle]="headerStyle">{{ column.header }}</div>
+                }
+
+                <!-- ROWS -->
+                @for (row of column.rows; track $index) {
+                <!-- CHECK Row VIEW -->
+                @if (showRow(row)) {
+                <!-- ROW HEADER -->
+                @if (row.header) {
+                <div class="header row-header" [ngStyle]="headerStyle">{{ row.header }}</div>
+                }
+
+                <div class="inputs">
+                    <!-- INPUTS -->
+                    @for (input of row.inputs; track $index) {
+                    <!-- CHECK Row VIEW -->
+                    @if (showInput(input)) {
+                    <div class="input" [style.flex]="row.flex[$index]">
+                        <form-input
+                            [formGroup]="formGroup"
+                            [input]="input"
+                            [appearance]="appearance"
+                            [enStyle]="enStyle"
+                            [autoFocus]="autoFocus"
+                        ></form-input>
+                    </div>
+                    } }
+                </div>
+                } }
+            </div>
+            } }
+        </div>
+        } }
+    </div>
+
+    <div class="buttons" [class.buttons-mobile]="isMobile">
+        <!-- EXTRA BUTTONS -->
+        @for (item of (ngxForm.buttons || []); track $index) {
+        <button type="button" mat-stroked-button (click)="onClick(item.action)">{{ item.title }}</button>
+        }
+        <!-- SUBMIT BUTTON -->
+        <button type="submit" mat-flat-button>{{ ngxForm.submit }}</button>
+    </div>
+</form>
