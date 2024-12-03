@@ -16,6 +16,10 @@ export class PageIndexComponent {
             {
                 columns: [
                     {
+                        header: 'مشخصات',
+                        rows: [{ name: 'name', type: 'NAME', optional: true }],
+                    },
+                    {
                         header: 'عضویت',
                         rows: [
                             { name: 'email', type: 'EMAIL', optional: true },

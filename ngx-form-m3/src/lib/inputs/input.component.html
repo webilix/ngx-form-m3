@@ -22,6 +22,10 @@
 ></input-mobile>
 }
 
+<!-- NAME -->
+@case ('NAME') {
+<input-name [formControl]="formControl" [input]="input" [appearance]="appearance" [autoFocus]="autoFocus"></input-name> }
+
 <!-- TEXT -->
 @case ('TEXT') {
 <input-text

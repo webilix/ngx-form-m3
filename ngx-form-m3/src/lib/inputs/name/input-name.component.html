@@ -1,0 +1,26 @@
+<!-- INPUT -->
+<input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+
+<div class="columns">
+    <!-- FIRST NAME -->
+    <mat-form-field [appearance]="appearance!">
+        <mat-label>نام {{ input.title || '' }}</mat-label>
+        @if (firstFormControl.invalid) { <mat-error>{{ firstFormControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+        <input
+            matInput
+            type="text"
+            [name]="input.name + '-first'"
+            [formControl]="firstFormControl"
+            [AutoFocusDirective]="autoFocus === input.name"
+            (input)="setName()"
+        />
+    </mat-form-field>
+    <!-- LAST NAME -->
+    <mat-form-field [appearance]="appearance!">
+        <mat-label>نام خانوادگی {{ input.title || '' }}</mat-label>
+        @if (lastFormControl.invalid) { <mat-error>{{ lastFormControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+        <input matInput type="text" [name]="input.name + '-last'" [formControl]="lastFormControl" (input)="setName()" />
+    </mat-form-field>
+</div>
