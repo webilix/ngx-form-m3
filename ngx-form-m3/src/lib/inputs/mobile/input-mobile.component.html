@@ -5,7 +5,12 @@
     <!-- HINT -->
     @if (focused && input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
-    <span matTextSuffix [ngClass]="config.enClass">09</span>
+    <!-- ICON & SUFFIX -->
+    <span matTextSuffix class="suffix">
+        <span [ngClass]="config.enClass">09</span>
+        @if (input.showIcon) { <mat-icon>smartphone</mat-icon> }
+    </span>
+
     <input
         matInput
         type="text"

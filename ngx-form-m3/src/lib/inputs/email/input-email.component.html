@@ -5,6 +5,11 @@
     <!-- HINT -->
     @if (focused && input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
+    <!-- ICON -->
+    @if (input.showIcon) {
+    <span matTextSuffix class="suffix"><mat-icon>alternate_email</mat-icon></span>
+    }
+
     <input
         matInput
         type="text"

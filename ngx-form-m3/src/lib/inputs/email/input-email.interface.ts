@@ -6,6 +6,7 @@ import { InputMethods, IInput } from '../input.interface';
 
 export interface IInputEmail extends Omit<IInput, 'english'> {
     readonly type: 'EMAIL';
+    readonly showIcon?: boolean;
 }
 
 export class FormInputEmailMethods extends InputMethods<IInputEmail, string | null> {

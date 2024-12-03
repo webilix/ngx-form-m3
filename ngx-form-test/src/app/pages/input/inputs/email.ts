@@ -19,6 +19,26 @@ export const EmailInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
             {
                 rows: [
                     {
+                        name: 'email-icon-fill',
+                        type: 'EMAIL',
+                        title: 'نمایش آیکون',
+                        optional: true,
+                        showIcon: true,
+                        appearance: 'fill',
+                    },
+                    {
+                        name: 'email-icon-outline',
+                        type: 'EMAIL',
+                        title: 'نمایش آیکون',
+                        optional: true,
+                        showIcon: true,
+                        appearance: 'outline',
+                    },
+                ],
+            },
+            {
+                rows: [
+                    {
                         name: 'email-disableOn',
                         type: 'EMAIL',
                         title: 'غیرفعال شدن',

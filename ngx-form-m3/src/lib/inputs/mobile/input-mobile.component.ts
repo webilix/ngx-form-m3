@@ -4,6 +4,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 import { MatFormField } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import { Helper } from '@webilix/helper-library';
@@ -21,6 +22,7 @@ import { IInputMobile } from './input-mobile.interface';
         NgClass,
         ReactiveFormsModule,
         MatFormField,
+        MatIcon,
         MatInputModule,
         NgxMaskDirective,
         AutoCompleteDirective,

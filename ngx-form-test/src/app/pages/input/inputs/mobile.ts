@@ -19,6 +19,26 @@ export const MobileInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
             {
                 rows: [
                     {
+                        name: 'mobile-icon-fill',
+                        type: 'MOBILE',
+                        title: 'نمایش آیکون',
+                        optional: true,
+                        showIcon: true,
+                        appearance: 'fill',
+                    },
+                    {
+                        name: 'mobile-icon-outline',
+                        type: 'MOBILE',
+                        title: 'نمایش آیکون',
+                        optional: true,
+                        showIcon: true,
+                        appearance: 'outline',
+                    },
+                ],
+            },
+            {
+                rows: [
+                    {
                         name: 'mobile-disableOn',
                         type: 'MOBILE',
                         title: 'غیرفعال شدن',

@@ -6,6 +6,7 @@ import { InputMethods, IInput } from '../input.interface';
 
 export interface IInputMobile extends Omit<IInput, 'english'> {
     readonly type: 'MOBILE';
+    readonly showIcon?: boolean;
 }
 
 export class FormInputMobileMethods extends InputMethods<IInputMobile, string | null> {

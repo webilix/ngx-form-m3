@@ -3,6 +3,7 @@ import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormField } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
@@ -18,6 +19,7 @@ import { IInputEmail } from './input-email.interface';
         NgClass,
         ReactiveFormsModule,
         MatFormField,
+        MatIcon,
         MatInputModule,
         AutoCompleteDirective,
         AutoFocusDirective,
