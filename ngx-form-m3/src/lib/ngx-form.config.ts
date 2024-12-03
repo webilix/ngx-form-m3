@@ -5,6 +5,7 @@ export interface INgxFormConfig {
     readonly submitTimeout: number;
     readonly headerStyle: { [key: string]: any };
     readonly enStyle: { [key: string]: any };
+    readonly descriptionStyle: { [key: string]: any };
 }
 
 export const NGX_FORM_CONFIG = new InjectionToken<Partial<INgxFormConfig>>('NGX-FORM-CONFIG');

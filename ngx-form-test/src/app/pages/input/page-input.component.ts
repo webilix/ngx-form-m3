@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { INgxForm, INgxFormValues, NgxFormComponent, NgxFormInputs } from '@webilix/ngx-form-m3';
@@ -17,7 +17,7 @@ export class PageInputComponent implements OnInit {
     public init: boolean = false;
     public type!: NgxFormInputs['type'];
 
-    public inputs: { [key in NgxFormInputs['type']]: NgxFormInputs[] } = {
+    public inputs: { [key in NgxFormInputs['type']]: { columns: { rows: NgxFormInputs[] }[] }[] } = {
         EMAIL: EmailInputs,
         MOBILE: MobileInputs,
         NAME: NameInputs,

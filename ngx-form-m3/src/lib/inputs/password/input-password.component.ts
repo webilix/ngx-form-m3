@@ -32,6 +32,7 @@ export class InputPasswordComponent {
     @Input({ required: true }) input!: IFormInputPassword;
     @Input({ required: true }) appearance?: MatFormFieldAppearance;
     @Input({ required: true }) enStyle!: { [key: string]: any };
+    @Input({ required: true }) descriptionStyle!: { [key: string]: any };
     @Input({ required: true }) autoFocus?: string;
 
     public focused: boolean = false;

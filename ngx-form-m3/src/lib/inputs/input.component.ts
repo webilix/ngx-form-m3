@@ -32,6 +32,7 @@ export class InputComponent implements OnInit {
     @Input({ required: true }) input!: NgxFormInputs;
     @Input({ required: true }) appearance?: MatFormFieldAppearance;
     @Input({ required: true }) enStyle!: { [key: string]: any };
+    @Input({ required: true }) descriptionStyle!: { [key: string]: any };
     @Input({ required: true }) autoFocus?: string;
 
     public formControl!: FormControl;

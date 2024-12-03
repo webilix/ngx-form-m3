@@ -29,6 +29,7 @@ export class InputTextComponent {
     @Input({ required: true }) input!: IFormInputText;
     @Input({ required: true }) appearance?: MatFormFieldAppearance;
     @Input({ required: true }) enStyle!: { [key: string]: any };
+    @Input({ required: true }) descriptionStyle!: { [key: string]: any };
     @Input({ required: true }) autoFocus?: string;
 
     public focused: boolean = false;

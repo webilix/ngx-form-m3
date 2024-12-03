@@ -9,7 +9,7 @@ interface IName {
     readonly last: string;
 }
 
-export interface IFormInputName extends Omit<IFormInput, 'value' | 'hint' | 'english'> {
+export interface IFormInputName extends Omit<IFormInput, 'value' | 'hint' | 'english' | 'description'> {
     readonly type: 'NAME';
     readonly value?: IName;
 }

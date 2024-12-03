@@ -5,7 +5,7 @@
     <!-- HINT -->
     @if (focused && input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
-    <span matSuffix [ngStyle]="enStyle" class="suffix" [class.suffix-outline]="appearance === 'outline'">09</span>
+    <span matTextSuffix [ngStyle]="enStyle">09</span>
     <input
         matInput
         type="text"
@@ -20,4 +20,9 @@
         (focus)="focused = true"
         (blur)="focused = false"
     />
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <div [ngStyle]="descriptionStyle" [style.opacity]="formControl.disabled ? '0.5' : 1">{{ input.description }}</div>
+    }
 </mat-form-field>

@@ -9,6 +9,7 @@ export interface IFormInput {
     readonly title?: string;
     readonly value?: string;
     readonly hint?: string;
+    readonly description?: string;
     readonly optional?: boolean;
     readonly english?: boolean;
     readonly autoFocus?: boolean;

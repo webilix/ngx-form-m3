@@ -17,4 +17,9 @@
         (focus)="focused = true"
         (blur)="focused = false"
     />
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <div [ngStyle]="descriptionStyle" [style.opacity]="formControl.disabled ? '0.5' : 1">{{ input.description }}</div>
+    }
 </mat-form-field>

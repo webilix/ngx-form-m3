@@ -70,6 +70,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
     protected appearance?: MatFormFieldAppearance;
     protected headerStyle: { [key: string]: any } = {};
     protected enStyle: { [key: string]: any } = {};
+    protected descriptionStyle: { [key: string]: any } = {};
     protected autoFocus?: string;
 
     constructor(
@@ -81,6 +82,13 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
         this.appearance = this.ngxForm.appearance;
         this.headerStyle = this.config?.headerStyle || {};
         this.enStyle = this.config?.enStyle || {};
+        this.descriptionStyle = {
+            'font-size': '80%',
+            'text-align': 'justify',
+            'margin-top': '0.5rem',
+            'line-height': '1.25',
+            ...(this.config?.descriptionStyle || {}),
+        };
 
         this.formGroup = new FormGroup({});
         const inputs: NgxFormInputs[] = this.getInputs();

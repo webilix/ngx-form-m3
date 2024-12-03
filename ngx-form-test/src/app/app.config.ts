@@ -24,6 +24,7 @@ export const appConfig: ApplicationConfig = {
                 color: 'var(--secondary)',
             },
             enStyle: { 'font-family': 'Roboto, "Helvetica Neue", sans-serif' },
+            descriptionStyle: { 'font-size': '11px', 'line-height': '18px', color: 'var(--outline)' },
         }),
     ],
 };
