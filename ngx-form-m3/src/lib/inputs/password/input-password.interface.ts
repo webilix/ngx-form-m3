@@ -18,11 +18,11 @@ export class FormInputPasswordMethods extends FormInputMethods<IFormInputPasswor
     override control(input: IFormInputPassword, validators: ValidatorFn[]): FormControl<string | null> {
         if (input.verify) {
             validators.push(Validators.minLength(input.verify.minLength));
-            if (input.verify.forceLowerCase !== false)
+            if (input.verify.forceLowerCase)
                 validators.push(Validators.pattern(Helper.RE.PASSWORD.get(input.verify.minLength, true, false, false)));
-            if (input.verify.forceUpperCase !== false)
+            if (input.verify.forceUpperCase)
                 validators.push(Validators.pattern(Helper.RE.PASSWORD.get(input.verify.minLength, false, true, false)));
-            if (input.verify.forceNumber !== false)
+            if (input.verify.forceNumber)
                 validators.push(Validators.pattern(Helper.RE.PASSWORD.get(input.verify.minLength, false, false, true)));
         }
 

@@ -20,8 +20,20 @@ header {
         max-width: calc(100vw - 2rem);
 
         .library {
-            font-size: 20px;
             text-transform: uppercase;
+
+            .library-title {
+                font-size: 20px;
+            }
+
+            .hasHeader {
+                font-size: 10px;
+            }
+
+            .library-header {
+                font-size: 14px;
+                font-weight: 500;
+            }
         }
 
         .icon {
@@ -30,6 +42,10 @@ header {
             .key {
                 font-size: 10px;
             }
+        }
+
+        mat-icon {
+            color: var(--on-primary);
         }
     }
 }
@@ -51,6 +67,10 @@ body.dark {
         header {
             color: color-mix(in srgb, var(--on-surface), black 25%);
             background-color: color-mix(in srgb, var(--primary), black 80%);
+
+            mat-icon {
+                color: color-mix(in srgb, var(--on-surface), black 25%);
+            }
         }
     }
 }

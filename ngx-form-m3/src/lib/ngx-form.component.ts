@@ -278,7 +278,6 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
         // CHECK HIDDEN INPUTS
         this.hiddenInputs = [];
         inputs.forEach((input: NgxFormInputs) => {
-            if (!input.hideOn) return;
             if (!('hideOn' in input) || !input.hideOn) return;
 
             const formInput = this.formGroup.get(input.name);
@@ -335,7 +334,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
     }
 
     showInput(input: NgxFormInputs): boolean {
-        return !input.hideOn;
+        return !this.hiddenInputs.includes(input.name);
     }
 
     onClick(action: string[] | (() => void)): void {

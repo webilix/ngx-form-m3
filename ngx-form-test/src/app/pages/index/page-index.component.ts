@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+
 import { INgxForm, INgxFormInit, INgxFormValues, NgxFormComponent } from '@webilix/ngx-form-m3';
+
+import { AppService } from '../../app.service';
 
 @Component({
     host: { selector: 'page-index' },
@@ -8,7 +11,7 @@ import { INgxForm, INgxFormInit, INgxFormValues, NgxFormComponent } from '@webil
     templateUrl: './page-index.component.html',
     styleUrl: './page-index.component.scss',
 })
-export class PageIndexComponent {
+export class PageIndexComponent implements OnInit {
     private ngForm?: NgForm;
     public ngxForm: INgxForm = {
         submit: 'ثبت فرم',
@@ -41,6 +44,12 @@ export class PageIndexComponent {
         ],
         buttons: [{ title: 'پاک کردن', action: () => this.ngForm?.resetForm() }],
     };
+
+    constructor(private readonly appService: AppService) {}
+
+    ngOnInit(): void {
+        this.appService.setHeader();
+    }
 
     onInit(init: INgxFormInit): void {
         this.ngForm = init.ngForm;

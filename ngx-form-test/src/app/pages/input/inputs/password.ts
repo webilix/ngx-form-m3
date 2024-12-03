@@ -1,0 +1,42 @@
+import { NgxFormInputs } from '@webilix/ngx-form-m3';
+
+export const PasswordInputs: NgxFormInputs[] = [
+    { name: 'password', type: 'PASSWORD', appearance: 'fill', hint: 'راهنما: مقدار الزامی است.' },
+    { name: 'password-optional', type: 'PASSWORD', title: 'اختیاری', optional: true },
+    { name: 'password-autoFocus', type: 'PASSWORD', title: 'فوکوس', optional: true, autoFocus: true },
+    {
+        name: 'password-forceLowerCase',
+        type: 'PASSWORD',
+        title: 'حروف کوچک',
+        optional: true,
+        verify: { minLength: 1, forceLowerCase: true },
+    },
+    {
+        name: 'password-forceUpperCase',
+        type: 'PASSWORD',
+        title: 'حروف بزرگ',
+        optional: true,
+        verify: { minLength: 1, forceUpperCase: true },
+    },
+    {
+        name: 'password-forceNumber',
+        type: 'PASSWORD',
+        title: 'اعداد',
+        optional: true,
+        verify: { minLength: 1, forceNumber: true },
+    },
+    {
+        name: 'password-disableOn',
+        type: 'PASSWORD',
+        title: 'غیرفعال شدن',
+        optional: true,
+        disableOn: (values) => !!values['password-optional'],
+    },
+    {
+        name: 'password-hideOn',
+        type: 'PASSWORD',
+        title: 'پنهان شدن',
+        optional: true,
+        hideOn: (values) => !!values['password-optional'],
+    },
+];

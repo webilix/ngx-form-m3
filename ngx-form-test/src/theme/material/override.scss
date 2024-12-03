@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+
+:root,
+body.dark {
+    @include mat.menu-overrides(
+        (
+            divider-bottom-spacing: 0,
+            divider-top-spacing: 0,
+            item-label-text-size: 13px,
+            container-shape: 0px,
+        )
+    );
+}
+
+:root,
+body.dark {
+    @include mat.divider-overrides(
+        (
+            color: var(--outline-variant),
+        )
+    );
+}
