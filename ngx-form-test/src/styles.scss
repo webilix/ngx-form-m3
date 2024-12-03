@@ -1,26 +1,32 @@
+// Fonts
+@use './theme/fonts/icon/material-icons-outlined.css';
+@use './theme/fonts/iran-yekan/iran-yekan.css';
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use './theme/material/theme-m3';
 
-html {
-    @include mat.theme(
-        (
-            color: (
-                theme-type: light,
-                primary: mat.$azure-palette,
-                tertiary: mat.$blue-palette,
-            ),
-            typography: Roboto,
-            density: 0,
-        )
-    );
-} /* You can add global styles to this file, and also import other style files */
-
+// Global Styles
 html,
 body {
-    height: 100%;
+    color: var(--on-surface);
+    background-color: var(--surface-container-low);
+    box-sizing: border-box;
 }
+
 body {
     margin: 0;
+    font-family: Yekan;
+}
+
+.en {
     font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+// Material Styles
+.mat-icon {
+    font-family: 'Material Icons Outlined';
+    font-size: 20px;
+    width: auto !important;
+    height: auto !important;
 }
