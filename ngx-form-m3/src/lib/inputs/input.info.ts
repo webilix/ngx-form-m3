@@ -1,7 +1,7 @@
 import { NgxFormInputs } from '../ngx-form.interface';
 
 import { FormInputMethods } from './input.interface';
-import { FormInputEmailMethods, FormInputTextareaMethods, FormInputTextMethods } from '.';
+import { FormInputEmailMethods, FormInputMobileMethods, FormInputTextareaMethods, FormInputTextMethods } from '.';
 
 interface IFormInputInfo {
     readonly title: string;
@@ -10,6 +10,7 @@ interface IFormInputInfo {
 
 export const FormInputInfo: { [key in NgxFormInputs['type']]: IFormInputInfo } = {
     EMAIL: { title: 'ایمیل', methods: new FormInputEmailMethods() },
+    MOBILE: { title: 'موبایل', methods: new FormInputMobileMethods() },
     TEXT: { title: 'متن یک خطی', methods: new FormInputTextMethods() },
     TEXTAREA: { title: 'متن چند خطی', methods: new FormInputTextareaMethods() },
 };

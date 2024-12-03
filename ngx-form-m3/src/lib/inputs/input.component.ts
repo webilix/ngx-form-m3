@@ -5,11 +5,11 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { NgxFormInputs } from '../ngx-form.interface';
 
-import { InputEmailComponent, InputTextareaComponent, InputTextComponent } from '.';
+import { InputEmailComponent, InputMobileComponent, InputTextareaComponent, InputTextComponent } from '.';
 
 @Component({
     selector: 'form-input',
-    imports: [InputEmailComponent, InputTextComponent, InputTextareaComponent],
+    imports: [InputEmailComponent, InputMobileComponent, InputTextComponent, InputTextareaComponent],
     templateUrl: './input.component.html',
     styleUrl: './input.component.scss',
 })

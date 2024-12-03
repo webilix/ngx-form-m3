@@ -11,6 +11,17 @@
 ></input-email>
 }
 
+<!-- MOBILE -->
+@case ('MOBILE') {
+<input-mobile
+    [formControl]="formControl"
+    [input]="input"
+    [appearance]="appearance"
+    [enStyle]="enStyle"
+    [autoFocus]="autoFocus"
+></input-mobile>
+}
+
 <!-- TEXT -->
 @case ('TEXT') {
 <input-text

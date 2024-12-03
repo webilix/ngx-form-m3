@@ -1,0 +1,23 @@
+<mat-form-field [appearance]="appearance!">
+    <mat-label>{{ input.title || 'موبایل' }}</mat-label>
+    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+    <!-- HINT -->
+    @if (focused && input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <span matSuffix [ngStyle]="enStyle" class="suffix">09</span>
+    <input
+        matInput
+        type="text"
+        inputmode="numeric"
+        [name]="input.name"
+        [formControl]="formControl"
+        [ngStyle]="enStyle"
+        [dir]="'ltr'"
+        [AutoFocusDirective]="autoFocus === input.name"
+        [mask]="'00-000-0000'"
+        [inputTransformFn]="inputTransformFn"
+        (focus)="focused = true"
+        (blur)="focused = false"
+    />
+</mat-form-field>
