@@ -44,6 +44,7 @@ export const MobileInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'غیرفعال شدن',
                         optional: true,
                         disableOn: (values) => !!values['mobile-optional'],
+                        showIcon: true,
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه غیرفعال می‌شود.',
                     },
                     {
@@ -52,6 +53,7 @@ export const MobileInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'پنهان شدن',
                         optional: true,
                         hideOn: (values) => !!values['mobile-optional'],
+                        showIcon: true,
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه پنهان می‌شود.',
                     },
                 ],

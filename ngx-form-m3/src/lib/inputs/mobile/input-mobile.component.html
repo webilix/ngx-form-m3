@@ -6,7 +6,7 @@
     @if (focused && input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
     <!-- ICON & SUFFIX -->
-    <span matTextSuffix class="suffix">
+    <span matTextSuffix class="suffix" [style.opacity]="formControl.disabled ? '0.4' : 1">
         <span [ngClass]="config.enClass">09</span>
         @if (input.showIcon) { <mat-icon>smartphone</mat-icon> }
     </span>
@@ -30,7 +30,7 @@
     @if (input.description) {
     <div
         [ngClass]="config.descriptionClass"
-        [style.opacity]="formControl.disabled ? '0.5' : 1"
+        [style.opacity]="formControl.disabled ? '0.4' : 1"
         [innerHTML]="input.description | MultiLinePipe"
     ></div>
     }

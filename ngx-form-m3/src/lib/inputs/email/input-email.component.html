@@ -7,7 +7,9 @@
 
     <!-- ICON -->
     @if (input.showIcon) {
-    <span matTextSuffix class="suffix"><mat-icon>alternate_email</mat-icon></span>
+    <span matTextSuffix [style.opacity]="formControl.disabled ? '0.4' : 1">
+        <mat-icon>alternate_email</mat-icon>
+    </span>
     }
 
     <input
@@ -27,7 +29,7 @@
     @if (input.description) {
     <div
         [ngClass]="config.descriptionClass"
-        [style.opacity]="formControl.disabled ? '0.5' : 1"
+        [style.opacity]="formControl.disabled ? '0.4' : 1"
         [innerHTML]="input.description | MultiLinePipe"
     ></div>
     }

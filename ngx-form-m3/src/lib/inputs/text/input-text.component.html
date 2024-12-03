@@ -22,7 +22,7 @@
     @if (input.description) {
     <div
         [ngClass]="config.descriptionClass"
-        [style.opacity]="formControl.disabled ? '0.5' : 1"
+        [style.opacity]="formControl.disabled ? '0.4' : 1"
         [innerHTML]="input.description | MultiLinePipe"
     ></div>
     }
