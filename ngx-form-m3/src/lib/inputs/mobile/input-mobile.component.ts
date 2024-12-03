@@ -10,7 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { Helper } from '@webilix/helper-library';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
-import { InputErrorPipe } from '../../pipes';
+import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
 import { IInputConfig } from '../input.interface';
 
@@ -28,6 +28,7 @@ import { IInputMobile } from './input-mobile.interface';
         AutoCompleteDirective,
         AutoFocusDirective,
         InputErrorPipe,
+        MultiLinePipe,
     ],
     providers: [provideNgxMask()],
     templateUrl: './input-mobile.component.html',

@@ -6,7 +6,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
-import { InputErrorPipe } from '../../pipes';
+import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
 import { IInputConfig } from '../input.interface';
 
@@ -22,6 +22,7 @@ import { IInputText } from './input-text.interface';
         AutoCompleteDirective,
         AutoFocusDirective,
         InputErrorPipe,
+        MultiLinePipe,
     ],
     templateUrl: './input-text.component.html',
     styleUrl: './input-text.component.scss',

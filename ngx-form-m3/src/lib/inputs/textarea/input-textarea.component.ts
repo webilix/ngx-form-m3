@@ -6,7 +6,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoFocusDirective, AutoHeightDirective } from '../../directives';
-import { InputErrorPipe } from '../../pipes';
+import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
 import { IInputConfig } from '../input.interface';
 
@@ -23,6 +23,7 @@ import { IInputTextarea } from './input-textarea.interface';
         AutoFocusDirective,
         AutoHeightDirective,
         InputErrorPipe,
+        MultiLinePipe,
     ],
     templateUrl: './input-textarea.component.html',
     styleUrl: './input-textarea.component.scss',

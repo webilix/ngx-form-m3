@@ -8,7 +8,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoFocusDirective } from '../../directives';
-import { InputErrorPipe } from '../../pipes';
+import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
 import { IInputConfig } from '../input.interface';
 
@@ -25,6 +25,7 @@ import { IInputPassword } from './input-password.interface';
         MatInputModule,
         AutoFocusDirective,
         InputErrorPipe,
+        MultiLinePipe,
     ],
     templateUrl: './input-password.component.html',
     styleUrl: './input-password.component.scss',

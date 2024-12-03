@@ -36,7 +36,13 @@ export class PageIndexComponent implements OnInit {
                         header: 'آدرس پستی',
                         rows: [
                             { name: 'city', type: 'TEXT', title: 'شهر', optional: true },
-                            { name: 'address', type: 'TEXTAREA', title: 'آدرس', optional: true },
+                            {
+                                name: 'address',
+                                type: 'TEXTAREA',
+                                title: 'آدرس',
+                                optional: true,
+                                description: 'گزینه‌های زیر را آدر آدرس مشخص کنید:\n - خیابان / کوچه\n - پلاک\n - واحد',
+                            },
                         ],
                     },
                 ],

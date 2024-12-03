@@ -20,6 +20,10 @@
 
     <!-- DESCRIPTION -->
     @if (input.description) {
-    <div [ngClass]="config.descriptionClass" [style.opacity]="formControl.disabled ? '0.5' : 1">{{ input.description }}</div>
+    <div
+        [ngClass]="config.descriptionClass"
+        [style.opacity]="formControl.disabled ? '0.5' : 1"
+        [innerHTML]="input.description | MultiLinePipe"
+    ></div>
     }
 </mat-form-field>

@@ -7,7 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
-import { InputErrorPipe } from '../../pipes';
+import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
 import { IInputConfig } from '../input.interface';
 
@@ -24,6 +24,7 @@ import { IInputEmail } from './input-email.interface';
         AutoCompleteDirective,
         AutoFocusDirective,
         InputErrorPipe,
+        MultiLinePipe,
     ],
     templateUrl: './input-email.component.html',
     styleUrl: './input-email.component.scss',
