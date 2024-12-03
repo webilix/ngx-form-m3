@@ -1,5 +1,16 @@
 @switch (input.type) {
 
+<!-- EMAIL -->
+@case ('EMAIL') {
+<input-email
+    [formControl]="formControl"
+    [input]="input"
+    [appearance]="appearance"
+    [enStyle]="enStyle"
+    [autoFocus]="autoFocus"
+></input-email>
+}
+
 <!-- TEXT -->
 @case ('TEXT') {
 <input-text

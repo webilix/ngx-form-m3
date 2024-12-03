@@ -1,3 +1,6 @@
+export * from './email/input-email.component';
+export * from './email/input-email.interface';
+
 export * from './text/input-text.component';
 export * from './text/input-text.interface';
 

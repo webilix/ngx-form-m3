@@ -2,9 +2,9 @@ import { FormGroup, NgForm } from '@angular/forms';
 
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
-import { IFormInputText, IFormInputTextarea } from './inputs';
+import { IFormInputEmail, IFormInputText, IFormInputTextarea } from './inputs';
 
-export type NgxFormInputs = IFormInputText | IFormInputTextarea;
+export type NgxFormInputs = IFormInputEmail | IFormInputText | IFormInputTextarea;
 
 type Inputs =
     | NgxFormInputs

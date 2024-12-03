@@ -16,6 +16,10 @@ export class PageIndexComponent {
             {
                 columns: [
                     {
+                        header: 'عضویت',
+                        rows: [{ name: 'email', type: 'EMAIL', optional: true }],
+                    },
+                    {
                         header: 'آدرس پستی',
                         rows: [
                             { name: 'city', type: 'TEXT', title: 'شهر', optional: true },
