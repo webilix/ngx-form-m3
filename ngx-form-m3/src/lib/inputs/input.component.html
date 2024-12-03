@@ -26,6 +26,17 @@
 @case ('NAME') {
 <input-name [formControl]="formControl" [input]="input" [appearance]="appearance" [autoFocus]="autoFocus"></input-name> }
 
+<!-- PASSWORD -->
+@case ('PASSWORD') {
+<input-password
+    [formControl]="formControl"
+    [input]="input"
+    [appearance]="appearance"
+    [enStyle]="enStyle"
+    [autoFocus]="autoFocus"
+></input-password>
+}
+
 <!-- TEXT -->
 @case ('TEXT') {
 <input-text

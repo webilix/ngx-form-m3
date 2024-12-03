@@ -17,13 +17,16 @@ export class PageIndexComponent {
                 columns: [
                     {
                         header: 'مشخصات',
-                        rows: [{ name: 'name', type: 'NAME', optional: true }],
+                        rows: [
+                            { name: 'name', type: 'NAME', optional: true },
+                            { name: 'mobile', type: 'MOBILE', optional: true },
+                        ],
                     },
                     {
                         header: 'عضویت',
                         rows: [
                             { name: 'email', type: 'EMAIL', optional: true },
-                            { name: 'mobile', type: 'MOBILE', optional: true },
+                            { name: 'password', type: 'PASSWORD', optional: true },
                         ],
                     },
                     {

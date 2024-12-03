@@ -7,6 +7,9 @@ export * from './mobile/input-mobile.interface';
 export * from './name/input-name.component';
 export * from './name/input-name.interface';
 
+export * from './password/input-password.component';
+export * from './password/input-password.interface';
+
 export * from './text/input-text.component';
 export * from './text/input-text.interface';
 

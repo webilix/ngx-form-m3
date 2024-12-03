@@ -5,6 +5,7 @@ import {
     FormInputEmailMethods,
     FormInputMobileMethods,
     FormInputNameMethods,
+    FormInputPasswordMethods,
     FormInputTextareaMethods,
     FormInputTextMethods,
 } from '.';
@@ -18,6 +19,7 @@ export const FormInputInfo: { [key in NgxFormInputs['type']]: IFormInputInfo } =
     EMAIL: { title: 'ایمیل', methods: new FormInputEmailMethods() },
     MOBILE: { title: 'موبایل', methods: new FormInputMobileMethods() },
     NAME: { title: 'نام و نام خانوادگی', methods: new FormInputNameMethods() },
+    PASSWORD: { title: 'کلمه عبور', methods: new FormInputPasswordMethods() },
     TEXT: { title: 'متن یک خطی', methods: new FormInputTextMethods() },
     TEXTAREA: { title: 'متن چند خطی', methods: new FormInputTextareaMethods() },
 };

@@ -9,13 +9,21 @@ import {
     InputEmailComponent,
     InputMobileComponent,
     InputNameComponent,
+    InputPasswordComponent,
     InputTextareaComponent,
     InputTextComponent,
 } from '.';
 
 @Component({
     selector: 'form-input',
-    imports: [InputEmailComponent, InputMobileComponent, InputNameComponent, InputTextComponent, InputTextareaComponent],
+    imports: [
+        InputEmailComponent,
+        InputMobileComponent,
+        InputNameComponent,
+        InputPasswordComponent,
+        InputTextComponent,
+        InputTextareaComponent,
+    ],
     templateUrl: './input.component.html',
     styleUrl: './input.component.scss',
 })
