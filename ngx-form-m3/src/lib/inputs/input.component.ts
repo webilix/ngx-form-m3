@@ -1,11 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { MatFormFieldAppearance } from '@angular/material/form-field';
-
 import { NgxFormInputs } from '../ngx-form.interface';
 
 import {
+    IInputConfig,
     InputEmailComponent,
     InputMobileComponent,
     InputNameComponent,
@@ -30,15 +29,11 @@ import {
 export class InputComponent implements OnInit {
     @Input({ required: true }) formGroup!: FormGroup;
     @Input({ required: true }) input!: NgxFormInputs;
-    @Input({ required: true }) appearance?: MatFormFieldAppearance;
-    @Input({ required: true }) enStyle!: { [key: string]: any };
-    @Input({ required: true }) descriptionStyle!: { [key: string]: any };
-    @Input({ required: true }) autoFocus?: string;
+    @Input({ required: true }) config!: IInputConfig;
 
     public formControl!: FormControl;
 
     ngOnInit(): void {
-        this.appearance = this.input.appearance || this.appearance;
         this.formControl = this.formGroup.get(this.input.name) as FormControl;
     }
 }

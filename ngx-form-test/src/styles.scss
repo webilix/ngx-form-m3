@@ -40,3 +40,26 @@ body {
         text-align: right;
     }
 }
+
+// NGX-FORM Style
+.ngx-form-header {
+    font-size: 15px;
+    background-color: var(--mdc-filled-text-field-container-color);
+    border-width: 0;
+    border-radius: 0;
+    border-right: 2px solid var(--secondary-fixed);
+    color: var(--secondary);
+    padding: 1rem;
+}
+
+.ngx-form-en {
+    font-family: Roboto, 'Helvetica Neue', sans-serif !important;
+}
+
+.ngx-form-description {
+    font-size: 11px;
+    line-height: 18px;
+    color: var(--outline);
+    text-align: justify;
+    margin-top: 0.5rem;
+}

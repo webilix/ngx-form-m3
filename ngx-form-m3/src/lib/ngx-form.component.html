@@ -5,7 +5,7 @@
         @if (showSection(section)) {
         <!-- SECTION HEADER -->
         @if (section.header) {
-        <div class="header section-header" [ngStyle]="headerStyle">{{ section.header }}</div>
+        <div [ngClass]="[headerClass, 'section-header']">{{ section.header }}</div>
         }
 
         <div class="section" [class.section-mobile]="isMobile">
@@ -16,7 +16,7 @@
             <div class="column" [style.flex]="section.flex[$index]">
                 <!-- COLUMN HEADER -->
                 @if (column.header) {
-                <div class="header column-header" [ngStyle]="headerStyle">{{ column.header }}</div>
+                <div [ngClass]="[headerClass, 'column-header']">{{ column.header }}</div>
                 }
 
                 <!-- ROWS -->
@@ -25,7 +25,7 @@
                 @if (showRow(row)) {
                 <!-- ROW HEADER -->
                 @if (row.header) {
-                <div class="header row-header" [ngStyle]="headerStyle">{{ row.header }}</div>
+                <div [ngClass]="[headerClass, 'row-header']">{{ row.header }}</div>
                 }
 
                 <div class="inputs">
@@ -34,14 +34,7 @@
                     <!-- CHECK Row VIEW -->
                     @if (showInput(input)) {
                     <div class="input" [style.flex]="row.flex[$index]">
-                        <form-input
-                            [formGroup]="formGroup"
-                            [input]="input"
-                            [appearance]="appearance"
-                            [enStyle]="enStyle"
-                            [descriptionStyle]="descriptionStyle"
-                            [autoFocus]="autoFocus"
-                        ></form-input>
+                        <form-input [formGroup]="formGroup" [input]="input" [config]="inputConfig"></form-input>
                     </div>
                     } }
                 </div>

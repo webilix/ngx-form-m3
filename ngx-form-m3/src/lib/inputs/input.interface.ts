@@ -4,7 +4,7 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormValues } from '../ngx-form.interface';
 
-export interface IFormInput {
+export interface IInput {
     readonly name: string;
     readonly title?: string;
     readonly value?: string;
@@ -18,7 +18,14 @@ export interface IFormInput {
     readonly hideOn?: (values: INgxFormValues) => boolean;
 }
 
-export abstract class FormInputMethods<I /** INPUT **/, V /** VALUE **/> {
+export abstract class InputMethods<I /** INPUT **/, V /** VALUE **/> {
     abstract control(input: I, validators: ValidatorFn[]): FormControl<V>;
     abstract value(value: any, input?: I): V;
+}
+
+export interface IInputConfig {
+    readonly appearance: MatFormFieldAppearance;
+    readonly autoFocus?: string;
+    readonly enClass: string;
+    readonly descriptionClass: string;
 }

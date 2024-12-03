@@ -1,4 +1,4 @@
-<mat-form-field [appearance]="appearance!">
+<mat-form-field [appearance]="input.appearance || config.appearance">
     <mat-label>{{ input.title || 'ایمیل' }}</mat-label>
     @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
 
@@ -11,15 +11,15 @@
         inputmode="email"
         [name]="input.name"
         [formControl]="formControl"
-        [ngStyle]="enStyle"
+        [ngClass]="config.enClass"
         [dir]="'ltr'"
-        [AutoFocusDirective]="autoFocus === input.name"
+        [AutoFocusDirective]="config.autoFocus === input.name"
         (focus)="focused = true"
         (blur)="focused = false"
     />
 
     <!-- DESCRIPTION -->
     @if (input.description) {
-    <div [ngStyle]="descriptionStyle" [style.opacity]="formControl.disabled ? '0.5' : 1">{{ input.description }}</div>
+    <div [ngClass]="config.descriptionClass" [style.opacity]="formControl.disabled ? '0.5' : 1">{{ input.description }}</div>
     }
 </mat-form-field>

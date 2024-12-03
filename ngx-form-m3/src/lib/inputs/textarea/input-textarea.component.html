@@ -1,4 +1,4 @@
-<mat-form-field [appearance]="appearance!">
+<mat-form-field [appearance]="input.appearance || config.appearance">
     <mat-label>{{ input.title }}</mat-label>
     @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
 
@@ -16,12 +16,12 @@
         matInput
         [name]="input.name"
         [formControl]="formControl"
-        [ngStyle]="input.english ? enStyle : {}"
+        [ngClass]="input.english ? config.enClass : ''"
         [dir]="input.english ? 'ltr' : 'rtl'"
         [style.height]="input.height ? input.height.toString() + 'px' : '75px'"
         [style.resize]="'none'"
         [maxLength]="input.maxLength || 524288"
-        [AutoFocusDirective]="autoFocus === input.name"
+        [AutoFocusDirective]="config.autoFocus === input.name"
         [AutoHeightDirective]="!!input.autoHeight"
         [minHeight]="input.height || 75"
         [maxHeight]="input.maxHeight || 0"
@@ -31,6 +31,6 @@
 
     <!-- DESCRIPTION -->
     @if (input.description) {
-    <div [ngStyle]="descriptionStyle" [style.opacity]="formControl.disabled ? '0.5' : 1">{{ input.description }}</div>
+    <div [ngClass]="config.descriptionClass" [style.opacity]="formControl.disabled ? '0.5' : 1">{{ input.description }}</div>
     }
 </mat-form-field>

@@ -12,15 +12,14 @@ import {
     SimpleChanges,
     ViewChild,
 } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FormGroup, NgForm, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { MatFormFieldAppearance } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButton } from '@angular/material/button';
 
 import { FormErrorDirective } from './directives';
-import { FormInputInfo, InputComponent } from './inputs';
+import { FormInputInfo, IInputConfig, InputComponent } from './inputs';
 
 import { INgxFormConfig, NGX_FORM_CONFIG } from './ngx-form.config';
 import { INgxForm, INgxFormInit, INgxFormValues, NgxFormInputs } from './ngx-form.interface';
@@ -44,7 +43,7 @@ interface ISection {
 
 @Component({
     selector: 'ngx-form',
-    imports: [NgStyle, ReactiveFormsModule, MatButtonModule, InputComponent, FormErrorDirective],
+    imports: [NgClass, ReactiveFormsModule, MatButton, InputComponent, FormErrorDirective],
     templateUrl: './ngx-form.component.html',
     styleUrl: './ngx-form.component.scss',
 })
@@ -67,11 +66,8 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
     protected lastSubmit?: Date;
 
     protected isMobile: boolean = false;
-    protected appearance?: MatFormFieldAppearance;
-    protected headerStyle: { [key: string]: any } = {};
-    protected enStyle: { [key: string]: any } = {};
-    protected descriptionStyle: { [key: string]: any } = {};
-    protected autoFocus?: string;
+    protected headerClass!: string;
+    protected inputConfig!: IInputConfig;
 
     constructor(
         private readonly router: Router,
@@ -79,15 +75,11 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
     ) {}
 
     ngOnInit(): void {
-        this.appearance = this.ngxForm.appearance;
-        this.headerStyle = this.config?.headerStyle || {};
-        this.enStyle = this.config?.enStyle || {};
-        this.descriptionStyle = {
-            'font-size': '80%',
-            'text-align': 'justify',
-            'margin-top': '0.5rem',
-            'line-height': '1.25',
-            ...(this.config?.descriptionStyle || {}),
+        this.headerClass = this.config?.headerClass || 'ngx-form-header';
+        this.inputConfig = {
+            appearance: this.ngxForm.appearance || 'fill',
+            enClass: this.config?.enClass || 'ngx-form-en',
+            descriptionClass: this.config?.descriptionClass || 'ngx-form-description',
         };
 
         this.formGroup = new FormGroup({});
@@ -97,11 +89,12 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
         inputs.forEach((input: NgxFormInputs) => this.setInput(input));
 
         // CHECK AUTO FOCUS
-        this.autoFocus = undefined;
+        let autoFocus: string | undefined = undefined;
         inputs.forEach((input: NgxFormInputs) => {
-            if (!('autoFocus' in input) || !input.autoFocus || this.autoFocus) return;
-            if (!input.disableOn && !input.hideOn) this.autoFocus = input.name;
+            if (!('autoFocus' in input) || !input.autoFocus || autoFocus) return;
+            if (!input.disableOn && !input.hideOn) autoFocus = input.name;
         });
+        this.inputConfig = { ...this.inputConfig, autoFocus };
 
         // REGISTER VALUE CHANGE
         this.formGroup.valueChanges.subscribe({

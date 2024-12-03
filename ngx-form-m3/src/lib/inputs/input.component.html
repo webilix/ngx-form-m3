@@ -2,64 +2,29 @@
 
 <!-- EMAIL -->
 @case ('EMAIL') {
-<input-email
-    [formControl]="formControl"
-    [input]="input"
-    [appearance]="appearance"
-    [enStyle]="enStyle"
-    [descriptionStyle]="descriptionStyle"
-    [autoFocus]="autoFocus"
-></input-email>
+<input-email [formControl]="formControl" [input]="input" [config]="config"></input-email>
 }
 
 <!-- MOBILE -->
 @case ('MOBILE') {
-<input-mobile
-    [formControl]="formControl"
-    [input]="input"
-    [appearance]="appearance"
-    [enStyle]="enStyle"
-    [descriptionStyle]="descriptionStyle"
-    [autoFocus]="autoFocus"
-></input-mobile>
+<input-mobile [formControl]="formControl" [input]="input" [config]="config"></input-mobile>
 }
 
 <!-- NAME -->
 @case ('NAME') {
-<input-name [formControl]="formControl" [input]="input" [appearance]="appearance" [autoFocus]="autoFocus"></input-name> }
+<input-name [formControl]="formControl" [input]="input" [config]="config"></input-name> }
 
 <!-- PASSWORD -->
 @case ('PASSWORD') {
-<input-password
-    [formControl]="formControl"
-    [input]="input"
-    [appearance]="appearance"
-    [enStyle]="enStyle"
-    [descriptionStyle]="descriptionStyle"
-    [autoFocus]="autoFocus"
-></input-password>
+<input-password [formControl]="formControl" [input]="input" [config]="config"></input-password>
 }
 
 <!-- TEXT -->
 @case ('TEXT') {
-<input-text
-    [formControl]="formControl"
-    [input]="input"
-    [appearance]="appearance"
-    [enStyle]="enStyle"
-    [descriptionStyle]="descriptionStyle"
-    [autoFocus]="autoFocus"
-></input-text>
+<input-text [formControl]="formControl" [input]="input" [config]="config"></input-text>
 }
 
 <!-- TEXTAREA -->
 @case ('TEXTAREA') {
-<input-textarea
-    [formControl]="formControl"
-    [input]="input"
-    [appearance]="appearance"
-    [enStyle]="enStyle"
-    [descriptionStyle]="descriptionStyle"
-    [autoFocus]="autoFocus"
-></input-textarea>
+<input-textarea [formControl]="formControl" [input]="input" [config]="config"></input-textarea>
 } }

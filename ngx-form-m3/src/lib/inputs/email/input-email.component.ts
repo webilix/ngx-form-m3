@@ -1,21 +1,23 @@
 import { Component, Input } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe } from '../../pipes';
 
-import { IFormInputEmail } from './input-email.interface';
+import { IInputConfig } from '../input.interface';
+
+import { IInputEmail } from './input-email.interface';
 
 @Component({
     selector: 'input-email',
     imports: [
-        NgStyle,
+        NgClass,
         ReactiveFormsModule,
-        MatFormFieldModule,
+        MatFormField,
         MatInputModule,
         AutoCompleteDirective,
         AutoFocusDirective,
@@ -26,11 +28,8 @@ import { IFormInputEmail } from './input-email.interface';
 })
 export class InputEmailComponent {
     @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IFormInputEmail;
-    @Input({ required: true }) appearance?: MatFormFieldAppearance;
-    @Input({ required: true }) enStyle!: { [key: string]: any };
-    @Input({ required: true }) descriptionStyle!: { [key: string]: any };
-    @Input({ required: true }) autoFocus?: string;
+    @Input({ required: true }) input!: IInputEmail;
+    @Input({ required: true }) config!: IInputConfig;
 
     public focused: boolean = false;
 }

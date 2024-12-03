@@ -2,9 +2,9 @@ import { ValidatorFn, FormControl, Validators } from '@angular/forms';
 
 import { Helper } from '@webilix/helper-library';
 
-import { FormInputMethods, IFormInput } from '../input.interface';
+import { InputMethods, IInput } from '../input.interface';
 
-export interface IFormInputPassword extends Omit<IFormInput, 'english' | 'value'> {
+export interface IInputPassword extends Omit<IInput, 'english' | 'value'> {
     readonly type: 'PASSWORD';
     readonly verify?: {
         readonly minLength: number;
@@ -14,8 +14,8 @@ export interface IFormInputPassword extends Omit<IFormInput, 'english' | 'value'
     };
 }
 
-export class FormInputPasswordMethods extends FormInputMethods<IFormInputPassword, string | null> {
-    override control(input: IFormInputPassword, validators: ValidatorFn[]): FormControl<string | null> {
+export class FormInputPasswordMethods extends InputMethods<IInputPassword, string | null> {
+    override control(input: IInputPassword, validators: ValidatorFn[]): FormControl<string | null> {
         if (input.verify) {
             validators.push(Validators.minLength(input.verify.minLength));
             if (input.verify.forceLowerCase)
@@ -29,7 +29,7 @@ export class FormInputPasswordMethods extends FormInputMethods<IFormInputPasswor
         return new FormControl<string | null>(null, validators);
     }
 
-    override value(value: any, input?: IFormInputPassword | undefined): string | null {
+    override value(value: any, input?: IInputPassword | undefined): string | null {
         return Helper.IS.string(value) && value !== '' ? value : null;
     }
 }

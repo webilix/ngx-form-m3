@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { Helper } from '@webilix/helper-library';
@@ -11,14 +11,16 @@ import { Helper } from '@webilix/helper-library';
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe } from '../../pipes';
 
-import { IFormInputMobile } from './input-mobile.interface';
+import { IInputConfig } from '../input.interface';
+
+import { IInputMobile } from './input-mobile.interface';
 
 @Component({
     selector: 'input-mobile',
     imports: [
-        NgStyle,
+        NgClass,
         ReactiveFormsModule,
-        MatFormFieldModule,
+        MatFormField,
         MatInputModule,
         NgxMaskDirective,
         AutoCompleteDirective,
@@ -31,11 +33,8 @@ import { IFormInputMobile } from './input-mobile.interface';
 })
 export class InputMobileComponent {
     @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IFormInputMobile;
-    @Input({ required: true }) appearance?: MatFormFieldAppearance;
-    @Input({ required: true }) enStyle!: { [key: string]: any };
-    @Input({ required: true }) descriptionStyle!: { [key: string]: any };
-    @Input({ required: true }) autoFocus?: string;
+    @Input({ required: true }) input!: IInputMobile;
+    @Input({ required: true }) config!: IInputConfig;
 
     public focused: boolean = false;
     public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');

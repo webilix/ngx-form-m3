@@ -12,19 +12,6 @@ export const appConfig: ApplicationConfig = {
         provideAnimationsAsync(),
 
         // NGX-FORM-M3
-        provideNgxFormConfig({
-            mobileWidth: 900,
-            submitTimeout: 1,
-            headerStyle: {
-                'font-size': '14px',
-                'background-color': 'var(--mdc-filled-text-field-container-color)',
-                'border-width': 0,
-                'border-radius': 0,
-                'border-right': '2px solid var(--secondary-fixed)',
-                color: 'var(--secondary)',
-            },
-            enStyle: { 'font-family': 'Roboto, "Helvetica Neue", sans-serif' },
-            descriptionStyle: { 'font-size': '11px', 'line-height': '18px', color: 'var(--outline)' },
-        }),
+        provideNgxFormConfig({ mobileWidth: 900, submitTimeout: 1 }),
     ],
 };

@@ -1,25 +1,27 @@
 import { Component, Input } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
+import { MatFormField } from '@angular/material/form-field';
+import { MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoFocusDirective } from '../../directives';
 import { InputErrorPipe } from '../../pipes';
 
-import { IFormInputPassword } from './input-password.interface';
+import { IInputConfig } from '../input.interface';
+
+import { IInputPassword } from './input-password.interface';
 
 @Component({
     selector: 'input-password',
     imports: [
-        NgStyle,
+        NgClass,
         ReactiveFormsModule,
-        MatButtonModule,
-        MatFormFieldModule,
-        MatIconModule,
+        MatIconButton,
+        MatFormField,
+        MatIcon,
         MatInputModule,
         AutoFocusDirective,
         InputErrorPipe,
@@ -29,11 +31,8 @@ import { IFormInputPassword } from './input-password.interface';
 })
 export class InputPasswordComponent {
     @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IFormInputPassword;
-    @Input({ required: true }) appearance?: MatFormFieldAppearance;
-    @Input({ required: true }) enStyle!: { [key: string]: any };
-    @Input({ required: true }) descriptionStyle!: { [key: string]: any };
-    @Input({ required: true }) autoFocus?: string;
+    @Input({ required: true }) input!: IInputPassword;
+    @Input({ required: true }) config!: IInputConfig;
 
     public focused: boolean = false;
     public showPassword: boolean = false;

@@ -1,33 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe } from '../../pipes';
 
-import { IFormInputName } from './input-name.interface';
+import { IInputConfig } from '../input.interface';
+
+import { IInputName } from './input-name.interface';
 
 @Component({
     selector: 'input-name',
-    imports: [
-        FormsModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatInputModule,
-        AutoCompleteDirective,
-        AutoFocusDirective,
-        InputErrorPipe,
-    ],
+    imports: [ReactiveFormsModule, MatFormField, MatInputModule, AutoCompleteDirective, AutoFocusDirective, InputErrorPipe],
     templateUrl: './input-name.component.html',
     styleUrl: './input-name.component.scss',
 })
 export class InputNameComponent implements OnInit {
     @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IFormInputName;
-    @Input({ required: true }) appearance?: MatFormFieldAppearance;
-    @Input({ required: true }) autoFocus?: string;
+    @Input({ required: true }) input!: IInputName;
+    @Input({ required: true }) config!: IInputConfig;
 
     public firstFormControl!: FormControl;
     public lastFormControl!: FormControl;

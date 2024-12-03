@@ -1,21 +1,23 @@
 import { Component, Input } from '@angular/core';
-import { NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
-import { MatFormFieldAppearance, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormField } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe } from '../../pipes';
 
-import { IFormInputText } from './input-text.interface';
+import { IInputConfig } from '../input.interface';
+
+import { IInputText } from './input-text.interface';
 
 @Component({
     selector: 'input-text',
     imports: [
-        NgStyle,
+        NgClass,
         ReactiveFormsModule,
-        MatFormFieldModule,
+        MatFormField,
         MatInputModule,
         AutoCompleteDirective,
         AutoFocusDirective,
@@ -26,11 +28,8 @@ import { IFormInputText } from './input-text.interface';
 })
 export class InputTextComponent {
     @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IFormInputText;
-    @Input({ required: true }) appearance?: MatFormFieldAppearance;
-    @Input({ required: true }) enStyle!: { [key: string]: any };
-    @Input({ required: true }) descriptionStyle!: { [key: string]: any };
-    @Input({ required: true }) autoFocus?: string;
+    @Input({ required: true }) input!: IInputText;
+    @Input({ required: true }) config!: IInputConfig;
 
     public focused: boolean = false;
 }

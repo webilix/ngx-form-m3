@@ -2,14 +2,14 @@ import { ValidatorFn, FormControl, Validators } from '@angular/forms';
 
 import { Helper } from '@webilix/helper-library';
 
-import { FormInputMethods, IFormInput } from '../input.interface';
+import { InputMethods, IInput } from '../input.interface';
 
-export interface IFormInputEmail extends Omit<IFormInput, 'english'> {
+export interface IInputEmail extends Omit<IInput, 'english'> {
     readonly type: 'EMAIL';
 }
 
-export class FormInputEmailMethods extends FormInputMethods<IFormInputEmail, string | null> {
-    override control(input: IFormInputEmail, validators: ValidatorFn[]): FormControl<string | null> {
+export class FormInputEmailMethods extends InputMethods<IInputEmail, string | null> {
+    override control(input: IInputEmail, validators: ValidatorFn[]): FormControl<string | null> {
         validators.push(Validators.pattern(Helper.RE.EMAIL.get()));
 
         const value: string | null =
@@ -18,7 +18,7 @@ export class FormInputEmailMethods extends FormInputMethods<IFormInputEmail, str
         return new FormControl<string | null>(value, validators);
     }
 
-    override value(value: any, input?: IFormInputEmail | undefined): string | null {
+    override value(value: any, input?: IInputEmail | undefined): string | null {
         return typeof value === 'string' && Helper.RE.EMAIL.verify(value) ? value.toLowerCase() : null;
     }
 }

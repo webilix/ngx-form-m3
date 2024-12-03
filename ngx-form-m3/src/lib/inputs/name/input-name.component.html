@@ -3,7 +3,7 @@
 
 <div class="columns">
     <!-- FIRST NAME -->
-    <mat-form-field [appearance]="appearance!">
+    <mat-form-field [appearance]="input.appearance || config.appearance">
         <mat-label>نام {{ input.title || '' }}</mat-label>
         @if (firstFormControl.invalid) { <mat-error>{{ firstFormControl.errors | InputErrorPipe : input.type }}</mat-error> }
 
@@ -12,12 +12,12 @@
             type="text"
             [name]="input.name + '-first'"
             [formControl]="firstFormControl"
-            [AutoFocusDirective]="autoFocus === input.name"
+            [AutoFocusDirective]="config.autoFocus === input.name"
             (input)="setName()"
         />
     </mat-form-field>
     <!-- LAST NAME -->
-    <mat-form-field [appearance]="appearance!">
+    <mat-form-field [appearance]="input.appearance || config.appearance">
         <mat-label>نام خانوادگی {{ input.title || '' }}</mat-label>
         @if (lastFormControl.invalid) { <mat-error>{{ lastFormControl.errors | InputErrorPipe : input.type }}</mat-error> }
 
