@@ -64,7 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
     onKeydown(event: any): void {
         if (!(event instanceof KeyboardEvent)) return;
 
-        // Use CTRL + SHIFT + ALT + M to toggle mode
+        // Use CTRL + SHIFT + ALT + C to toggle mode
         if (event.ctrlKey && event.shiftKey && event.altKey && event.code === 'KeyC') {
             event.preventDefault();
             this.toggleMode();
