@@ -32,6 +32,14 @@ body {
     height: auto !important;
 }
 
+.cdk-overlay-backdrop {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+body.dark .cdk-overlay-backdrop {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
 .mat-mdc-menu-content {
     padding: 0 !important;
 
@@ -43,7 +51,7 @@ body {
 
 // NGX-FORM Style
 .ngx-form-header {
-    font-size: 15px;
+    font-size: 16px;
     background-color: var(--mdc-filled-text-field-container-color);
     border-width: 0;
     border-radius: 0;
@@ -57,7 +65,7 @@ body {
 }
 
 .ngx-form-description {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 18px;
     color: var(--outline);
     text-align: justify;
