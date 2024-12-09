@@ -9,7 +9,7 @@ export interface IInputMobile extends Omit<IInput, 'english'> {
     readonly showIcon?: boolean;
 }
 
-export class FormInputMobileMethods extends InputMethods<IInputMobile, string | null> {
+export class InputMobileMethods extends InputMethods<IInputMobile, string | null> {
     override control(input: IInputMobile, validators: ValidatorFn[]): FormControl<string | null> {
         const value: string | null =
             input.value === undefined ? null : Helper.RE.MOBILE.verify(input.value) ? input.value.substring(2) : null;

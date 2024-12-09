@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
@@ -17,7 +17,7 @@ import { IInputConfig } from '../input.interface';
 import { IInputMobile } from './input-mobile.interface';
 
 @Component({
-    selector: 'input-mobile',
+    host: { selector: 'input-mobile' },
     imports: [
         NgClass,
         ReactiveFormsModule,
@@ -35,10 +35,12 @@ import { IInputMobile } from './input-mobile.interface';
     styleUrl: './input-mobile.component.scss',
 })
 export class InputMobileComponent {
-    @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IInputMobile;
-    @Input({ required: true }) config!: IInputConfig;
-
     public focused: boolean = false;
     public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+
+    constructor(
+        @Inject('formControl') public readonly formControl: FormControl,
+        @Inject('input') public readonly input: IInputMobile,
+        @Inject('config') public readonly config: IInputConfig,
+    ) {}
 }

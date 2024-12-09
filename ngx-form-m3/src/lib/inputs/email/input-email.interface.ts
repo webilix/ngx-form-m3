@@ -9,7 +9,7 @@ export interface IInputEmail extends Omit<IInput, 'english'> {
     readonly showIcon?: boolean;
 }
 
-export class FormInputEmailMethods extends InputMethods<IInputEmail, string | null> {
+export class InputEmailMethods extends InputMethods<IInputEmail, string | null> {
     override control(input: IInputEmail, validators: ValidatorFn[]): FormControl<string | null> {
         validators.push(Validators.pattern(Helper.RE.EMAIL.get()));
 

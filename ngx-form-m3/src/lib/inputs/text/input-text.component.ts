@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -13,7 +13,7 @@ import { IInputConfig } from '../input.interface';
 import { IInputText } from './input-text.interface';
 
 @Component({
-    selector: 'input-text',
+    host: { selector: 'input-text' },
     imports: [
         NgClass,
         ReactiveFormsModule,
@@ -28,9 +28,11 @@ import { IInputText } from './input-text.interface';
     styleUrl: './input-text.component.scss',
 })
 export class InputTextComponent {
-    @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IInputText;
-    @Input({ required: true }) config!: IInputConfig;
-
     public focused: boolean = false;
+
+    constructor(
+        @Inject('formControl') public readonly formControl: FormControl,
+        @Inject('input') public readonly input: IInputText,
+        @Inject('config') public readonly config: IInputConfig,
+    ) {}
 }

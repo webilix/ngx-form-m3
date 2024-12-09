@@ -14,7 +14,7 @@ export interface IInputTextarea extends IInput {
     readonly counter?: boolean;
 }
 
-export class FormInputTextareaMethods extends InputMethods<IInputTextarea, string | null> {
+export class InputTextareaMethods extends InputMethods<IInputTextarea, string | null> {
     override control(input: IInputTextarea, validators: ValidatorFn[]): FormControl<string | null> {
         const maxLength: number | null = input.maxLength && input.maxLength > 0 ? input.maxLength : null;
         if (maxLength && maxLength > 0) validators.push(Validators.maxLength(maxLength));

@@ -19,7 +19,7 @@ import { Router } from '@angular/router';
 import { MatButton } from '@angular/material/button';
 
 import { FormErrorDirective } from './directives';
-import { FormInputInfo, IInputConfig, InputComponent } from './inputs';
+import { IInputConfig, InputComponent, InputInfo } from './inputs';
 
 import { INgxFormConfig, NGX_FORM_CONFIG } from './ngx-form.config';
 import { INgxForm, INgxFormInit, INgxFormValues, NgxFormInputs } from './ngx-form.interface';
@@ -123,7 +123,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
                             const formInput = this.formGroup.get(key);
                             if (!formInput) return;
 
-                            const value = FormInputInfo[input.type].methods.value(changes[key], input);
+                            const value = InputInfo[input.type].methods.value(changes[key], input);
                             formInput.setValue(value);
                         });
                     this.lastValues = { ...this.formGroup.value };
@@ -243,7 +243,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
             const formInput = this.formGroup.get(input.name);
             if (!formInput || formInput.disabled || formInput.errors !== null) return null;
 
-            const value: any = FormInputInfo[input.type].methods.value(formInput.value, input);
+            const value: any = InputInfo[input.type].methods.value(formInput.value, input);
             return value;
         };
 
@@ -258,7 +258,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
         const name: string = input.name;
         const validators: ValidatorFn[] = input.optional ? [] : [Validators.required];
 
-        this.formGroup.setControl(name, FormInputInfo[input.type].methods.control(input, validators));
+        this.formGroup.setControl(name, InputInfo[input.type].methods.control(input, validators));
     }
 
     checkInputs(): void {

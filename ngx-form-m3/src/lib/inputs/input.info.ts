@@ -1,25 +1,34 @@
+import { ComponentType } from '@angular/cdk/portal';
+
 import { NgxFormInputs } from '../ngx-form.interface';
 
 import { InputMethods } from './input.interface';
 import {
-    FormInputEmailMethods,
-    FormInputMobileMethods,
-    FormInputNameMethods,
-    FormInputPasswordMethods,
-    FormInputTextareaMethods,
-    FormInputTextMethods,
+    InputEmailComponent,
+    InputEmailMethods,
+    InputMobileComponent,
+    InputMobileMethods,
+    InputNameComponent,
+    InputNameMethods,
+    InputPasswordComponent,
+    InputPasswordMethods,
+    InputTextareaComponent,
+    InputTextareaMethods,
+    InputTextComponent,
+    InputTextMethods,
 } from '.';
 
 interface IInputInfo {
     readonly title: string;
     readonly methods: InputMethods<any, any>;
+    readonly component: ComponentType<any>;
 }
 
-export const FormInputInfo: { [key in NgxFormInputs['type']]: IInputInfo } = {
-    EMAIL: { title: 'ایمیل', methods: new FormInputEmailMethods() },
-    MOBILE: { title: 'موبایل', methods: new FormInputMobileMethods() },
-    NAME: { title: 'نام و نام خانوادگی', methods: new FormInputNameMethods() },
-    PASSWORD: { title: 'کلمه عبور', methods: new FormInputPasswordMethods() },
-    TEXT: { title: 'متن یک خطی', methods: new FormInputTextMethods() },
-    TEXTAREA: { title: 'متن چند خطی', methods: new FormInputTextareaMethods() },
+export const InputInfo: { [key in NgxFormInputs['type']]: IInputInfo } = {
+    EMAIL: { title: 'ایمیل', methods: new InputEmailMethods(), component: InputEmailComponent },
+    MOBILE: { title: 'موبایل', methods: new InputMobileMethods(), component: InputMobileComponent },
+    NAME: { title: 'نام و نام خانوادگی', methods: new InputNameMethods(), component: InputNameComponent },
+    PASSWORD: { title: 'کلمه عبور', methods: new InputPasswordMethods(), component: InputPasswordComponent },
+    TEXT: { title: 'متن یک خطی', methods: new InputTextMethods(), component: InputTextComponent },
+    TEXTAREA: { title: 'متن چند خطی', methods: new InputTextareaMethods(), component: InputTextareaComponent },
 };

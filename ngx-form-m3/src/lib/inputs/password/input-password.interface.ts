@@ -14,7 +14,7 @@ export interface IInputPassword extends Omit<IInput, 'english' | 'value'> {
     };
 }
 
-export class FormInputPasswordMethods extends InputMethods<IInputPassword, string | null> {
+export class InputPasswordMethods extends InputMethods<IInputPassword, string | null> {
     override control(input: IInputPassword, validators: ValidatorFn[]): FormControl<string | null> {
         if (input.verify) {
             validators.push(Validators.minLength(input.verify.minLength));

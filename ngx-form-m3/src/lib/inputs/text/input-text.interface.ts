@@ -13,7 +13,7 @@ export interface IInputText extends IInput {
     readonly maxLength?: number;
 }
 
-export class FormInputTextMethods extends InputMethods<IInputText, string | null> {
+export class InputTextMethods extends InputMethods<IInputText, string | null> {
     override control(input: IInputText, validators: ValidatorFn[]): FormControl<string | null> {
         const minLength: number | null = input.minLength && input.minLength > 0 ? input.minLength : null;
         const maxLength: number | null = input.maxLength && input.maxLength > 0 ? input.maxLength : null;

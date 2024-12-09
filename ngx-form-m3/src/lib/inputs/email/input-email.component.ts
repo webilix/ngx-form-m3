@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +14,7 @@ import { IInputConfig } from '../input.interface';
 import { IInputEmail } from './input-email.interface';
 
 @Component({
-    selector: 'input-email',
+    host: { selector: 'input-email' },
     imports: [
         NgClass,
         ReactiveFormsModule,
@@ -30,9 +30,11 @@ import { IInputEmail } from './input-email.interface';
     styleUrl: './input-email.component.scss',
 })
 export class InputEmailComponent {
-    @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IInputEmail;
-    @Input({ required: true }) config!: IInputConfig;
-
     public focused: boolean = false;
+
+    constructor(
+        @Inject('formControl') public readonly formControl: FormControl,
+        @Inject('input') public readonly input: IInputEmail,
+        @Inject('config') public readonly config: IInputConfig,
+    ) {}
 }

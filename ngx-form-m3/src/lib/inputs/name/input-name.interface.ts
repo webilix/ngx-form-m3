@@ -14,7 +14,7 @@ export interface IInputName extends Omit<IInput, 'value' | 'hint' | 'english' | 
     readonly value?: IName;
 }
 
-export class FormInputNameMethods extends InputMethods<IInputName, IName | null> {
+export class InputNameMethods extends InputMethods<IInputName, IName | null> {
     override control(input: IInputName, validators: ValidatorFn[]): FormControl<IName | null> {
         const value: IName | null =
             input.value && Helper.IS.object(input.value) && !!input.value.first && !!input.value.last ? input.value : null;

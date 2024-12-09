@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +14,7 @@ import { IInputConfig } from '../input.interface';
 import { IInputPassword } from './input-password.interface';
 
 @Component({
-    selector: 'input-password',
+    host: { selector: 'input-password' },
     imports: [
         NgClass,
         ReactiveFormsModule,
@@ -29,10 +29,12 @@ import { IInputPassword } from './input-password.interface';
     styleUrl: './input-password.component.scss',
 })
 export class InputPasswordComponent {
-    @Input({ required: true }) formControl!: FormControl;
-    @Input({ required: true }) input!: IInputPassword;
-    @Input({ required: true }) config!: IInputConfig;
-
     public focused: boolean = false;
     public showPassword: boolean = false;
+
+    constructor(
+        @Inject('formControl') public readonly formControl: FormControl,
+        @Inject('input') public readonly input: IInputPassword,
+        @Inject('config') public readonly config: IInputConfig,
+    ) {}
 }
