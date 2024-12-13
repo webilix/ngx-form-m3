@@ -19,7 +19,7 @@ export class InputEmailMethods extends InputMethods<IInputEmail, string | null> 
         return new FormControl<string | null>(value, validators);
     }
 
-    override value(value: any, input?: IInputEmail | undefined): string | null {
+    override value(value: any, input: IInputEmail): string | null {
         return typeof value === 'string' && Helper.RE.EMAIL.verify(value) ? value.toLowerCase() : null;
     }
 }

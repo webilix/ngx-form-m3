@@ -23,6 +23,16 @@ export class PageIndexComponent implements OnInit {
                         rows: [
                             { name: 'name', type: 'NAME', optional: true },
                             { name: 'mobile', type: 'MOBILE', optional: true },
+                            {
+                                name: 'gender',
+                                type: 'SELECT',
+                                title: 'جنسیت',
+                                options: [
+                                    { id: 'MALE', title: 'مرد' },
+                                    { id: 'FEMALE', title: 'زن' },
+                                ],
+                                optional: true,
+                            },
                         ],
                     },
                     {

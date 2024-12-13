@@ -22,7 +22,7 @@ export class InputTextareaMethods extends InputMethods<IInputTextarea, string | 
         return new FormControl<string | null>(input.value || null, validators);
     }
 
-    override value(value: any, input?: IInputTextarea | undefined): string | null {
+    override value(value: any, input: IInputTextarea): string | null {
         return Helper.IS.string(value) && value !== '' ? value : null;
     }
 }

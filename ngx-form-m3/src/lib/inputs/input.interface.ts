@@ -20,7 +20,7 @@ export interface IInput {
 
 export abstract class InputMethods<I /** INPUT **/, V /** VALUE **/> {
     abstract control(input: I, validators: ValidatorFn[]): FormControl<V>;
-    abstract value(value: any, input?: I): V;
+    abstract value(value: any, input: I): V;
 }
 
 export interface IInputConfig {

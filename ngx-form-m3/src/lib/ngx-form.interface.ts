@@ -2,9 +2,16 @@ import { FormGroup, NgForm } from '@angular/forms';
 
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
-import { IInputEmail, IInputMobile, IInputName, IInputPassword, IInputText, IInputTextarea } from './inputs';
+import { IInputEmail, IInputMobile, IInputName, IInputPassword, IInputSelect, IInputText, IInputTextarea } from './inputs';
 
-export type NgxFormInputs = IInputEmail | IInputMobile | IInputName | IInputPassword | IInputText | IInputTextarea;
+export type NgxFormInputs =
+    | IInputEmail
+    | IInputMobile
+    | IInputName
+    | IInputPassword
+    | IInputSelect
+    | IInputText
+    | IInputTextarea;
 
 type Inputs =
     | NgxFormInputs

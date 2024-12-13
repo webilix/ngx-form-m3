@@ -26,6 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'موبایل', type: 'MOBILE' },
         { title: 'نام و نام خانوادگی', type: 'NAME' },
         { title: 'کلمه عبور', type: 'PASSWORD' },
+        { title: 'لیست کشویی', type: 'SELECT' },
         { title: 'متن یک خطی', type: 'TEXT' },
         { title: 'متن چند خطی', type: 'TEXTAREA' },
     ];

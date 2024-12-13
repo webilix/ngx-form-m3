@@ -1,11 +1,11 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { INgxForm, INgxFormValues, NgxFormComponent, NgxFormInputs } from '@webilix/ngx-form-m3';
 
 import { AppService } from '../../app.service';
 
-import { EmailInputs, MobileInputs, NameInputs, PasswordInputs, TextareaInputs, TextInputs } from './inputs';
+import { EmailInputs, MobileInputs, NameInputs, PasswordInputs, SelectInputs, TextareaInputs, TextInputs } from './inputs';
 
 @Component({
     host: { selector: 'page-input' },
@@ -22,6 +22,7 @@ export class PageInputComponent implements OnInit {
         MOBILE: MobileInputs,
         NAME: NameInputs,
         PASSWORD: PasswordInputs,
+        SELECT: SelectInputs,
         TEXT: TextInputs,
         TEXTAREA: TextareaInputs,
     };

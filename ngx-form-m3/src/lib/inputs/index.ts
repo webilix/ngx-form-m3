@@ -10,6 +10,9 @@ export * from './name/input-name.interface';
 export * from './password/input-password.component';
 export * from './password/input-password.interface';
 
+export * from './select/input-select.component';
+export * from './select/input-select.interface';
+
 export * from './text/input-text.component';
 export * from './text/input-text.interface';
 

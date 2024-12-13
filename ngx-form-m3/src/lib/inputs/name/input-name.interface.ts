@@ -22,7 +22,7 @@ export class InputNameMethods extends InputMethods<IInputName, IName | null> {
         return new FormControl<IName | null>(value, validators);
     }
 
-    override value(value: any, input?: IInputName | undefined): IName | null {
+    override value(value: any, input: IInputName): IName | null {
         return Helper.IS.object(value) ? value : null;
     }
 }

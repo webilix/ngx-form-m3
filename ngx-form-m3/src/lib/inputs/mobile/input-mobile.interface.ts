@@ -17,7 +17,7 @@ export class InputMobileMethods extends InputMethods<IInputMobile, string | null
         return new FormControl<string | null>(value, validators);
     }
 
-    override value(value: any, input?: IInputMobile | undefined): string | null {
+    override value(value: any, input: IInputMobile): string | null {
         return typeof value === 'string' && Helper.RE.MOBILE.verify(`09${value}`) ? `09${value}` : null;
     }
 }

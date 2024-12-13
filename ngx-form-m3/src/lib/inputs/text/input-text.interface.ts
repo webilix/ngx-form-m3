@@ -26,7 +26,7 @@ export class InputTextMethods extends InputMethods<IInputText, string | null> {
         return new FormControl<string | null>(input.value || null, validators);
     }
 
-    override value(value: any, input?: IInputText | undefined): string | null {
+    override value(value: any, input: IInputText): string | null {
         return Helper.IS.string(value) && value !== '' ? value : null;
     }
 }

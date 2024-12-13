@@ -12,6 +12,8 @@ import {
     InputNameMethods,
     InputPasswordComponent,
     InputPasswordMethods,
+    InputSelectComponent,
+    InputSelectMethods,
     InputTextareaComponent,
     InputTextareaMethods,
     InputTextComponent,
@@ -29,6 +31,7 @@ export const InputInfo: {
     MOBILE: { title: 'موبایل', methods: new InputMobileMethods(), component: InputMobileComponent },
     NAME: { title: 'نام و نام خانوادگی', methods: new InputNameMethods(), component: InputNameComponent },
     PASSWORD: { title: 'کلمه عبور', methods: new InputPasswordMethods(), component: InputPasswordComponent },
+    SELECT: { title: 'لیست کشویی', methods: new InputSelectMethods(), component: InputSelectComponent },
     TEXT: { title: 'متن یک خطی', methods: new InputTextMethods(), component: InputTextComponent },
     TEXTAREA: { title: 'متن چند خطی', methods: new InputTextareaMethods(), component: InputTextareaComponent },
 };

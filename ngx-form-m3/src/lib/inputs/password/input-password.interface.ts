@@ -29,7 +29,7 @@ export class InputPasswordMethods extends InputMethods<IInputPassword, string | 
         return new FormControl<string | null>(null, validators);
     }
 
-    override value(value: any, input?: IInputPassword | undefined): string | null {
+    override value(value: any, input: IInputPassword): string | null {
         return Helper.IS.string(value) && value !== '' ? value : null;
     }
 }
