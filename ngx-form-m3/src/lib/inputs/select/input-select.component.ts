@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 
@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { AutoFocusDirective } from '../../directives';
 import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
-import { IInputConfig } from '../input.interface';
+import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE } from '../input.interface';
 
 import { IInputSelect } from './input-select.interface';
 
@@ -29,13 +29,11 @@ import { IInputSelect } from './input-select.interface';
     styleUrl: './input-select.component.scss',
 })
 export class InputSelectComponent {
-    public focused: boolean = false;
+    public formControl: FormControl = inject(INPUT_CONTROL);
+    public input: IInputSelect = inject(INPUT_TYPE);
+    public config: IInputConfig = inject(INPUT_CONFIG);
 
-    constructor(
-        @Inject('formControl') public readonly formControl: FormControl,
-        @Inject('input') public readonly input: IInputSelect,
-        @Inject('config') public readonly config: IInputConfig,
-    ) {}
+    public focused: boolean = false;
 
     getTitle(): string {
         return this.input.options.find((option) => option.id === this.formControl.value)?.title || '';

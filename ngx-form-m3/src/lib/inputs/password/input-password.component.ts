@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AutoFocusDirective } from '../../directives';
 import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
-import { IInputConfig } from '../input.interface';
+import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE } from '../input.interface';
 
 import { IInputPassword } from './input-password.interface';
 
@@ -29,12 +29,10 @@ import { IInputPassword } from './input-password.interface';
     styleUrl: './input-password.component.scss',
 })
 export class InputPasswordComponent {
+    public formControl: FormControl = inject(INPUT_CONTROL);
+    public input: IInputPassword = inject(INPUT_TYPE);
+    public config: IInputConfig = inject(INPUT_CONFIG);
+
     public focused: boolean = false;
     public showPassword: boolean = false;
-
-    constructor(
-        @Inject('formControl') public readonly formControl: FormControl,
-        @Inject('input') public readonly input: IInputPassword,
-        @Inject('config') public readonly config: IInputConfig,
-    ) {}
 }

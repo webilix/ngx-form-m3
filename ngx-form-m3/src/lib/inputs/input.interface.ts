@@ -1,3 +1,4 @@
+import { InjectionToken } from '@angular/core';
 import { FormControl, ValidatorFn } from '@angular/forms';
 
 import { MatFormFieldAppearance } from '@angular/material/form-field';
@@ -29,3 +30,7 @@ export interface IInputConfig {
     readonly enClass: string;
     readonly descriptionClass: string;
 }
+
+export const INPUT_CONTROL: InjectionToken<FormControl> = new InjectionToken('NGX-FORM-INPUT-CONTROL');
+export const INPUT_TYPE: InjectionToken<any> = new InjectionToken('NGX-FORM-INPUT-TYPE');
+export const INPUT_CONFIG: InjectionToken<IInputConfig> = new InjectionToken('NGX-FORM-INPUT-CONFIG');

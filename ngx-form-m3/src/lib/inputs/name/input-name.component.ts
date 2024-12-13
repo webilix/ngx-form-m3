@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatFormField } from '@angular/material/form-field';
@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe } from '../../pipes';
 
-import { IInputConfig } from '../input.interface';
+import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE } from '../input.interface';
 
 import { IInputName } from './input-name.interface';
 
@@ -18,14 +18,12 @@ import { IInputName } from './input-name.interface';
     styleUrl: './input-name.component.scss',
 })
 export class InputNameComponent implements OnInit {
+    public formControl: FormControl = inject(INPUT_CONTROL);
+    public input: IInputName = inject(INPUT_TYPE);
+    public config: IInputConfig = inject(INPUT_CONFIG);
+
     public firstFormControl!: FormControl;
     public lastFormControl!: FormControl;
-
-    constructor(
-        @Inject('formControl') public readonly formControl: FormControl,
-        @Inject('input') public readonly input: IInputName,
-        @Inject('config') public readonly config: IInputConfig,
-    ) {}
 
     ngOnInit(): void {
         const value: { first: string; last: string } | null = this.formControl.value;

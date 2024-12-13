@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
@@ -12,7 +12,7 @@ import { Helper } from '@webilix/helper-library';
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
-import { IInputConfig } from '../input.interface';
+import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE } from '../input.interface';
 
 import { IInputMobile } from './input-mobile.interface';
 
@@ -35,12 +35,10 @@ import { IInputMobile } from './input-mobile.interface';
     styleUrl: './input-mobile.component.scss',
 })
 export class InputMobileComponent {
+    public formControl: FormControl = inject(INPUT_CONTROL);
+    public input: IInputMobile = inject(INPUT_TYPE);
+    public config: IInputConfig = inject(INPUT_CONFIG);
+
     public focused: boolean = false;
     public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
-
-    constructor(
-        @Inject('formControl') public readonly formControl: FormControl,
-        @Inject('input') public readonly input: IInputMobile,
-        @Inject('config') public readonly config: IInputConfig,
-    ) {}
 }

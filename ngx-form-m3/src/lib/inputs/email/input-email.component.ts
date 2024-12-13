@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 
-import { IInputConfig } from '../input.interface';
+import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE } from '../input.interface';
 
 import { IInputEmail } from './input-email.interface';
 
@@ -30,11 +30,9 @@ import { IInputEmail } from './input-email.interface';
     styleUrl: './input-email.component.scss',
 })
 export class InputEmailComponent {
-    public focused: boolean = false;
+    public formControl: FormControl = inject(INPUT_CONTROL);
+    public input: IInputEmail = inject(INPUT_TYPE);
+    public config: IInputConfig = inject(INPUT_CONFIG);
 
-    constructor(
-        @Inject('formControl') public readonly formControl: FormControl,
-        @Inject('input') public readonly input: IInputEmail,
-        @Inject('config') public readonly config: IInputConfig,
-    ) {}
+    public focused: boolean = false;
 }

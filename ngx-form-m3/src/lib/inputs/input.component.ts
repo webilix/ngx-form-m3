@@ -4,7 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 import { NgxFormInputs } from '../ngx-form.interface';
 
-import { IInputConfig, InputInfo } from '.';
+import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE, InputInfo } from '.';
 
 @Component({
     selector: 'form-input',
@@ -25,9 +25,9 @@ export class InputComponent implements OnInit {
 
         this.injector = Injector.create({
             providers: [
-                { provide: 'formControl', useValue: formControl },
-                { provide: 'input', useValue: this.input },
-                { provide: 'config', useValue: this.config },
+                { provide: INPUT_CONTROL, useValue: formControl },
+                { provide: INPUT_TYPE, useValue: this.input },
+                { provide: INPUT_CONFIG, useValue: this.config },
             ],
         });
     }
