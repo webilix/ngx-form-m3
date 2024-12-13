@@ -18,13 +18,13 @@ import {
     InputTextMethods,
 } from '.';
 
-interface IInputInfo {
-    readonly title: string;
-    readonly methods: InputMethods<any, any>;
-    readonly component: ComponentType<any>;
-}
-
-export const InputInfo: { [key in NgxFormInputs['type']]: IInputInfo } = {
+export const InputInfo: {
+    [key in NgxFormInputs['type']]: {
+        readonly title: string;
+        readonly methods: InputMethods<any, any>;
+        readonly component: ComponentType<any>;
+    };
+} = {
     EMAIL: { title: 'ایمیل', methods: new InputEmailMethods(), component: InputEmailComponent },
     MOBILE: { title: 'موبایل', methods: new InputMobileMethods(), component: InputMobileComponent },
     NAME: { title: 'نام و نام خانوادگی', methods: new InputNameMethods(), component: InputNameComponent },
