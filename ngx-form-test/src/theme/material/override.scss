@@ -4,6 +4,8 @@
     @include mat.form-field-overrides(
         (
             container-text-size: 14px,
+            filled-label-text-size: 14px,
+            outlined-label-text-size: 14px,
         )
     );
 }
