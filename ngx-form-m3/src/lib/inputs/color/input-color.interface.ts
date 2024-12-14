@@ -16,6 +16,6 @@ export class InputColorMethods extends InputMethods<IInputColor, string | null> 
     }
 
     override value(value: any, input: IInputColor): string | null {
-        return Helper.IS.STRING.color(value) ? String(value).toUpperCase() : null;
+        return Helper.IS.STRING.color(value) ? String(Helper.COLOR.toHEX(value)).toUpperCase() : null;
     }
 }
