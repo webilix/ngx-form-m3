@@ -7,13 +7,7 @@
 
     <!--  SUFFIX -->
     <span matTextSuffix class="suffix" [style.opacity]="formControl.disabled ? '0.4' : 1">
-        <div
-            [ngClass]="config.enClass"
-            [dir]="'ltr'"
-            (click)="formControl.disabled ? null : colorInput.click(); formControl.markAsTouched()"
-        >
-            {{ formControl.value }}
-        </div>
+        <span>&nbsp;</span>
         <mat-icon
             (click)="formControl.value ? formControl.setValue(null) : colorInput.click(); formControl.markAsTouched()"
             [style.opacity]="formControl.value ? 1 : 0"
@@ -22,22 +16,32 @@
         </mat-icon>
     </span>
 
-    <div class="color">
-        <input matInput type="color" [name]="input.name" [formControl]="formControl" #colorInput />
-        <input
-            matInput
-            [required]="!input.optional"
-            type="text"
-            [disabled]="formControl.disabled"
-            [readonly]="true"
+    <!-- INPUT -->
+    <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+
+    <content>
+        <section>
+            <input type="color" (input)="formControl.setValue(colorInput.value)" [value]="formControl.value" #colorInput />
+            <div
+                class="color"
+                [style.opacity]="formControl.disabled ? '0.4' : 1"
+                [style.cursor]="formControl.disabled ? 'default' : 'pointer'"
+                [style.background-color]="formControl.value || 'transparent'"
+                (click)="formControl.disabled ? null : colorInput.click(); formControl.markAsTouched()"
+            >
+                &nbsp;
+            </div>
+        </section>
+
+        <div
+            class="value"
             [ngClass]="config.enClass"
             [dir]="'ltr'"
-            [style.opacity]="formControl.disabled ? '0.4' : 1"
-            [style.cursor]="formControl.disabled ? 'default' : 'pointer'"
-            [style.background-color]="formControl.value || 'transparent'"
             (click)="formControl.disabled ? null : colorInput.click(); formControl.markAsTouched()"
-        />
-    </div>
+        >
+            {{ formControl.value || '&nbsp;' }}
+        </div>
+    </content>
 
     <!-- DESCRIPTION -->
     @if (input.description) {
