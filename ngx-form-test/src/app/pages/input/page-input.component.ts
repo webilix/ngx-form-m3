@@ -5,7 +5,16 @@ import { INgxForm, INgxFormValues, NgxFormComponent, NgxFormInputs } from '@webi
 
 import { AppService } from '../../app.service';
 
-import { EmailInputs, MobileInputs, NameInputs, PasswordInputs, SelectInputs, TextareaInputs, TextInputs } from './inputs';
+import {
+    ColorInputs,
+    EmailInputs,
+    MobileInputs,
+    NameInputs,
+    PasswordInputs,
+    SelectInputs,
+    TextareaInputs,
+    TextInputs,
+} from './inputs';
 
 @Component({
     host: { selector: 'page-input' },
@@ -18,6 +27,7 @@ export class PageInputComponent implements OnInit {
     public type!: NgxFormInputs['type'];
 
     public inputs: { [key in NgxFormInputs['type']]: { columns: { rows: NgxFormInputs[] }[] }[] } = {
+        COLOR: ColorInputs,
         EMAIL: EmailInputs,
         MOBILE: MobileInputs,
         NAME: NameInputs,

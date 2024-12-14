@@ -33,6 +33,7 @@ export class PageIndexComponent implements OnInit {
                                 ],
                                 optional: true,
                             },
+                            { name: 'color', type: 'COLOR', title: 'رنگ چشم', optional: true },
                         ],
                     },
                     {

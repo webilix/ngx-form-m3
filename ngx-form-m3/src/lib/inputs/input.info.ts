@@ -4,6 +4,8 @@ import { NgxFormInputs } from '../ngx-form.interface';
 
 import { InputMethods } from './input.interface';
 import {
+    InputColorComponent,
+    InputColorMethods,
     InputEmailComponent,
     InputEmailMethods,
     InputMobileComponent,
@@ -27,6 +29,7 @@ export const InputInfo: {
         readonly component: ComponentType<any>;
     };
 } = {
+    COLOR: { title: 'رنگ', methods: new InputColorMethods(), component: InputColorComponent },
     EMAIL: { title: 'ایمیل', methods: new InputEmailMethods(), component: InputEmailComponent },
     MOBILE: { title: 'موبایل', methods: new InputMobileMethods(), component: InputMobileComponent },
     NAME: { title: 'نام و نام خانوادگی', methods: new InputNameMethods(), component: InputNameComponent },
