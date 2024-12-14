@@ -3,7 +3,7 @@
     @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
 
     <!-- HINT -->
-    @if (focused && input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
     <input
         matInput
@@ -14,8 +14,6 @@
         [maxLength]="input.maxLength || 524288"
         [dir]="input.english ? 'ltr' : 'rtl'"
         [AutoFocusDirective]="config.autoFocus === input.name"
-        (focus)="focused = true"
-        (blur)="focused = false"
     />
 
     <!-- DESCRIPTION -->

@@ -33,6 +33,5 @@ export class InputPasswordComponent {
     public input: IInputPassword = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
 
-    public focused: boolean = false;
     public showPassword: boolean = false;
 }

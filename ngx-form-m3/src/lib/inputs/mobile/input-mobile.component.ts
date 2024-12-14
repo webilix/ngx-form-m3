@@ -39,6 +39,5 @@ export class InputMobileComponent {
     public input: IInputMobile = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
 
-    public focused: boolean = false;
     public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
 }

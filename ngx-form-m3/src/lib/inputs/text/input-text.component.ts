@@ -31,6 +31,4 @@ export class InputTextComponent {
     public formControl: FormControl = inject(INPUT_CONTROL);
     public input: IInputText = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
-
-    public focused: boolean = false;
 }

@@ -3,7 +3,7 @@
     @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
 
     <!-- HINT -->
-    @if (focused && input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
     <!-- ICON & SUFFIX -->
     <span matTextSuffix class="suffix" [style.opacity]="formControl.disabled ? '0.4' : 1">
@@ -22,8 +22,6 @@
         [AutoFocusDirective]="config.autoFocus === input.name"
         [mask]="'00-000-0000'"
         [inputTransformFn]="inputTransformFn"
-        (focus)="focused = true"
-        (blur)="focused = false"
     />
 
     <!-- DESCRIPTION -->

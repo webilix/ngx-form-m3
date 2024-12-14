@@ -33,8 +33,6 @@ export class InputSelectComponent {
     public input: IInputSelect = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
 
-    public focused: boolean = false;
-
     getTitle(): string {
         return this.input.options.find((option) => option.id === this.formControl.value)?.title || '';
     }

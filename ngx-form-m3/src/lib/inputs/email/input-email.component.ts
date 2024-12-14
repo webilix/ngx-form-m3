@@ -33,6 +33,4 @@ export class InputEmailComponent {
     public formControl: FormControl = inject(INPUT_CONTROL);
     public input: IInputEmail = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
-
-    public focused: boolean = false;
 }
