@@ -25,7 +25,7 @@
         "@angular/forms": ">=19.0.4",
         "@angular/material": ">=19.0.3",
         "@webilix/helper-library": ">=6.0.2",
-        "ngx-mask": ">=19.0.1"
+        "ngx-mask": ">=19.0.4"
     },
     "dependencies": {
         "tslib": "^2.3.0"
