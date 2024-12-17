@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormField } from '@angular/material/form-field';
@@ -14,7 +13,7 @@ import { IInputColor } from './input-color.interface';
 
 @Component({
     host: { selector: 'input-color' },
-    imports: [NgClass, ReactiveFormsModule, MatFormField, MatIcon, MatInputModule, InputErrorPipe, MultiLinePipe],
+    imports: [ReactiveFormsModule, MatFormField, MatIcon, MatInputModule, InputErrorPipe, MultiLinePipe],
     templateUrl: './input-color.component.html',
     styleUrl: './input-color.component.scss',
 })

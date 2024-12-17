@@ -27,8 +27,6 @@ export abstract class InputMethods<I /** INPUT **/, V /** VALUE **/> {
 export interface IInputConfig {
     readonly appearance: MatFormFieldAppearance;
     readonly autoFocus?: string;
-    readonly enClass: string;
-    readonly descriptionClass: string;
 }
 
 export const INPUT_CONTROL: InjectionToken<FormControl> = new InjectionToken('NGX-FORM-INPUT-CONTROL');

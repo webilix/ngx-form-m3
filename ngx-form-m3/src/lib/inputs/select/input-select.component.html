@@ -7,8 +7,8 @@
 
     <mat-select
         [formControl]="formControl"
-        [ngClass]="input.english ? config.enClass : ''"
-        [dir]="'rtl'"
+        [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
+        [style.direction]="'rtl'"
         [AutoFocusDirective]="config.autoFocus === input.name"
     >
         <!-- OPTIONAL -->
@@ -16,13 +16,13 @@
 
         <!-- TRIGGER -->
         <mat-select-trigger>
-            <div [ngClass]="input.english ? ['english', config.enClass] : ''">{{ getTitle() }}</div>
+            <div [ngClass]="input.english ? 'ngx-form-m3-en' : ''">{{ getTitle() }}</div>
         </mat-select-trigger>
 
         <!-- OPTIONS -->
         @for (option of input.options; track $index) {
         <mat-option [value]="option.id">
-            <div [ngClass]="input.english ? ['english', config.enClass] : ''">{{ option.title }}</div>
+            <div [ngClass]="input.english ? 'ngx-form-m3-en' : ''">{{ option.title }}</div>
         </mat-option>
         }
     </mat-select>
@@ -30,8 +30,8 @@
     <!-- DESCRIPTION -->
     @if (input.description) {
     <div
-        [ngClass]="config.descriptionClass"
-        [style.opacity]="formControl.disabled ? '0.4' : 1"
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
         [innerHTML]="input.description | MultiLinePipe"
     ></div>
     }

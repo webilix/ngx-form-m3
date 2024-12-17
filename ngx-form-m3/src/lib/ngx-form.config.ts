@@ -3,9 +3,6 @@ import { EnvironmentProviders, InjectionToken, makeEnvironmentProviders, Provide
 export interface INgxFormConfig {
     readonly mobileWidth: number;
     readonly submitTimeout: number;
-    readonly headerClass: string;
-    readonly enClass: string;
-    readonly descriptionClass: string;
 }
 
 export const NGX_FORM_CONFIG = new InjectionToken<Partial<INgxFormConfig>>('NGX-FORM-CONFIG');

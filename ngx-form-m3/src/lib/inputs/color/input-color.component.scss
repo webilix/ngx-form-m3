@@ -9,6 +9,7 @@ content {
         position: relative;
 
         .color {
+            cursor: pointer;
             border-width: 0px;
         }
 
@@ -27,13 +28,5 @@ content {
         text-align: left;
         cursor: pointer;
         text-transform: uppercase;
-    }
-}
-
-.suffix {
-    display: inline-flex;
-
-    mat-icon {
-        cursor: pointer;
     }
 }

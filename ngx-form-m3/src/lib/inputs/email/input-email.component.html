@@ -7,8 +7,8 @@
 
     <!-- ICON -->
     @if (input.showIcon) {
-    <span matTextSuffix class="suffix" [style.opacity]="formControl.disabled ? '0.4' : 1">
-        <span [ngClass]="config.enClass">&nbsp;</span>
+    <span matTextSuffix class="ngx-form-m3-input-suffix" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+        <span>&nbsp;</span>
         <mat-icon>alternate_email</mat-icon>
     </span>
     }
@@ -19,7 +19,7 @@
         inputmode="email"
         [name]="input.name"
         [formControl]="formControl"
-        [ngClass]="config.enClass"
+        class="ngx-form-m3-en"
         [dir]="'ltr'"
         [AutoFocusDirective]="config.autoFocus === input.name"
     />
@@ -27,8 +27,8 @@
     <!-- DESCRIPTION -->
     @if (input.description) {
     <div
-        [ngClass]="config.descriptionClass"
-        [style.opacity]="formControl.disabled ? '0.4' : 1"
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
         [innerHTML]="input.description | MultiLinePipe"
     ></div>
     }

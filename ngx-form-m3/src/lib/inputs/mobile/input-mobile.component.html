@@ -6,8 +6,8 @@
     @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
     <!-- ICON & SUFFIX -->
-    <span matTextSuffix class="suffix" [style.opacity]="formControl.disabled ? '0.4' : 1">
-        <span [ngClass]="config.enClass">09</span>
+    <span matTextSuffix class="ngx-form-m3-input-suffix" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+        <span class="ngx-form-m3-en">09</span>
         @if (input.showIcon) { <mat-icon>smartphone</mat-icon> }
     </span>
 
@@ -17,8 +17,7 @@
         inputmode="numeric"
         [name]="input.name"
         [formControl]="formControl"
-        [ngClass]="config.enClass"
-        [dir]="'ltr'"
+        class="ngx-form-m3-en"
         [AutoFocusDirective]="config.autoFocus === input.name"
         [mask]="'00-000-0000'"
         [inputTransformFn]="inputTransformFn"
@@ -27,8 +26,8 @@
     <!-- DESCRIPTION -->
     @if (input.description) {
     <div
-        [ngClass]="config.descriptionClass"
-        [style.opacity]="formControl.disabled ? '0.4' : 1"
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
         [innerHTML]="input.description | MultiLinePipe"
     ></div>
     }

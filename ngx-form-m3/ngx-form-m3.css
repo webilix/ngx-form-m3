@@ -1,0 +1,60 @@
+/* COLUMN AND SECTION HEADER */
+.ngx-form-m3-header {
+    font-size: 15px;
+    background-color: var(--mdc-filled-text-field-container-color);
+    border-width: 0;
+    border-radius: 0;
+    border-right: 2px solid var(--secondary-fixed);
+    color: var(--secondary);
+    padding: 1rem;
+}
+
+/* FORM BUTOTNS */
+.ngx-form-m3-form-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 1rem;
+
+    margin-top: 1rem;
+}
+.ngx-form-m3-form-buttons.mobile-view {
+    button[type='submit'] {
+        flex: 1;
+    }
+}
+
+/* ENGLISH VALUES */
+.ngx-form-m3-en {
+    direction: ltr;
+    font-family: Roboto, 'Helvetica Neue', sans-serif !important;
+}
+
+/* INPUT SUFFIX */
+.ngx-form-m3-input-suffix {
+    display: inline-flex;
+
+    mat-icon {
+        padding-right: 0.5rem;
+    }
+}
+.ngx-form-m3-input-suffix.click {
+    mat-icon {
+        cursor: pointer;
+    }
+}
+
+/* INPUT DESCRIPTION */
+.ngx-form-m3-input-description {
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--outline);
+    text-align: justify;
+    margin-top: 0.5rem;
+}
+
+/* DISABLED INPUTS */
+.ngx-form-m3-disabled-input {
+    opacity: 0.4;
+    cursor: default;
+}

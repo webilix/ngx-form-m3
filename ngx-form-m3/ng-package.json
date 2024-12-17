@@ -3,5 +3,6 @@
     "dest": "../dist/ngx-form-m3",
     "lib": {
         "entryFile": "src/public-api.ts"
-    }
+    },
+    "assets": ["ngx-form-m3.css"]
 }

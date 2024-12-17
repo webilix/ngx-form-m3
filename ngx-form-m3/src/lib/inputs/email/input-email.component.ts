@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormField } from '@angular/material/form-field';
@@ -16,7 +15,6 @@ import { IInputEmail } from './input-email.interface';
 @Component({
     host: { selector: 'input-email' },
     imports: [
-        NgClass,
         ReactiveFormsModule,
         MatFormField,
         MatIcon,

@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
@@ -19,7 +18,6 @@ import { IInputMobile } from './input-mobile.interface';
 @Component({
     host: { selector: 'input-mobile' },
     imports: [
-        NgClass,
         ReactiveFormsModule,
         MatFormField,
         MatIcon,

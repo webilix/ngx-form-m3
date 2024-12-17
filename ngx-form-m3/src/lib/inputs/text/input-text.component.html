@@ -10,17 +10,16 @@
         type="text"
         [name]="input.name"
         [formControl]="formControl"
-        [ngClass]="input.english ? config.enClass : ''"
+        [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
         [maxLength]="input.maxLength || 524288"
-        [dir]="input.english ? 'ltr' : 'rtl'"
         [AutoFocusDirective]="config.autoFocus === input.name"
     />
 
     <!-- DESCRIPTION -->
     @if (input.description) {
     <div
-        [ngClass]="config.descriptionClass"
-        [style.opacity]="formControl.disabled ? '0.4' : 1"
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
         [innerHTML]="input.description | MultiLinePipe"
     ></div>
     }

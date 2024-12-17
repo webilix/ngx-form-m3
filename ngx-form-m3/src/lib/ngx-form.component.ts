@@ -12,7 +12,6 @@ import {
     SimpleChanges,
     ViewChild,
 } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { FormGroup, NgForm, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -43,7 +42,7 @@ interface ISection {
 
 @Component({
     selector: 'ngx-form',
-    imports: [NgClass, ReactiveFormsModule, MatButton, InputComponent, FormErrorDirective],
+    imports: [ReactiveFormsModule, MatButton, InputComponent, FormErrorDirective],
     templateUrl: './ngx-form.component.html',
     styleUrl: './ngx-form.component.scss',
 })
@@ -66,7 +65,6 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
     protected lastSubmit?: Date;
 
     protected isMobile: boolean = false;
-    protected headerClass!: string;
     protected inputConfig!: IInputConfig;
 
     constructor(
@@ -75,13 +73,6 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
     ) {}
 
     ngOnInit(): void {
-        this.headerClass = this.config?.headerClass || 'ngx-form-header';
-        this.inputConfig = {
-            appearance: this.ngxForm.appearance || 'fill',
-            enClass: this.config?.enClass || 'ngx-form-en',
-            descriptionClass: this.config?.descriptionClass || 'ngx-form-description',
-        };
-
         this.formGroup = new FormGroup({});
         const inputs: NgxFormInputs[] = this.getInputs();
 
@@ -94,7 +85,12 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
             if (!('autoFocus' in input) || !input.autoFocus || autoFocus) return;
             if (!input.disableOn && !input.hideOn) autoFocus = input.name;
         });
-        this.inputConfig = { ...this.inputConfig, autoFocus };
+
+        // INPUT CONFIG
+        this.inputConfig = {
+            appearance: this.ngxForm.appearance || 'fill',
+            autoFocus,
+        };
 
         // REGISTER VALUE CHANGE
         this.formGroup.valueChanges.subscribe({

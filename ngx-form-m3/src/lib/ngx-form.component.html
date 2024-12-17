@@ -1,11 +1,11 @@
 <form [formGroup]="formGroup" (ngSubmit)="checkSubmit()" dir="rtl" class="ngx-form" #formObject="ngForm">
-    <div class="sections">
+    <section class="sections">
         @for (section of sections; track $index) {
         <!-- CHECK SECTION VIEW -->
         @if (showSection(section)) {
         <!-- SECTION HEADER -->
         @if (section.header) {
-        <div [ngClass]="[headerClass, 'section-header']">{{ section.header }}</div>
+        <div class="ngx-form-m3-header section-header">{{ section.header }}</div>
         }
 
         <div class="section" [class.section-mobile]="isMobile">
@@ -16,7 +16,7 @@
             <div class="column" [style.flex]="section.flex[$index]">
                 <!-- COLUMN HEADER -->
                 @if (column.header) {
-                <div [ngClass]="[headerClass, 'column-header']">{{ column.header }}</div>
+                <div class="ngx-form-m3-header column-header">{{ column.header }}</div>
                 }
 
                 <!-- ROWS -->
@@ -25,7 +25,7 @@
                 @if (showRow(row)) {
                 <!-- ROW HEADER -->
                 @if (row.header) {
-                <div [ngClass]="[headerClass, 'row-header']">{{ row.header }}</div>
+                <div class="ngx-form-m3-header row-header">{{ row.header }}</div>
                 }
 
                 <div class="inputs">
@@ -43,14 +43,14 @@
             } }
         </div>
         } }
-    </div>
+    </section>
 
-    <div class="buttons" [class.buttons-mobile]="isMobile">
+    <section class="ngx-form-m3-form-buttons" [class.mobile-view]="isMobile">
         <!-- EXTRA BUTTONS -->
         @for (item of (ngxForm.buttons || []); track $index) {
         <button type="button" mat-stroked-button (click)="onClick(item.action)">{{ item.title }}</button>
         }
         <!-- SUBMIT BUTTON -->
         <button type="submit" mat-flat-button>{{ ngxForm.submit }}</button>
-    </div>
+    </section>
 </form>

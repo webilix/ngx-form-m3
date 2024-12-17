@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatFormField } from '@angular/material/form-field';
@@ -15,16 +14,7 @@ import { IInputPassword } from './input-password.interface';
 
 @Component({
     host: { selector: 'input-password' },
-    imports: [
-        NgClass,
-        ReactiveFormsModule,
-        MatFormField,
-        MatIcon,
-        MatInputModule,
-        AutoFocusDirective,
-        InputErrorPipe,
-        MultiLinePipe,
-    ],
+    imports: [ReactiveFormsModule, MatFormField, MatIcon, MatInputModule, AutoFocusDirective, InputErrorPipe, MultiLinePipe],
     templateUrl: './input-password.component.html',
     styleUrl: './input-password.component.scss',
 })

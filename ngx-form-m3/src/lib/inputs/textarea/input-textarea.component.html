@@ -16,8 +16,7 @@
         matInput
         [name]="input.name"
         [formControl]="formControl"
-        [ngClass]="input.english ? config.enClass : ''"
-        [dir]="input.english ? 'ltr' : 'rtl'"
+        [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
         [style.height]="input.height ? input.height.toString() + 'px' : '75px'"
         [style.resize]="'none'"
         [maxLength]="input.maxLength || 524288"
@@ -32,8 +31,8 @@
     <!-- DESCRIPTION -->
     @if (input.description) {
     <div
-        [ngClass]="config.descriptionClass"
-        [style.opacity]="formControl.disabled ? '0.4' : 1"
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
         [innerHTML]="input.description | MultiLinePipe"
     ></div>
     }
