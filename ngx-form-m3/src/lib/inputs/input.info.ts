@@ -6,6 +6,8 @@ import { InputMethods } from './input.interface';
 import {
     InputColorComponent,
     InputColorMethods,
+    InputDateComponent,
+    InputDateMethods,
     InputEmailComponent,
     InputEmailMethods,
     InputMobileComponent,
@@ -30,6 +32,7 @@ export const InputInfo: {
     };
 } = {
     COLOR: { title: 'رنگ', methods: new InputColorMethods(), component: InputColorComponent },
+    DATE: { title: 'تاریخ', methods: new InputDateMethods(), component: InputDateComponent },
     EMAIL: { title: 'ایمیل', methods: new InputEmailMethods(), component: InputEmailComponent },
     MOBILE: { title: 'موبایل', methods: new InputMobileMethods(), component: InputMobileComponent },
     NAME: { title: 'نام و نام خانوادگی', methods: new InputNameMethods(), component: InputNameComponent },

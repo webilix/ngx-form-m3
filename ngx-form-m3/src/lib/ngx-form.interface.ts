@@ -4,6 +4,7 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import {
     IInputColor,
+    IInputDate,
     IInputEmail,
     IInputMobile,
     IInputName,
@@ -15,6 +16,7 @@ import {
 
 export type NgxFormInputs =
     | IInputColor
+    | IInputDate
     | IInputEmail
     | IInputMobile
     | IInputName

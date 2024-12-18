@@ -27,6 +27,12 @@ export class InputErrorPipe implements PipeTransform {
             case 'maxlength':
                 return `مقدار می‌تواند حداکثر داری ${Helper.NUMBER.format(value.requiredLength)} کاراکتر باشد.`;
 
+            case 'mindate':
+                return `تاریخ باید برابر یا بعد از ${value} انتخاب شده باشد.`;
+
+            case 'maxdate':
+                return `تاریخ باید برابر یا قبل از ${value} انتخاب شده باشد.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':

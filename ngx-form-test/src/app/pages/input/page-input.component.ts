@@ -7,6 +7,7 @@ import { AppService } from '../../app.service';
 
 import {
     ColorInputs,
+    DateInputs,
     EmailInputs,
     MobileInputs,
     NameInputs,
@@ -28,6 +29,7 @@ export class PageInputComponent implements OnInit {
 
     public inputs: { [key in NgxFormInputs['type']]: { columns: { rows: NgxFormInputs[] }[] }[] } = {
         COLOR: ColorInputs,
+        DATE: DateInputs,
         EMAIL: EmailInputs,
         MOBILE: MobileInputs,
         NAME: NameInputs,
