@@ -12,9 +12,6 @@ export class AutoFocusDirective implements AfterViewInit {
         const input: HTMLInputElement = this.elementRef.nativeElement as HTMLInputElement;
         if (!input) return;
 
-        setTimeout(() => {
-            if (input.focus) input.focus();
-            if (input.select) input.select();
-        }, 0);
+        setTimeout(() => input.focus && input.focus(), 0);
     }
 }
