@@ -14,8 +14,8 @@ export interface IInputSelect extends IInput {
 export class InputSelectMethods extends InputMethods<IInputSelect, string | null> {
     override control(input: IInputSelect, validators: ValidatorFn[]): FormControl<string | null> {
         const ids: string[] = input.options.map((option) => option.id);
-        const value: string | null = input.value && ids.includes(input.value) ? input.value : null;
 
+        const value: string | null = input.value && ids.includes(input.value) ? input.value : null;
         return new FormControl<string | null>(value, validators);
     }
 

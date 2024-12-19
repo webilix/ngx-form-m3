@@ -33,7 +33,7 @@ export class InputDateComponent {
         const minDate: Date | undefined = this.input.minDate === 'NOW' ? new Date() : this.input.minDate;
         const maxDate: Date | undefined = this.input.maxDate === 'NOW' ? new Date() : this.input.maxDate;
         this.ngxCalendarService
-            .getDate({ title: this.input.title, value: this.formControl.value, minDate, maxDate })
+            .getDate({ title: this.input.title || 'تاریخ', value: this.formControl.value, minDate, maxDate })
             .dialog((data: INgxCalendarDate) => {
                 this.formControl.setValue(data.date);
                 this.formControl.markAsTouched();

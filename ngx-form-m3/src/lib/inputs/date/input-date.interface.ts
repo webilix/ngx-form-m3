@@ -8,7 +8,7 @@ import { InputMethods, IInput } from '../input.interface';
 
 export interface IInputDate extends Omit<IInput, 'english' | 'value' | 'autoFocus'> {
     readonly type: 'DATE';
-    readonly value?: Date;
+    readonly value?: Date | null;
     readonly minDate?: Date | 'NOW';
     readonly maxDate?: Date | 'NOW';
 }
@@ -18,7 +18,7 @@ export class InputDateMethods extends InputMethods<IInputDate, Date | null> {
         if (input.minDate) validators.push(MinDateValidator(input.minDate));
         if (input.maxDate) validators.push(MaxDateValidator(input.maxDate));
 
-        const value: Date | null = input.value === undefined ? null : Helper.IS.date(input.value) ? input.value : null;
+        const value: Date | null = input.value && Helper.IS.date(input.value) ? input.value : null;
         return new FormControl<Date | null>(value, validators);
     }
 

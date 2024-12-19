@@ -8,7 +8,7 @@ import { INgxFormValues } from '../ngx-form.interface';
 export interface IInput {
     readonly name: string;
     readonly title?: string;
-    readonly value?: string;
+    readonly value?: string | null;
     readonly hint?: string;
     readonly description?: string;
     readonly optional?: boolean;

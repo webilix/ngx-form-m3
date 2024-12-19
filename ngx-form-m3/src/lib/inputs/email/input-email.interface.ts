@@ -13,9 +13,7 @@ export class InputEmailMethods extends InputMethods<IInputEmail, string | null> 
     override control(input: IInputEmail, validators: ValidatorFn[]): FormControl<string | null> {
         validators.push(Validators.pattern(Helper.RE.EMAIL.get()));
 
-        const value: string | null =
-            input.value === undefined ? null : Helper.RE.EMAIL.verify(input.value) ? input.value.toLowerCase() : null;
-
+        const value: string | null = input.value && Helper.RE.EMAIL.verify(input.value) ? input.value.toLowerCase() : null;
         return new FormControl<string | null>(value, validators);
     }
 

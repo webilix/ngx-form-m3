@@ -11,7 +11,7 @@ export interface IInputColor extends Omit<IInput, 'english' | 'autoFocus'> {
 export class InputColorMethods extends InputMethods<IInputColor, string | null> {
     override control(input: IInputColor, validators: ValidatorFn[]): FormControl<string | null> {
         const value: string | null =
-            input.value !== undefined && Helper.IS.STRING.color(input.value) ? Helper.COLOR.toHEX(input.value) : null;
+            input.value && Helper.IS.STRING.color(input.value) ? Helper.COLOR.toHEX(input.value) : null;
         return new FormControl<string | null>(value, validators);
     }
 
