@@ -43,7 +43,18 @@ export const SelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                     },
                 ],
             },
-            { rows: [] },
+            {
+                rows: [
+                    { name: 'select-1option-required', type: 'SELECT', title: 'یک انتخابی الزامی', options: [faOptions[0]] },
+                    {
+                        name: 'select-1option-optional',
+                        type: 'SELECT',
+                        title: 'یک انتخابی اختیاری',
+                        options: [faOptions[0]],
+                        optional: true,
+                    },
+                ],
+            },
             {
                 rows: [
                     {

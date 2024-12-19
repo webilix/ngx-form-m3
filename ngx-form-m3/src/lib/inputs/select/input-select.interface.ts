@@ -15,7 +15,8 @@ export class InputSelectMethods extends InputMethods<IInputSelect, string | null
     override control(input: IInputSelect, validators: ValidatorFn[]): FormControl<string | null> {
         const ids: string[] = input.options.map((option) => option.id);
 
-        const value: string | null = input.value && ids.includes(input.value) ? input.value : null;
+        let value: string | null = input.value && ids.includes(input.value) ? input.value : null;
+        if (value === null && ids.length === 1 && !input.optional) value = ids[0];
         return new FormControl<string | null>(value, validators);
     }
 
