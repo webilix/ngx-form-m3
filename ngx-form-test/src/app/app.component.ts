@@ -25,6 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'رنگ', type: 'COLOR' },
         { title: 'تاریخ', type: 'DATE' },
         { title: 'ایمیل', type: 'EMAIL' },
+        { title: 'فایل', type: 'FILE' },
         { title: 'موبایل', type: 'MOBILE' },
         { title: 'نام و نام خانوادگی', type: 'NAME' },
         { title: 'کلمه عبور', type: 'PASSWORD' },

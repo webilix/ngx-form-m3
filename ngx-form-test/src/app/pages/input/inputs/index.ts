@@ -1,6 +1,7 @@
 export * from './color';
 export * from './date';
 export * from './email';
+export * from './file';
 export * from './mobile';
 export * from './name';
 export * from './password';

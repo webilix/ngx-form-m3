@@ -6,6 +6,7 @@ import {
     IInputColor,
     IInputDate,
     IInputEmail,
+    IInputFile,
     IInputMobile,
     IInputName,
     IInputPassword,
@@ -18,6 +19,7 @@ export type NgxFormInputs =
     | IInputColor
     | IInputDate
     | IInputEmail
+    | IInputFile
     | IInputMobile
     | IInputName
     | IInputPassword

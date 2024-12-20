@@ -1,0 +1,44 @@
+<mat-form-field [appearance]="input.appearance || config.appearance" [floatLabel]="formControl.value ? 'always' : 'auto'">
+    <mat-label>{{ input.title || 'فایل' }}</mat-label>
+    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <!--  SUFFIX -->
+    <span matTextSuffix class="ngx-form-m3-input-suffix click" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+        <span>&nbsp;</span>
+        <mat-icon (click)="formControl.value ? formControl.setValue(null) : fileInput.click()">
+            {{ formControl.value ? 'close' : 'insert_drive_file' }}
+        </mat-icon>
+    </span>
+
+    <!-- INPUT -->
+    <input
+        type="file"
+        [style.display]="'none !important'"
+        [accept]="(input.mimes === 'IMAGE' ? ['image/gif', 'image/jpeg', 'image/png'] : input.mimes || ['*']).join(',')"
+        (change)="setFile($event); fileInput.value = ''"
+        #fileInput
+    />
+    <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+
+    <div
+        class="ngx-helper-form-m3-file-input"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        (click)="fileInput.value = ''; fileInput.click()"
+    >
+        <div class="size">{{ formControl.value?.size | ngxHelperFileSize }}</div>
+        <input type="text " matInput [readonly]="true" [disabled]="formControl.disabled" class="ngx-form-m3-en" />
+        <div class="name ngx-form-m3-en">{{ formControl.value?.name || '&nbsp;' }}</div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <div
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        [innerHTML]="input.description | MultiLinePipe"
+    ></div>
+    }
+</mat-form-field>

@@ -16,7 +16,7 @@
     <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
 
-    <content>
+    <div class="ngx-helper-form-m3-color-input">
         <section>
             <input type="color" (input)="formControl.setValue(colorInput.value)" [value]="formControl.value" #colorInput />
             <div
@@ -36,7 +36,7 @@
         >
             {{ formControl.value || '&nbsp;' }}
         </div>
-    </content>
+    </div>
 
     <!-- DESCRIPTION -->
     @if (input.description) {

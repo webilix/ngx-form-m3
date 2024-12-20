@@ -58,3 +58,74 @@
     opacity: 0.4;
     cursor: default;
 }
+
+/* INPUTS: COLOR */
+.ngx-helper-form-m3-color-input {
+    display: flex;
+    align-items: center;
+
+    section {
+        flex: 1;
+
+        display: block;
+        position: relative;
+
+        .color {
+            cursor: pointer;
+            border-width: 0px;
+        }
+
+        input[type='color'] {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0 !important;
+            opacity: 0;
+            z-index: -1;
+        }
+    }
+
+    .value {
+        width: 90px;
+        text-align: left;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+}
+
+/* INPUTS: FILE */
+.ngx-helper-form-m3-file-input {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .size {
+        font-size: 90%;
+    }
+
+    .name {
+        flex: 1;
+        width: 0;
+
+        direction: ltr;
+        text-align: left;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    input {
+        width: 0.5rem;
+    }
+}
+
+/* INPUTS: NAME */
+.ngx-helper-form-m3-name-input {
+    display: flex;
+    column-gap: 1rem;
+
+    mat-form-field {
+        flex: 1;
+    }
+}
