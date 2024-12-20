@@ -11,6 +11,7 @@ export interface IInputText extends IInput {
     readonly title: string;
     readonly minLength?: number;
     readonly maxLength?: number;
+    readonly readonly?: boolean;
 }
 
 export class InputTextMethods extends InputMethods<IInputText, string | null> {

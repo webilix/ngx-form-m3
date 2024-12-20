@@ -23,6 +23,7 @@ export const TextInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                     { name: 'text-length', type: 'TEXT', title: 'طول متن', optional: true, minLength: 5, maxLength: 5 },
                     { name: 'text-minLength', type: 'TEXT', title: 'حداقل طول متن', optional: true, minLength: 5 },
                     { name: 'text-maxLength', type: 'TEXT', title: 'حداکثر طول متن', optional: true, maxLength: 5 },
+                    { name: 'text-readonly', type: 'TEXT', title: 'فقط خواندنی', value: 'فقط خواندنی', readonly: true },
                 ],
             },
             {

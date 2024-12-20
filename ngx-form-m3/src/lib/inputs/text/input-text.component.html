@@ -13,6 +13,7 @@
         [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
         [maxLength]="input.maxLength || 524288"
         [AutoFocusDirective]="config.autoFocus === input.name"
+        [readonly]="input.readonly"
     />
 
     <!-- DESCRIPTION -->
