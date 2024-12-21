@@ -13,6 +13,7 @@ import {
     IInputSelect,
     IInputText,
     IInputTextarea,
+    IInputUrl,
 } from './inputs';
 
 export type NgxFormInputs =
@@ -25,7 +26,8 @@ export type NgxFormInputs =
     | IInputPassword
     | IInputSelect
     | IInputText
-    | IInputTextarea;
+    | IInputTextarea
+    | IInputUrl;
 
 type Inputs =
     | NgxFormInputs

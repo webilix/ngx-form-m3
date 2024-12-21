@@ -24,6 +24,8 @@ import {
     InputTextareaMethods,
     InputTextComponent,
     InputTextMethods,
+    InputUrlComponent,
+    InputUrlMethods,
 } from '.';
 
 export const InputInfo: {
@@ -43,4 +45,5 @@ export const InputInfo: {
     SELECT: { title: 'لیست کشویی', methods: new InputSelectMethods(), component: InputSelectComponent },
     TEXT: { title: 'متن یک خطی', methods: new InputTextMethods(), component: InputTextComponent },
     TEXTAREA: { title: 'متن چند خطی', methods: new InputTextareaMethods(), component: InputTextareaComponent },
+    URL: { title: 'آدرس سایت', methods: new InputUrlMethods(), component: InputUrlComponent },
 };

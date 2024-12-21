@@ -36,6 +36,7 @@ export class PageIndexComponent implements OnInit {
                             },
                             { name: 'color', type: 'COLOR', title: 'رنگ چشم', optional: true },
                             { name: 'file', type: 'FILE', title: 'رزومه', optional: true },
+                            { name: 'url', type: 'URL', optional: true },
                         ],
                     },
                     {

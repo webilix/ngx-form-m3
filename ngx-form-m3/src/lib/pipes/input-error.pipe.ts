@@ -47,6 +47,8 @@ export class InputErrorPipe implements PipeTransform {
                                 return 'مقدار باید شامل حروف انگلیسی بزرگ باشد.';
                         }
                         return 'کاراکترهای الزامی در کلمه عبور استفاده نشده‌اند.';
+                    case 'URL':
+                        return 'فرمت استاندارد آدرس سایت رعایت نشده است.';
                 }
                 break;
 

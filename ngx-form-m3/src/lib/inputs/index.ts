@@ -28,6 +28,9 @@ export * from './text/input-text.interface';
 export * from './textarea/input-textarea.component';
 export * from './textarea/input-textarea.interface';
 
+export * from './url/input-url.component';
+export * from './url/input-url.interface';
+
 export * from './input.component';
 export * from './input.info';
 export * from './input.interface';

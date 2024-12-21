@@ -32,6 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'لیست کشویی', type: 'SELECT' },
         { title: 'متن یک خطی', type: 'TEXT' },
         { title: 'متن چند خطی', type: 'TEXTAREA' },
+        { title: 'آدرس سایت', type: 'URL' },
     ];
 
     public colorMode!: ColorMode;
