@@ -33,6 +33,12 @@ export class InputErrorPipe implements PipeTransform {
             case 'maxdate':
                 return `تاریخ باید برابر یا قبل از ${value} انتخاب شده باشد.`;
 
+            case 'minmoment':
+                return `زمان باید برابر یا بعد از ${value} انتخاب شده باشد.`;
+
+            case 'maxmoment':
+                return `زمان باید برابر یا قبل از ${value} انتخاب شده باشد.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':

@@ -1,0 +1,35 @@
+<mat-form-field [appearance]="input.appearance || config.appearance" [floatLabel]="formControl.value ? 'always' : 'auto'">
+    <mat-label>{{ input.title || 'زمان' }}</mat-label>
+    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <!--  SUFFIX -->
+    <span matTextSuffix class="ngx-form-m3-input-suffix click" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+        <span>&nbsp;</span>
+        <mat-icon (click)="formControl.value ? formControl.setValue(null) : setMoment(); formControl.markAsTouched()">
+            {{ formControl.value ? 'close' : 'calendar_month' }}
+        </mat-icon>
+    </span>
+
+    <!-- INPUT -->
+    <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+    <input
+        type="text"
+        matInput
+        [readonly]="true"
+        [disabled]="formControl.disabled"
+        (click)="setMoment()"
+        [value]="formControl.value | ngxHelperDate : { format: 'FULL' }"
+    />
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <div
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        [innerHTML]="input.description | MultiLinePipe"
+    ></div>
+    }
+</mat-form-field>
