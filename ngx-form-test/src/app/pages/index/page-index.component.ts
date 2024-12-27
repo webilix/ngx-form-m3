@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 
 import { INgxForm, INgxFormInit, INgxFormValues, NgxFormComponent } from '@webilix/ngx-form-m3';
 
+import { DateComponent } from '../../components/date/date.component';
+import { WeekComponent } from '../../components/week/week.component';
+
 import { AppService } from '../../app.service';
 
 @Component({
@@ -12,6 +15,9 @@ import { AppService } from '../../app.service';
     styleUrl: './page-index.component.scss',
 })
 export class PageIndexComponent implements OnInit {
+    public dates: Date[] = [new Date()];
+    public weeks: { from: Date; to: Date }[] = [];
+
     private ngForm?: NgForm;
     public ngxForm: INgxForm = {
         submit: 'ثبت فرم',
@@ -44,6 +50,12 @@ export class PageIndexComponent implements OnInit {
                         rows: [
                             { name: 'email', type: 'EMAIL', optional: true },
                             { name: 'password', type: 'PASSWORD', optional: true },
+                            {
+                                name: 'dateComponent',
+                                type: 'COMPONENT',
+                                component: DateComponent,
+                                data: { dates: this.dates },
+                            },
                         ],
                     },
                     {
@@ -56,6 +68,12 @@ export class PageIndexComponent implements OnInit {
                                 title: 'آدرس',
                                 optional: true,
                                 description: 'گزینه‌های زیر را در آدرس مشخص کنید:\n - خیابان / کوچه\n - پلاک\n - واحد',
+                            },
+                            {
+                                name: 'weekComponent',
+                                type: 'COMPONENT',
+                                component: WeekComponent,
+                                data: { weeks: this.weeks },
                             },
                         ],
                     },
@@ -76,7 +94,7 @@ export class PageIndexComponent implements OnInit {
     }
 
     onSubmit(values: INgxFormValues): void {
-        console.log('onSubmit', values);
+        console.log('onSubmit', values, this.dates, this.weeks);
     }
 
     onChange(values: INgxFormValues): void {

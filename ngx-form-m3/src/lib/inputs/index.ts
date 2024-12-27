@@ -1,6 +1,9 @@
 export * from './color/input-color.component';
 export * from './color/input-color.interface';
 
+export * from './component/input-component.component';
+export * from './component/input-component.interface';
+
 export * from './date/input-date.component';
 export * from './date/input-date.interface';
 

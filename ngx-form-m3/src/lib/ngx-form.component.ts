@@ -253,7 +253,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
     setInput(input: NgxFormInputs): void {
         const name: string = input.name;
         const validators: ValidatorFn[] =
-            input.optional || ('readonly' in input && input.readonly) ? [] : [Validators.required];
+            !('optional' in input) || input.optional || ('readonly' in input && input.readonly) ? [] : [Validators.required];
 
         this.formGroup.setControl(name, InputInfo[input.type].methods.control(input, validators));
     }

@@ -6,6 +6,8 @@ import { InputMethods } from './input.interface';
 import {
     InputColorComponent,
     InputColorMethods,
+    InputComponentComponent,
+    InputComponentMethods,
     InputDateComponent,
     InputDateMethods,
     InputEmailComponent,
@@ -38,6 +40,7 @@ export const InputInfo: {
     };
 } = {
     COLOR: { title: 'رنگ', methods: new InputColorMethods(), component: InputColorComponent },
+    COMPONENT: { title: 'کامپوننت', methods: new InputComponentMethods(), component: InputComponentComponent },
     DATE: { title: 'تاریخ', methods: new InputDateMethods(), component: InputDateComponent },
     EMAIL: { title: 'ایمیل', methods: new InputEmailMethods(), component: InputEmailComponent },
     FILE: { title: 'فایل', methods: new InputFileMethods(), component: InputFileComponent },

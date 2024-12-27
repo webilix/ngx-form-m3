@@ -1,0 +1,15 @@
+<header>
+    <div class="title">تاریخ‌ها (نمایش کامپوننت)</div>
+    <button mat-icon-button type="button" (click)="add()"><mat-icon>add</mat-icon></button>
+</header>
+
+<content>
+    @for (item of dates; track $index) {
+    <div class="date">
+        <div class="value">{{ item | ngxHelperDate }}</div>
+        <button mat-icon-button type="button" (click)="delete($index)"><mat-icon>delete</mat-icon></button>
+    </div>
+    } @empty {
+    <div class="empty">تاریخ مشخص نشده است.</div>
+    }
+</content>

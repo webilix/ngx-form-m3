@@ -1,0 +1,47 @@
+:host {
+    display: block;
+    border-radius: 8px;
+    border: 1px solid var(--outline-variant);
+    font-size: 13px;
+
+    header {
+        display: flex;
+        align-items: center;
+        padding: 0.25rem 0.75rem 0.25rem 0;
+
+        border-radius: 8px 8px 0 0;
+        background-color: var(--surface-container-low);
+
+        .title {
+            flex: 1;
+        }
+    }
+
+    content {
+        .week {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid var(--outline-variant);
+
+            .value {
+                flex: 1;
+                padding-right: 0.75rem;
+            }
+
+            button {
+                mat-icon {
+                    color: var(--error);
+                }
+            }
+        }
+
+        .empty {
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--error);
+            border-top: 1px solid var(--outline-variant);
+        }
+    }
+}

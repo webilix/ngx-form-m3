@@ -1,0 +1,15 @@
+<header>
+    <div class="title">هفته‌ها (نمایش کامپوننت)</div>
+    <button mat-icon-button type="button" (click)="add()"><mat-icon>add</mat-icon></button>
+</header>
+
+<content>
+    @for (item of weeks; track $index) {
+    <div class="week">
+        <div class="value">{{ item.from | ngxHelperDate : { format: 'WEEK' } }}</div>
+        <button mat-icon-button type="button" (click)="delete($index)"><mat-icon>delete</mat-icon></button>
+    </div>
+    } @empty {
+    <div class="empty">هفته مشخص نشده است.</div>
+    }
+</content>

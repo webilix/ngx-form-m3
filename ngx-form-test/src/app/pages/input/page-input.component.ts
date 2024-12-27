@@ -32,6 +32,7 @@ export class PageInputComponent implements OnInit {
 
     public inputs: { [key in NgxFormInputs['type']]: { columns: { rows: NgxFormInputs[] }[] }[] } = {
         COLOR: ColorInputs,
+        COMPONENT: [],
         DATE: DateInputs,
         EMAIL: EmailInputs,
         FILE: FileInputs,
