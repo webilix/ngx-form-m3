@@ -15,6 +15,9 @@ export class InputErrorPipe implements PipeTransform {
         const value: any = errors[error];
 
         switch (error) {
+            case 'component':
+                return value;
+
             case 'required':
                 return 'مقدار الزامی است.';
 

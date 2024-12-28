@@ -15,9 +15,6 @@ import { AppService } from '../../app.service';
     styleUrl: './page-index.component.scss',
 })
 export class PageIndexComponent implements OnInit {
-    public dates: Date[] = [new Date()];
-    public weeks: { from: Date; to: Date }[] = [];
-
     private ngForm?: NgForm;
     public ngxForm: INgxForm = {
         submit: 'ثبت فرم',
@@ -53,8 +50,9 @@ export class PageIndexComponent implements OnInit {
                             {
                                 name: 'dateComponent',
                                 type: 'COMPONENT',
+                                title: 'تاریخ‌ها (نمایش کامپوننت)',
                                 component: DateComponent,
-                                data: { dates: this.dates },
+                                optional: true,
                             },
                         ],
                     },
@@ -72,8 +70,9 @@ export class PageIndexComponent implements OnInit {
                             {
                                 name: 'weekComponent',
                                 type: 'COMPONENT',
+                                title: 'هفته‌ها (نمایش کامپوننت)',
                                 component: WeekComponent,
-                                data: { weeks: this.weeks },
+                                optional: true,
                             },
                         ],
                     },
@@ -94,7 +93,7 @@ export class PageIndexComponent implements OnInit {
     }
 
     onSubmit(values: INgxFormValues): void {
-        console.log('onSubmit', values, this.dates, this.weeks);
+        console.log('onSubmit', values);
     }
 
     onChange(values: INgxFormValues): void {

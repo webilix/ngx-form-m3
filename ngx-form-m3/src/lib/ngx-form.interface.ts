@@ -1,4 +1,5 @@
-import { FormGroup, NgForm } from '@angular/forms';
+import { InjectionToken } from '@angular/core';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
@@ -69,3 +70,6 @@ export interface INgxFormButton {
 export interface INgxFormValues {
     [key: string]: any;
 }
+
+export const NGX_FORM_CONTROL: InjectionToken<FormControl> = new InjectionToken('NGX_FORM_CONTROL');
+export const NGX_FORM_INPUT: InjectionToken<any> = new InjectionToken('NGX_FORM_INPUT');

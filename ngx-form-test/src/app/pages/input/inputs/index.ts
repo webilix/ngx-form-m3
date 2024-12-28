@@ -1,4 +1,5 @@
 export * from './color';
+export * from './component';
 export * from './date';
 export * from './email';
 export * from './file';

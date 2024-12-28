@@ -1,47 +1,41 @@
 :host {
     display: block;
-    border-radius: 8px;
-    border: 1px solid var(--outline-variant);
-    font-size: 13px;
+    position: relative;
 
-    header {
-        display: flex;
-        align-items: center;
-        padding: 0.25rem 0.75rem 0.25rem 0;
-
-        border-radius: 8px 8px 0 0;
-        background-color: var(--surface-container-low);
-
-        .title {
-            flex: 1;
-        }
+    button.add {
+        position: absolute;
+        left: -0.5rem;
+        top: var(--top);
     }
 
     content {
-        .date {
-            display: flex;
-            align-items: center;
-            border-top: 1px solid var(--outline-variant);
+        display: block;
+        padding-top: 1.5rem;
 
-            .value {
-                flex: 1;
-                padding-right: 0.75rem;
-            }
+        .content {
+            max-height: 200px;
+            overflow: auto;
 
-            button {
-                mat-icon {
-                    color: var(--error);
+            .date {
+                display: flex;
+                align-items: center;
+                height: 32px;
+                position: relative;
+                overflow: hidden;
+
+                .value {
+                    flex: 1;
+                }
+
+                button {
+                    position: absolute;
+                    left: -0.5rem;
+
+                    mat-icon {
+                        color: var(--error);
+                    }
                 }
             }
-        }
-
-        .empty {
-            padding: 1rem 0;
-            text-align: center;
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--error);
-            border-top: 1px solid var(--outline-variant);
         }
     }
 }
