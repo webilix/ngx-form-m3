@@ -1,4 +1,4 @@
-import { NgxFormInputs } from '@webilix/ngx-form-m3';
+import { INgxFormValues, NgxFormInputs } from '@webilix/ngx-form-m3';
 
 export const TextInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
     {
@@ -12,6 +12,12 @@ export const TextInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         value: 'متن یک خطی',
                         appearance: 'fill',
                         hint: 'راهنما: مقدار الزامی است.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                     { name: 'text-optional', type: 'TEXT', title: 'اختیاری', optional: true },
                     { name: 'text-autoFocus', type: 'TEXT', title: 'فوکوس', optional: true, autoFocus: true },
@@ -35,6 +41,12 @@ export const TextInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                         disableOn: (values) => !!values['text-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه غیرفعال می‌شود.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                     {
                         name: 'text-hideOn',
@@ -43,6 +55,12 @@ export const TextInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                         hideOn: (values) => !!values['text-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه پنهان می‌شود.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                 ],
             },

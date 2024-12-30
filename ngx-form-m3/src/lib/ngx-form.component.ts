@@ -61,6 +61,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
 
     protected sections: ISection[] = [];
     protected hiddenInputs: string[] = [];
+    protected values: INgxFormValues = {};
     protected lastValues: INgxFormValues = {};
     protected lastSubmit?: Date;
 
@@ -125,7 +126,9 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
                     this.lastValues = { ...this.formGroup.value };
                 }
 
-                this.onChange.next(this.getValues());
+                this.values = this.getValues();
+                console.log(this.values);
+                this.onChange.next(this.values);
             },
         });
 

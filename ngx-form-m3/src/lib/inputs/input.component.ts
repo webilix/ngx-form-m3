@@ -1,8 +1,8 @@
-import { Component, Injector, Input, OnInit } from '@angular/core';
+import { Component, Injector, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { NgxFormInputs } from '../ngx-form.interface';
+import { INgxFormValues, NgxFormInputs } from '../ngx-form.interface';
 
 import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE, InputInfo } from '.';
 
@@ -12,17 +12,18 @@ import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE, InputInfo } from
     templateUrl: './input.component.html',
     styleUrl: './input.component.scss',
 })
-export class InputComponent implements OnInit {
+export class InputComponent implements OnInit, OnChanges {
     @Input({ required: true }) formGroup!: FormGroup;
     @Input({ required: true }) input!: NgxFormInputs;
     @Input({ required: true }) config!: IInputConfig;
+    @Input({ required: true }) values!: INgxFormValues;
 
     public inputInfo = InputInfo;
     public injector!: Injector;
+    public isButtonDisabled!: boolean;
 
     ngOnInit(): void {
         const formControl: FormControl = this.formGroup.get(this.input.name) as FormControl;
-
         this.injector = Injector.create({
             providers: [
                 { provide: INPUT_CONTROL, useValue: formControl },
@@ -30,5 +31,14 @@ export class InputComponent implements OnInit {
                 { provide: INPUT_CONFIG, useValue: this.config },
             ],
         });
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        const formControl = this.injector?.get(INPUT_CONTROL);
+
+        this.isButtonDisabled =
+            'button' in this.input &&
+            !!this.input.button &&
+            (formControl?.disabled || !!this.input.button.disableOn?.(this.values));
     }
 }

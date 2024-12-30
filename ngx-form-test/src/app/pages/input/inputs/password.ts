@@ -1,11 +1,22 @@
-import { NgxFormInputs } from '@webilix/ngx-form-m3';
+import { INgxFormValues, NgxFormInputs } from '@webilix/ngx-form-m3';
 
 export const PasswordInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
     {
         columns: [
             {
                 rows: [
-                    { name: 'password', type: 'PASSWORD', appearance: 'fill', hint: 'راهنما: مقدار الزامی است.' },
+                    {
+                        name: 'password',
+                        type: 'PASSWORD',
+                        appearance: 'fill',
+                        hint: 'راهنما: مقدار الزامی است.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
+                    },
                     { name: 'password-optional', type: 'PASSWORD', title: 'اختیاری', optional: true },
                     { name: 'password-autoFocus', type: 'PASSWORD', title: 'فوکوس', optional: true, autoFocus: true },
                 ],
@@ -44,6 +55,12 @@ export const PasswordInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                         disableOn: (values) => !!values['password-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه غیرفعال می‌شود.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                     {
                         name: 'password-hideOn',
@@ -52,6 +69,12 @@ export const PasswordInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                         hideOn: (values) => !!values['password-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه پنهان می‌شود.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                 ],
             },

@@ -1,4 +1,4 @@
-import { NgxFormInputs } from '@webilix/ngx-form-m3';
+import { INgxFormValues, NgxFormInputs } from '@webilix/ngx-form-m3';
 
 export const NumberInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
     {
@@ -11,8 +11,14 @@ export const NumberInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'مقدار عددی',
                         value: 123456789,
                         appearance: 'fill',
-                        hint: 'راهنما: مقدار الزامی است.',
                         showText: true,
+                        hint: 'راهنما: مقدار الزامی است.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                     { name: 'number-optional', type: 'NUMBER', title: 'اختیاری', optional: true },
                     { name: 'number-autoFocus', type: 'NUMBER', title: 'فوکوس', optional: true, autoFocus: true },
@@ -68,6 +74,12 @@ export const NumberInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                         disableOn: (values) => !!values['number-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه غیرفعال می‌شود.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                     {
                         name: 'number-hideOn',
@@ -76,6 +88,12 @@ export const NumberInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                         hideOn: (values) => !!values['number-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه پنهان می‌شود.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                 ],
             },

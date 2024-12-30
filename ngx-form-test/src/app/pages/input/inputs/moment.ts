@@ -1,4 +1,4 @@
-import { NgxFormInputs } from '@webilix/ngx-form-m3';
+import { INgxFormValues, NgxFormInputs } from '@webilix/ngx-form-m3';
 
 export const MomentInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
     {
@@ -11,6 +11,12 @@ export const MomentInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         value: new Date(),
                         appearance: 'fill',
                         hint: 'راهنما: مقدار الزامی است.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                     { name: 'moment-optional', type: 'MOMENT', title: 'اختیاری', optional: true },
                 ],
@@ -30,6 +36,12 @@ export const MomentInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                         disableOn: (values) => !!values['moment-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه غیرفعال می‌شود.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                     {
                         name: 'moment-hideOn',
@@ -38,6 +50,12 @@ export const MomentInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                         hideOn: (values) => !!values['moment-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه پنهان می‌شود.',
+                        button: {
+                            icon: 'ads_click',
+                            color: 'var(--primary)',
+                            onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
+                            disableOn: (values: INgxFormValues) => !!values['name'],
+                        },
                     },
                 ],
             },

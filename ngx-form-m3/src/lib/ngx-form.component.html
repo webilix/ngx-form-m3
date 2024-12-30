@@ -34,7 +34,12 @@
                     <!-- CHECK Row VIEW -->
                     @if (showInput(input)) {
                     <div class="input" [style.flex]="row.flex[$index]">
-                        <form-input [formGroup]="formGroup" [input]="input" [config]="inputConfig"></form-input>
+                        <form-input
+                            [formGroup]="formGroup"
+                            [input]="input"
+                            [config]="inputConfig"
+                            [values]="values"
+                        ></form-input>
                     </div>
                     } }
                 </div>

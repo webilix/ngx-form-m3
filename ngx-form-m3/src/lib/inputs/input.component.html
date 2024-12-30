@@ -1,1 +1,3 @@
-<ng-container *ngComponentOutlet="inputInfo[input.type].component; injector: injector"></ng-container>
+<ng-container
+    *ngComponentOutlet="inputInfo[input.type].component; inputs: { values, isButtonDisabled }; injector: injector"
+></ng-container>

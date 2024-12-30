@@ -5,6 +5,13 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import { INgxFormValues } from '../ngx-form.interface';
 
+export interface IInputButton {
+    readonly icon: string;
+    readonly color?: string;
+    readonly onClick: (values: INgxFormValues) => void;
+    readonly disableOn?: (values: INgxFormValues) => boolean;
+}
+
 export interface IInput {
     readonly name: string;
     readonly title?: string;
@@ -15,6 +22,7 @@ export interface IInput {
     readonly english?: boolean;
     readonly autoFocus?: boolean;
     readonly appearance?: MatFormFieldAppearance;
+    readonly button?: IInputButton;
     readonly disableOn?: (values: INgxFormValues) => boolean;
     readonly hideOn?: (values: INgxFormValues) => boolean;
 }

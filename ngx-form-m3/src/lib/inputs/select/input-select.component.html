@@ -5,6 +5,17 @@
     <!-- HINT -->
     @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
+    <!-- BUTTON -->
+    @if (input.button) {
+    <span matIconSuffix>
+        <button mat-icon-button type="button" [disabled]="isButtonDisabled" (click)="input.button.onClick(values)">
+            <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                {{ input.button.icon }}
+            </mat-icon>
+        </button>
+    </span>
+    }
+
     <mat-select
         [formControl]="formControl"
         [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
