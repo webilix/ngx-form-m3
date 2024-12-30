@@ -22,6 +22,9 @@ export * from './moment/input-moment.interface';
 export * from './name/input-name.component';
 export * from './name/input-name.interface';
 
+export * from './number/input-number.component';
+export * from './number/input-number.interface';
+
 export * from './password/input-password.component';
 export * from './password/input-password.interface';
 

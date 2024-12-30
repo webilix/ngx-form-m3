@@ -24,6 +24,15 @@ export class InputErrorPipe implements PipeTransform {
             case 'length':
                 return `مقدار باید داری ${Helper.NUMBER.format(value)} کاراکتر باشد.`;
 
+            case 'minimum':
+                return `مقدار نمی‌تواند کوچکتر از ${Helper.NUMBER.format(value)} باشد.`;
+
+            case 'maximum':
+                return `مقدار نمی‌تواند بزرگتر از ${Helper.NUMBER.format(value)} باشد.`;
+
+            case 'multiplyOf':
+                return `مقدار باید مضربی از ${Helper.NUMBER.format(value)} باشد.`;
+
             case 'minlength':
                 return `مقدار باید حداقل داری ${Helper.NUMBER.format(value.requiredLength)} کاراکتر باشد.`;
 

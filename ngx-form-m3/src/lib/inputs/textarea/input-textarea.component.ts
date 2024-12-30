@@ -33,5 +33,5 @@ export class InputTextareaComponent {
     public input: IInputTextarea = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
 
-    public focused: boolean = false;
+    public isFocused: boolean = false;
 }

@@ -6,7 +6,7 @@
     @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
     <!-- COUNTER -->
-    @if (focused && input.counter) {
+    @if (isFocused && input.counter) {
     <mat-hint [align]="'end'">
         {{ formControl.value?.length || 0 | number }}{{ input.maxLength ? ' از ' + (input.maxLength | number) : '' }}
     </mat-hint>
@@ -24,8 +24,8 @@
         [AutoHeightDirective]="!!input.autoHeight"
         [minHeight]="input.height || 75"
         [maxHeight]="input.maxHeight || 0"
-        (focus)="focused = true"
-        (blur)="focused = false"
+        (focus)="isFocused = true"
+        (blur)="isFocused = false"
     ></textarea>
 
     <!-- DESCRIPTION -->

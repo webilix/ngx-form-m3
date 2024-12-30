@@ -27,6 +27,7 @@ export class PageIndexComponent implements OnInit {
                             { name: 'name', type: 'NAME', optional: true },
                             { name: 'mobile', type: 'MOBILE', optional: true },
                             { name: 'date', type: 'DATE', title: 'تاریخ تولد', optional: true },
+                            { name: 'age', type: 'NUMBER', title: 'سن', optional: true },
                             {
                                 name: 'gender',
                                 type: 'SELECT',

@@ -37,9 +37,9 @@ export class DateComponent implements OnInit {
             next: () => {
                 if (!this.firstCheck) this.formControl.markAsTouched();
 
-                this.checkErrors();
                 this.firstCheck = false;
                 this.getValue();
+                this.checkErrors();
             },
         });
 
