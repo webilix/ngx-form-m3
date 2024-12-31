@@ -16,6 +16,9 @@ export * from './email/input-email.interface';
 export * from './file/input-file.component';
 export * from './file/input-file.interface';
 
+export * from './ip/input-ip.component';
+export * from './ip/input-ip.interface';
+
 export * from './mobile/input-mobile.component';
 export * from './mobile/input-mobile.interface';
 

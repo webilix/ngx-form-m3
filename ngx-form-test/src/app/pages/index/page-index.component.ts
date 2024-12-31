@@ -77,6 +77,7 @@ export class PageIndexComponent implements OnInit {
                                 message: 'تایید اطلاعات ثبت شده در فرم',
                                 button: this.inputButton,
                             },
+                            { name: 'ip', type: 'IP', optional: true, button: this.inputButton },
                         ],
                     },
                     {

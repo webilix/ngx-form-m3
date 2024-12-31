@@ -10,6 +10,7 @@ import {
     IInputDate,
     IInputEmail,
     IInputFile,
+    IInputIp,
     IInputMobile,
     IInputMoment,
     IInputName,
@@ -28,6 +29,7 @@ export type NgxFormInputs =
     | IInputDate
     | IInputEmail
     | IInputFile
+    | IInputIp
     | IInputMobile
     | IInputMoment
     | IInputName

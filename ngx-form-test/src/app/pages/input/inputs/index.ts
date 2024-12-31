@@ -4,6 +4,7 @@ export * from './component';
 export * from './date';
 export * from './email';
 export * from './file';
+export * from './ip';
 export * from './mobile';
 export * from './moment';
 export * from './name';

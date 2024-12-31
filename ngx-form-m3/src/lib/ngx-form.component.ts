@@ -127,7 +127,6 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
                 }
 
                 this.values = this.getValues();
-                console.log(this.values);
                 this.onChange.next(this.values);
             },
         });
