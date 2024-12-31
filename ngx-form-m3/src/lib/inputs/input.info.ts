@@ -4,6 +4,8 @@ import { NgxFormInputs } from '../ngx-form.interface';
 
 import { InputMethods } from './input.interface';
 import {
+    InputCheckboxComponent,
+    InputCheckboxMethods,
     InputColorComponent,
     InputColorMethods,
     InputComponentComponent,
@@ -41,6 +43,7 @@ export const InputInfo: {
         readonly component: ComponentType<any>;
     };
 } = {
+    CHECKBOX: { title: 'یک انتخابی', methods: new InputCheckboxMethods(), component: InputCheckboxComponent },
     COLOR: { title: 'رنگ', methods: new InputColorMethods(), component: InputColorComponent },
     COMPONENT: { title: 'کامپوننت', methods: new InputComponentMethods(), component: InputComponentComponent },
     DATE: { title: 'تاریخ', methods: new InputDateMethods(), component: InputDateComponent },

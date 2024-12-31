@@ -71,6 +71,12 @@ export class PageIndexComponent implements OnInit {
                                 optional: true,
                                 button: this.inputButton,
                             },
+                            {
+                                name: 'checkbox',
+                                type: 'CHECKBOX',
+                                message: 'تایید اطلاعات ثبت شده در فرم',
+                                button: this.inputButton,
+                            },
                         ],
                     },
                     {

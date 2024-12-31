@@ -59,6 +59,20 @@
     cursor: default;
 }
 
+/* INPUTS: CHECKBOX */
+.ngx-helper-form-m3-checkbox-input {
+    display: inline-flex;
+    align-items: flex-start;
+    column-gap: 0.5rem;
+
+    cursor: pointer;
+
+    .message {
+        flex: 1;
+        text-align: right;
+    }
+}
+
 /* INPUTS: COLOR */
 .ngx-helper-form-m3-color-input {
     display: flex;

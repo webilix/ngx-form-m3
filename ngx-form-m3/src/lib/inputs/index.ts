@@ -1,3 +1,6 @@
+export * from './checkbox/input-checkbox.component';
+export * from './checkbox/input-checkbox.interface';
+
 export * from './color/input-color.component';
 export * from './color/input-color.interface';
 

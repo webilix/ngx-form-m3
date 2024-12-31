@@ -4,6 +4,7 @@ import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import {
+    IInputCheckbox,
     IInputColor,
     IInputComponent,
     IInputDate,
@@ -21,6 +22,7 @@ import {
 } from './inputs';
 
 export type NgxFormInputs =
+    | IInputCheckbox
     | IInputColor
     | IInputComponent
     | IInputDate

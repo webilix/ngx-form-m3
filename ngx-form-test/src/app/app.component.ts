@@ -22,6 +22,7 @@ type ColorMode = 'LIGHT' | 'DARK';
 })
 export class AppComponent implements OnInit, OnDestroy {
     public inputs: { title: string; type: NgxFormInputs['type'] }[] = [
+        { title: 'یک انتخابی', type: 'CHECKBOX' },
         { title: 'رنگ', type: 'COLOR' },
         { title: 'کامپوننت', type: 'COMPONENT' },
         { title: 'تاریخ', type: 'DATE' },
