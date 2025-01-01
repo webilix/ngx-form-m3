@@ -24,12 +24,33 @@
     <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
     <div class="ngx-helper-form-m3-multi-select-input" [class.ngx-form-m3-disabled-input]="formControl.disabled">
-        <div class="title">{{ input.title }}</div>
+        <div class="header">
+            <div class="title">
+                {{ input.title }}
+                @if (input.minCount) { <span class="asterisk">*</span> }
+            </div>
+            <!-- SELECT BUTTONS -->
+            @if (input.selectButtons) {
+            <button mat-button type="button" (click)="select('ALL')">همه</button>
+            <button mat-button type="button" (click)="select('NONE')">هیچ</button>
+            }
+            <!-- GROUPS -->
+            @if ((input.groups || []).length !== 0) {
+            <button mat-button type="button" [matMenuTriggerFor]="groupMenu">انتخاب</button>
+            <mat-menu #groupMenu="matMenu" [xPosition]="'before'" class="ngx-helper-form-m3-multi-select-input-menu">
+                @for (item of input.groups || []; track $index) {
+                <button mat-menu-item (click)="selectGroup($index)">{{ item.title }}</button>
+                }
+            </mat-menu>
+            }
+        </div>
         <div class="options">
             @for (item of input.options; track $index) {
             <div>
                 <div class="option" (click)="toggleValue(item.id)">
-                    <mat-icon>{{ ids.includes(item.id) ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
+                    <mat-icon [class.selected]="ids.includes(item.id)">
+                        {{ ids.includes(item.id) ? 'check_box' : 'check_box_outline_blank' }}
+                    </mat-icon>
                     <div class="message" [class.ngx-form-m3-en]="!!input.english">{{ item.title }}</div>
                 </div>
             </div>

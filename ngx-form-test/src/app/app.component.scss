@@ -76,7 +76,21 @@ body.dark {
     }
 }
 
-::ng-deep .menu-content {
-    max-height: 50vh;
-    overflow: auto;
+::ng-deep .input-menu {
+    .content {
+        max-height: 50vh;
+        overflow: auto;
+    }
+
+    .mat-mdc-menu-content {
+        padding: 0 !important;
+
+        direction: rtl;
+        text-align: right;
+    }
+
+    .mat-mdc-menu-item {
+        direction: rtl;
+        text-align: right;
+    }
 }

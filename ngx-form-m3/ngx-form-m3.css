@@ -156,8 +156,29 @@
 
 /* INPUTS: MULTI-SELECT */
 .ngx-helper-form-m3-multi-select-input {
-    .title {
+    .header {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
+
         padding-bottom: 0.5rem;
+
+        .title {
+            flex: 1;
+            width: 0;
+
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        button {
+            padding: 0 0.5rem;
+            height: auto;
+            min-width: auto;
+            border-radius: 0;
+            font-size: 85%;
+        }
     }
 
     .options {
@@ -174,6 +195,10 @@
             .message {
                 flex: 1;
                 text-align: right;
+            }
+
+            mat-icon.selected {
+                color: var(--primary);
             }
         }
     }

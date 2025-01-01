@@ -254,9 +254,11 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
 
     setInput(input: NgxFormInputs): void {
         const name: string = input.name;
-        const optional: boolean = 'optional' in input && !!input.optional;
         const readonly: boolean = 'readonly' in input && !!input.readonly;
-        const validators: ValidatorFn[] = !optional && !readonly ? [Validators.required] : [];
+        const validators: ValidatorFn[] =
+            input.type === 'CHECKBOX' || input.type === 'MULTI-SELECT' || input.optional || readonly
+                ? []
+                : [Validators.required];
 
         this.formGroup.setControl(name, InputInfo[input.type].methods.control(input, validators));
     }

@@ -3,8 +3,8 @@
         <button mat-icon-button type="button" [matMenuTriggerFor]="inputMenu">
             <mat-icon>menu</mat-icon>
         </button>
-        <mat-menu #inputMenu="matMenu" [dir]="'rtl'">
-            <div class="menu-content">
+        <mat-menu #inputMenu="matMenu" [dir]="'rtl'" class="input-menu">
+            <div class="content">
                 @for (item of inputs; track $index) {
                 <button mat-menu-item [routerLink]="['/input', item.type]" [disabled]="header === item.type">
                     {{ item.title }}

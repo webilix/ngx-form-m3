@@ -12,9 +12,14 @@ export interface IInputMultiSelect extends Omit<IInput, 'value' | 'optional' | '
         readonly id: string;
         readonly title: string;
     }[];
+    readonly groups?: {
+        readonly title: string;
+        readonly ids: string[];
+    }[];
     readonly minCount?: number;
     readonly maxCount?: number;
     readonly listMaxHeight?: number;
+    readonly selectButtons?: boolean;
 }
 
 export class InputMultiSelectMethods extends InputMethods<IInputMultiSelect, string[] | null> {

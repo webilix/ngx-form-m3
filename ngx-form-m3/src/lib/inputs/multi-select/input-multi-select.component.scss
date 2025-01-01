@@ -1,0 +1,13 @@
+::ng-deep .ngx-helper-form-m3-multi-select-input-menu {
+    .mat-mdc-menu-content {
+        padding: 0 !important;
+
+        direction: rtl;
+        text-align: right;
+    }
+
+    .mat-mdc-menu-item {
+        direction: rtl;
+        text-align: right;
+    }
+}

@@ -29,6 +29,7 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                             onClick: (values: INgxFormValues) => console.log('BUTTON onClick', values),
                             disableOn: (values: INgxFormValues) => !!values['name'],
                         },
+                        minCount: 1,
                     },
                     { name: 'multi-select-optional', type: 'MULTI-SELECT', title: 'اختیاری', options: faOptions },
                     {
@@ -48,6 +49,7 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'حداقل انتخاب',
                         options: faOptions,
                         minCount: 2,
+                        selectButtons: true,
                     },
                     {
                         name: 'multi-select-max-count',
@@ -55,6 +57,10 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'حداکثر انتخاب',
                         options: faOptions,
                         maxCount: 2,
+                        groups: [
+                            { title: 'فرد', ids: ['OPT1', 'OPT3', 'OPT5'] },
+                            { title: 'زوج', ids: ['OPT2', 'OPT4'] },
+                        ],
                     },
                     {
                         name: 'multi-select-list-height',
@@ -62,6 +68,11 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'ارتفاع لیست',
                         options: faOptions,
                         listMaxHeight: 120,
+                        selectButtons: true,
+                        groups: [
+                            { title: 'فرد', ids: ['OPT1', 'OPT3', 'OPT5'] },
+                            { title: 'زوج', ids: ['OPT2', 'OPT4'] },
+                        ],
                     },
                 ],
             },
