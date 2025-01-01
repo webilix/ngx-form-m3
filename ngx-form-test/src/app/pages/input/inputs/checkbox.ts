@@ -19,7 +19,7 @@ export const CheckboxInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                             disableOn: (values: INgxFormValues) => !!values['name'],
                         },
                     },
-                    { name: 'checkbox-english', type: 'CHECKBOX', message: 'انگلیسی', english: true },
+                    { name: 'checkbox-english', type: 'CHECKBOX', message: 'English', english: true },
                 ],
             },
             {
