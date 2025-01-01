@@ -51,6 +51,12 @@ export class InputErrorPipe implements PipeTransform {
             case 'maxmoment':
                 return `زمان باید برابر یا قبل از ${value} انتخاب شده باشد.`;
 
+            case 'mincount':
+                return `انتخاب حداقل ${Helper.NUMBER.format(value)} گزینه الزامی است.`;
+
+            case 'maxcount':
+                return `امکان انتخاب بیشتر از ${Helper.NUMBER.format(value)} گزینه وجود ندارد.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':

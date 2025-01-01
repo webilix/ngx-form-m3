@@ -1,0 +1,21 @@
+.title {
+    padding-bottom: 0.5rem;
+}
+
+.options {
+    overflow: auto;
+    max-height: 300px;
+
+    .option {
+        display: inline-flex;
+        align-items: flex-start;
+        column-gap: 0.5rem;
+
+        cursor: pointer;
+
+        .message {
+            flex: 1;
+            text-align: right;
+        }
+    }
+}

@@ -109,6 +109,15 @@ export class PageIndexComponent implements OnInit {
                                 optional: true,
                                 button: this.inputButton,
                             },
+                            {
+                                name: 'multi-select',
+                                type: 'MULTI-SELECT',
+                                title: 'انتخاب‌ها',
+                                options: [...Array(50).keys()].map((index: number) => ({
+                                    id: `OPT-${index + 1}`,
+                                    title: `انتخاب ${index + 1}`,
+                                })),
+                            },
                         ],
                     },
                 ],

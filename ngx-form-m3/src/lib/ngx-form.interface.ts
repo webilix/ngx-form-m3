@@ -15,6 +15,7 @@ import {
     IInputIp,
     IInputMobile,
     IInputMoment,
+    IInputMultiSelect,
     IInputName,
     IInputNumber,
     IInputPassword,
@@ -36,6 +37,7 @@ export type NgxFormInputs =
     | IInputIp
     | IInputMobile
     | IInputMoment
+    | IInputMultiSelect
     | IInputName
     | IInputNumber
     | IInputPassword

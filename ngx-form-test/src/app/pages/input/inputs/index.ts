@@ -9,6 +9,7 @@ export * from './icon';
 export * from './ip';
 export * from './mobile';
 export * from './moment';
+export * from './multi-select';
 export * from './name';
 export * from './number';
 export * from './password';

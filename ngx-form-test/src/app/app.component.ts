@@ -33,6 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'آدرس آی‌پی', type: 'IP' },
         { title: 'موبایل', type: 'MOBILE' },
         { title: 'زمان', type: 'MOMENT' },
+        { title: 'چند انتخابی', type: 'MULTI-SELECT' },
         { title: 'نام و نام خانوادگی', type: 'NAME' },
         { title: 'مقدار عددی', type: 'NUMBER' },
         { title: 'کلمه عبور', type: 'PASSWORD' },

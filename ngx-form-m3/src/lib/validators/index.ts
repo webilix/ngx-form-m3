@@ -1,3 +1,6 @@
+export * from './count/max-count.validator';
+export * from './count/min-count.validator';
+
 export * from './date/max-date.validator';
 export * from './date/min-date.validator';
 

@@ -1,0 +1,48 @@
+<mat-form-field [appearance]="input.appearance || config.appearance">
+    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <!-- BUTTON -->
+    @if (input.button) {
+    <span matIconSuffix>
+        <button
+            mat-icon-button
+            type="button"
+            [disabled]="isButtonDisabled"
+            (click)="input.button.onClick(values)"
+            [tabIndex]="-1"
+        >
+            <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                {{ input.button.icon }}
+            </mat-icon>
+        </button>
+    </span>
+    }
+
+    <!-- INPUT -->
+    <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+    <div class="ngx-helper-form-m3-multi-select-input" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+        <div class="title">{{ input.title }}</div>
+        <div class="options">
+            @for (item of input.options; track $index) {
+            <div>
+                <div class="option" (click)="toggleValue(item.id)">
+                    <mat-icon>{{ ids.includes(item.id) ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
+                    <div class="message" [class.ngx-form-m3-en]="!!input.english">{{ item.title }}</div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <div
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        [innerHTML]="input.description | MultiLinePipe"
+    ></div>
+    }
+</mat-form-field>
