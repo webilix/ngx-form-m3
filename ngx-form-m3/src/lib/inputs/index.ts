@@ -1,3 +1,6 @@
+export * from './auto-complete/input-auto-complete.component';
+export * from './auto-complete/input-auto-complete.interface';
+
 export * from './checkbox/input-checkbox.component';
 export * from './checkbox/input-checkbox.interface';
 

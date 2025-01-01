@@ -4,6 +4,8 @@ import { NgxFormInputs } from '../ngx-form.interface';
 
 import { InputMethods } from './input.interface';
 import {
+    InputAutoCompleteComponent,
+    InputAutoCompleteMethods,
     InputCheckboxComponent,
     InputCheckboxMethods,
     InputColorComponent,
@@ -45,6 +47,11 @@ export const InputInfo: {
         readonly component: ComponentType<any>;
     };
 } = {
+    'AUTO-COMPLETE': {
+        title: 'لیست تکمیلی',
+        methods: new InputAutoCompleteMethods(),
+        component: InputAutoCompleteComponent,
+    },
     CHECKBOX: { title: 'یک انتخابی', methods: new InputCheckboxMethods(), component: InputCheckboxComponent },
     COLOR: { title: 'رنگ', methods: new InputColorMethods(), component: InputColorComponent },
     COMPONENT: { title: 'کامپوننت', methods: new InputComponentMethods(), component: InputComponentComponent },

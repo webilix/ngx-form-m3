@@ -1,0 +1,47 @@
+<mat-form-field [appearance]="input.appearance || config.appearance">
+    <mat-label>{{ input.title }}</mat-label>
+    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <!-- BUTTON -->
+    @if (input.button) {
+    <span matIconSuffix>
+        <button mat-icon-button type="button" [disabled]="isButtonDisabled" (click)="input.button.onClick(values)">
+            <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                {{ input.button.icon }}
+            </mat-icon>
+        </button>
+    </span>
+    }
+
+    <input
+        matInput
+        type="text"
+        [name]="input.name"
+        [formControl]="formControl"
+        [class.ngx-form-m3-en]="input.english"
+        [maxLength]="524288"
+        [matAutocomplete]="ngxAutoComplete"
+        (input)="filter()"
+        (focus)="filter()"
+    />
+    <mat-autocomplete #ngxAutoComplete="matAutocomplete" class="ngx-helper-form-m3-auto-complete-input">
+        <div class="options">
+            <!-- OPTIONS -->
+            @for (option of filtered ; track $index) {
+            <mat-option [value]="option" [class.ngx-form-m3-en]="input.english">{{ option }}</mat-option>
+            }
+        </div>
+    </mat-autocomplete>
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <div
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        [innerHTML]="input.description | MultiLinePipe"
+    ></div>
+    }
+</mat-form-field>

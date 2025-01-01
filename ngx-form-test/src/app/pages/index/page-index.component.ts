@@ -78,6 +78,14 @@ export class PageIndexComponent implements OnInit {
                                 button: this.inputButton,
                             },
                             { name: 'ip', type: 'IP', optional: true, button: this.inputButton },
+                            {
+                                name: 'auto-complete',
+                                type: 'AUTO-COMPLETE',
+                                title: 'گزینه‌ها',
+                                options: ['اول', 'دوم', 'سوم'],
+                                optional: true,
+                                button: this.inputButton,
+                            },
                         ],
                     },
                     {

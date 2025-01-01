@@ -6,6 +6,7 @@ import { INgxForm, INgxFormValues, NgxFormComponent, NgxFormInputs } from '@webi
 import { AppService } from '../../app.service';
 
 import {
+    AutoCompleteInputs,
     CheckboxInputs,
     ColorInputs,
     ComponentInputs,
@@ -35,6 +36,7 @@ export class PageInputComponent implements OnInit {
     public type!: NgxFormInputs['type'];
 
     public inputs: { [key in NgxFormInputs['type']]: { columns: { rows: NgxFormInputs[] }[] }[] } = {
+        'AUTO-COMPLETE': AutoCompleteInputs,
         CHECKBOX: CheckboxInputs,
         COLOR: ColorInputs,
         COMPONENT: ComponentInputs,
