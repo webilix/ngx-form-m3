@@ -6,7 +6,7 @@ import { MatIcon } from '@angular/material/icon';
 
 import { Helper } from '@webilix/helper-library';
 import { INgxCalendarDate, NgxCalendarService } from '@webilix/ngx-calendar-m3';
-import { NGX_FORM_CONTROL, NGX_FORM_INPUT, NgxFormInputs } from '@webilix/ngx-form-m3';
+import { IInputComponent, NGX_FORM_CONTROL, NGX_FORM_INPUT, NgxFormInputs } from '@webilix/ngx-form-m3';
 import { NgxHelperDatePipe } from '@webilix/ngx-helper-m3';
 
 @Component({
@@ -23,7 +23,7 @@ export class DateComponent implements OnInit {
     @Input({ required: false }) unique?: boolean;
 
     public formControl: FormControl = inject(NGX_FORM_CONTROL);
-    public input: NgxFormInputs = inject(NGX_FORM_INPUT);
+    public input: IInputComponent = inject(NGX_FORM_INPUT);
 
     public dates: Date[] = [];
     private firstCheck: boolean = true;

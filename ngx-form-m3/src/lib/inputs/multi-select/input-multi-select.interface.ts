@@ -4,7 +4,7 @@ import { MaxCountValidator, MinCountValidator } from '../../validators';
 
 import { InputMethods, IInput } from '../input.interface';
 
-export interface IInputMultiSelect extends Omit<IInput, 'value' | 'autoFocus'> {
+export interface IInputMultiSelect extends Omit<IInput, 'value' | 'optional' | 'autoFocus'> {
     readonly type: 'MULTI-SELECT';
     readonly title: string;
     readonly value?: string[];
@@ -14,6 +14,7 @@ export interface IInputMultiSelect extends Omit<IInput, 'value' | 'autoFocus'> {
     }[];
     readonly minCount?: number;
     readonly maxCount?: number;
+    readonly listMaxHeight?: number;
 }
 
 export class InputMultiSelectMethods extends InputMethods<IInputMultiSelect, string[] | null> {

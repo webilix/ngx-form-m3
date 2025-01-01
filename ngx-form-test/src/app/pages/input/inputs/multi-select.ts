@@ -30,19 +30,12 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                             disableOn: (values: INgxFormValues) => !!values['name'],
                         },
                     },
-                    {
-                        name: 'multi-select-optional',
-                        type: 'MULTI-SELECT',
-                        title: 'اختیاری',
-                        options: faOptions,
-                        optional: true,
-                    },
+                    { name: 'multi-select-optional', type: 'MULTI-SELECT', title: 'اختیاری', options: faOptions },
                     {
                         name: 'multi-select-english',
                         type: 'MULTI-SELECT',
                         title: 'انگلیسی',
                         options: enOptions,
-                        optional: true,
                         english: true,
                     },
                 ],
@@ -63,6 +56,13 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         options: faOptions,
                         maxCount: 2,
                     },
+                    {
+                        name: 'multi-select-list-height',
+                        type: 'MULTI-SELECT',
+                        title: 'ارتفاع لیست',
+                        options: faOptions,
+                        listMaxHeight: 120,
+                    },
                 ],
             },
             {
@@ -72,7 +72,6 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         type: 'MULTI-SELECT',
                         title: 'غیرفعال شدن',
                         options: faOptions,
-                        optional: true,
                         disableOn: (values) => !!values['multi-select-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه غیرفعال می‌شود.',
                         button: {
@@ -87,7 +86,6 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         type: 'MULTI-SELECT',
                         title: 'پنهان شدن',
                         options: faOptions,
-                        optional: true,
                         hideOn: (values) => !!values['multi-select-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه پنهان می‌شود.',
                         button: {

@@ -113,7 +113,7 @@ export class PageIndexComponent implements OnInit {
                                 name: 'multi-select',
                                 type: 'MULTI-SELECT',
                                 title: 'انتخاب‌ها',
-                                options: [...Array(50).keys()].map((index: number) => ({
+                                options: [...Array(10).keys()].map((index: number) => ({
                                     id: `OPT-${index + 1}`,
                                     title: `انتخاب ${index + 1}`,
                                 })),

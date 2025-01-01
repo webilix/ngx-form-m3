@@ -19,7 +19,6 @@ export const CheckboxInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                             disableOn: (values: INgxFormValues) => !!values['name'],
                         },
                     },
-                    { name: 'checkbox-optional', type: 'CHECKBOX', message: 'اختیاری', optional: true },
                     { name: 'checkbox-english', type: 'CHECKBOX', message: 'انگلیسی', english: true },
                 ],
             },
@@ -32,7 +31,6 @@ export const CheckboxInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         name: 'checkbox-disableOn',
                         type: 'CHECKBOX',
                         message: 'غیرفعال شدن',
-                        optional: true,
                         disableOn: (values) => !!values['checkbox-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه غیرفعال می‌شود.',
                         button: {
@@ -46,7 +44,6 @@ export const CheckboxInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         name: 'checkbox-hideOn',
                         type: 'CHECKBOX',
                         message: 'پنهان شدن',
-                        optional: true,
                         hideOn: (values) => !!values['checkbox-optional'],
                         description: 'در صورت مشخص کردن مقدار اختیاری، این گزینه پنهان می‌شود.',
                         button: {

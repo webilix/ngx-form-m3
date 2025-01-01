@@ -84,4 +84,4 @@ export interface INgxFormValues {
 }
 
 export const NGX_FORM_CONTROL: InjectionToken<FormControl> = new InjectionToken('NGX_FORM_CONTROL');
-export const NGX_FORM_INPUT: InjectionToken<any> = new InjectionToken('NGX_FORM_INPUT');
+export const NGX_FORM_INPUT: InjectionToken<IInputComponent> = new InjectionToken('NGX_FORM_INPUT');

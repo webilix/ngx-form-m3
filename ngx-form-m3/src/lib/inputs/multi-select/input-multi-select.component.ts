@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, HostBinding, inject, Input, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -19,7 +19,9 @@ import { IInputMultiSelect } from './input-multi-select.interface';
     templateUrl: './input-multi-select.component.html',
     styleUrl: './input-multi-select.component.scss',
 })
-export class InputMultiSelectComponent {
+export class InputMultiSelectComponent implements OnInit {
+    @HostBinding('style.--listHeight') listHeight!: string;
+
     public formControl: FormControl = inject(INPUT_CONTROL);
     public input: IInputMultiSelect = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
@@ -28,6 +30,10 @@ export class InputMultiSelectComponent {
     @Input({ required: true }) isButtonDisabled!: boolean;
 
     public ids: string[] = this.formControl.value || [];
+
+    ngOnInit(): void {
+        this.listHeight = `${this.input.listMaxHeight || 310}px`;
+    }
 
     toggleValue(id: string): void {
         if (!this.ids.includes(id)) this.ids.push(id);

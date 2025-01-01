@@ -2,7 +2,7 @@ import { ValidatorFn, FormControl } from '@angular/forms';
 
 import { InputMethods, IInput } from '../input.interface';
 
-export interface IInputCheckbox extends Omit<IInput, 'title' | 'value' | 'autoFocus'> {
+export interface IInputCheckbox extends Omit<IInput, 'title' | 'value' | 'optional' | 'autoFocus'> {
     readonly type: 'CHECKBOX';
     readonly message: string;
     readonly value?: boolean;

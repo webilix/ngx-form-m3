@@ -154,6 +154,31 @@
     }
 }
 
+/* INPUTS: MULTI-SELECT */
+.ngx-helper-form-m3-multi-select-input {
+    .title {
+        padding-bottom: 0.5rem;
+    }
+
+    .options {
+        overflow: auto;
+        max-height: var(--listHeight);
+
+        .option {
+            display: inline-flex;
+            align-items: flex-start;
+            column-gap: 0.5rem;
+
+            cursor: pointer;
+
+            .message {
+                flex: 1;
+                text-align: right;
+            }
+        }
+    }
+}
+
 /* INPUTS: NAME */
 .ngx-helper-form-m3-name-input {
     display: flex;
