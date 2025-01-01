@@ -14,7 +14,13 @@
     <!-- BUTTON -->
     @if (input.button) {
     <span matIconSuffix>
-        <button mat-icon-button type="button" [disabled]="isButtonDisabled" (click)="input.button.onClick(values)">
+        <button
+            mat-icon-button
+            type="button"
+            [disabled]="isButtonDisabled"
+            (click)="input.button.onClick(values)"
+            [tabIndex]="-1"
+        >
             <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
                 {{ input.button.icon }}
             </mat-icon>
