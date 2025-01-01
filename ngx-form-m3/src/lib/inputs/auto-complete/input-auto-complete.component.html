@@ -29,9 +29,10 @@
         [formControl]="formControl"
         [class.ngx-form-m3-en]="input.english"
         [maxLength]="524288"
-        [matAutocomplete]="ngxAutoComplete"
+        [AutoFocusDirective]="config.autoFocus === input.name"
         (input)="filter()"
         (focus)="filter()"
+        [matAutocomplete]="ngxAutoComplete"
     />
     <mat-autocomplete #ngxAutoComplete="matAutocomplete" class="ngx-helper-form-m3-auto-complete-input">
         <div class="options">

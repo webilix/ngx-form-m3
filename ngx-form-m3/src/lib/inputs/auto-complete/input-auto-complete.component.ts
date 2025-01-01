@@ -7,7 +7,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 
-import { AutoCompleteDirective } from '../../directives';
+import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 import { INgxFormValues } from '../../ngx-form.interface';
 
@@ -25,6 +25,7 @@ import { IInputAutoComplete } from './input-auto-complete.interface';
         MatIconButton,
         MatInputModule,
         AutoCompleteDirective,
+        AutoFocusDirective,
         InputErrorPipe,
         MultiLinePipe,
     ],

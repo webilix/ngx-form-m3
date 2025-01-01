@@ -32,6 +32,14 @@ export const AutoCompleteInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         optional: true,
                     },
                     {
+                        name: 'auto-complete-autoFocus',
+                        type: 'AUTO-COMPLETE',
+                        title: 'فوکوس',
+                        options: faOptions,
+                        optional: true,
+                        autoFocus: true,
+                    },
+                    {
                         name: 'auto-complete-english',
                         type: 'AUTO-COMPLETE',
                         title: 'انگلیسی',

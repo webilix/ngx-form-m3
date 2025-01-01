@@ -4,7 +4,7 @@ import { Helper } from '@webilix/helper-library';
 
 import { InputMethods, IInput } from '../input.interface';
 
-export interface IInputAutoComplete extends Omit<IInput, 'autoFocus'> {
+export interface IInputAutoComplete extends IInput {
     readonly type: 'AUTO-COMPLETE';
     readonly title: string;
     readonly options: string[];
