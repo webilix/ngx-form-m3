@@ -7,8 +7,6 @@ export class FormErrorDirective {
         setTimeout(() => {
             const invalidControl: HTMLElement = this.elementRef.nativeElement.querySelector('.mat-form-field-invalid');
             if (invalidControl) return this.scrollToElement(invalidControl);
-
-            console.log(invalidControl);
         }, 150);
     }
 
