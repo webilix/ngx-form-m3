@@ -1,8 +1,11 @@
+import { MatFormFieldAppearance } from '@angular/material/form-field';
+
 import { EnvironmentProviders, InjectionToken, makeEnvironmentProviders, Provider } from '@angular/core';
 
 export interface INgxFormConfig {
     readonly mobileWidth: number;
     readonly submitTimeout: number;
+    readonly appearance: MatFormFieldAppearance;
 }
 
 export const NGX_FORM_CONFIG = new InjectionToken<Partial<INgxFormConfig>>('NGX-FORM-CONFIG');

@@ -44,10 +44,13 @@ export class InputDateComponent {
     setDate(): void {
         if (this.formControl.disabled) return;
 
-        const minDate: Date | undefined = this.input.minDate === 'NOW' ? new Date() : this.input.minDate;
-        const maxDate: Date | undefined = this.input.maxDate === 'NOW' ? new Date() : this.input.maxDate;
         this.ngxCalendarService
-            .getDate({ title: this.input.title || 'تاریخ', value: this.formControl.value, minDate, maxDate })
+            .getDate({
+                title: this.input.title || 'تاریخ',
+                value: this.formControl.value,
+                minDate: this.input.minDate,
+                maxDate: this.input.maxDate,
+            })
             .dialog(
                 (data: INgxCalendarDate) => {
                     this.formControl.setValue(data.date);

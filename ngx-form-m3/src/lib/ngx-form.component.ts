@@ -89,7 +89,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
 
         // INPUT CONFIG
         this.inputConfig = {
-            appearance: this.ngxForm.appearance || 'fill',
+            appearance: this.ngxForm.appearance || this.config?.appearance || 'fill',
             autoFocus,
         };
 
