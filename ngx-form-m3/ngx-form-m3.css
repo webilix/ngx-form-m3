@@ -218,3 +218,34 @@
         flex: 1;
     }
 }
+
+/* INPUTS: SELECT */
+.ngx-helper-form-m3-select-input {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    input {
+        padding: 0.75rem 0.5rem;
+        border-radius: 0;
+        border-width: 0;
+        border-bottom: 1px solid var(--outline-variant);
+        outline: none;
+        width: 100%;
+        direction: rtl;
+
+        box-sizing: border-box;
+        color: var(--on-surface);
+        background-color: var(--surface-container-highest);
+    }
+
+    input.ngx-form-m3-en {
+        direction: ltr;
+    }
+
+    input::placeholder {
+        font-family: Yekan;
+        text-align: right;
+        direction: rtl;
+    }
+}

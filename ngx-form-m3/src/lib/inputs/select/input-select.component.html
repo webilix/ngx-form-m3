@@ -27,7 +27,22 @@
         [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
         [style.direction]="'rtl'"
         [AutoFocusDirective]="config.autoFocus === input.name"
+        (closed)="searchInput.value = ''; searchQuery = ''"
     >
+        <!-- SEARCH -->
+        <div
+            class="ngx-helper-form-m3-select-input"
+            [style.display]="!input.hideSearch && input.options.length > 10 ? '' : 'none'"
+        >
+            <input
+                type="text"
+                [class.ngx-form-m3-en]="input.english"
+                placeholder="جستجو"
+                (input)="searchQuery = searchInput.value.trim()"
+                #searchInput
+            />
+        </div>
+
         <!-- OPTIONAL -->
         @if (!!input.optional) { <mat-option></mat-option> }
 
@@ -38,10 +53,12 @@
 
         <!-- OPTIONS -->
         @for (option of input.options; track $index) {
+        <!-- CHECK SEARCH QUERY -->
+        @if (!searchQuery || option.title.includes(searchQuery)) {
         <mat-option [value]="option.id">
             <div [ngClass]="input.english ? 'ngx-form-m3-en' : ''">{{ option.title }}</div>
         </mat-option>
-        }
+        } }
     </mat-select>
 
     <!-- DESCRIPTION -->

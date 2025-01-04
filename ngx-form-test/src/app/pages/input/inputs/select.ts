@@ -1,3 +1,4 @@
+import { Helper } from '@webilix/helper-library';
 import { INgxFormValues, NgxFormInputs } from '@webilix/ngx-form-m3';
 
 const faOptions: { id: string; title: string }[] = [...Array(5)].map((_, index: number) => ({
@@ -58,6 +59,27 @@ export const SelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'یک انتخابی اختیاری',
                         options: [faOptions[0]],
                         optional: true,
+                    },
+                    {
+                        name: 'select-search-fa',
+                        type: 'SELECT',
+                        title: 'لیست فارسی دارای جستجو',
+                        optional: true,
+                        options: [...Array(50)].map((_, index: number) => ({
+                            id: `OPT${index + 1}`,
+                            title: `گزینه ${Helper.NUMBER.getTitle(index + 1)}`,
+                        })),
+                    },
+                    {
+                        name: 'select-search-en',
+                        type: 'SELECT',
+                        title: 'لیست انگلیسی دارای جستجو',
+                        english: true,
+                        optional: true,
+                        options: [...Array(50)].map((_, index: number) => ({
+                            id: `OPT${index + 1}`,
+                            title: `Option ${index + 1}`,
+                        })),
                     },
                 ],
             },

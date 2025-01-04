@@ -9,6 +9,7 @@ export interface IInputSelect extends IInput {
         readonly id: string;
         readonly title: string;
     }[];
+    readonly hideSearch?: boolean;
 }
 
 export class InputSelectMethods extends InputMethods<IInputSelect, string | null> {

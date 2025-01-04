@@ -41,6 +41,8 @@ export class InputSelectComponent {
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
 
+    public searchQuery: string = '';
+
     getTitle(): string {
         return this.input.options.find((option) => option.id === this.formControl.value)?.title || '';
     }
