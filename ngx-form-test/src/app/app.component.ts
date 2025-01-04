@@ -26,6 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'یک انتخابی', type: 'CHECKBOX' },
         { title: 'رنگ', type: 'COLOR' },
         { title: 'کامپوننت', type: 'COMPONENT' },
+        { title: 'موقعیت جغرافیایی', type: 'COORDINATES' },
         { title: 'تاریخ', type: 'DATE' },
         { title: 'ایمیل', type: 'EMAIL' },
         { title: 'فایل', type: 'FILE' },

@@ -8,6 +8,7 @@ import {
     IInputCheckbox,
     IInputColor,
     IInputComponent,
+    IInputCoordinates,
     IInputDate,
     IInputEmail,
     IInputFile,
@@ -30,6 +31,7 @@ export type NgxFormInputs =
     | IInputCheckbox
     | IInputColor
     | IInputComponent
+    | IInputCoordinates
     | IInputDate
     | IInputEmail
     | IInputFile

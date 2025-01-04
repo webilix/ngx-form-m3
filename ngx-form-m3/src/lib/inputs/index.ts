@@ -10,6 +10,9 @@ export * from './color/input-color.interface';
 export * from './component/input-component.component';
 export * from './component/input-component.interface';
 
+export * from './coordinates/input-coordinates.component';
+export * from './coordinates/input-coordinates.interface';
+
 export * from './date/input-date.component';
 export * from './date/input-date.interface';
 

@@ -7,7 +7,7 @@ import { InputMethods, IInput } from '../input.interface';
 export interface IInputMultiSelect extends Omit<IInput, 'value' | 'optional' | 'autoFocus'> {
     readonly type: 'MULTI-SELECT';
     readonly title: string;
-    readonly value?: string[];
+    readonly value?: string[] | null;
     readonly options: {
         readonly id: string;
         readonly title: string;

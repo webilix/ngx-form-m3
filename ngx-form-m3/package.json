@@ -27,7 +27,7 @@
         "@webilix/helper-library": ">=6.0.2",
         "@webilix/jalali-date-time": ">=2.0.5",
         "@webilix/ngx-calendar-m3": ">=0.0.9",
-        "@webilix/ngx-helper-m3": ">=0.0.17",
+        "@webilix/ngx-helper-m3": ">=0.0.18",
         "ngx-mask": ">=19.0.6"
     },
     "dependencies": {

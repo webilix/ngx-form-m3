@@ -2,6 +2,7 @@ export * from './auto-complete';
 export * from './checkbox';
 export * from './color';
 export * from './component';
+export * from './coordinates';
 export * from './date';
 export * from './email';
 export * from './file';

@@ -87,6 +87,7 @@ export class PageIndexComponent implements OnInit {
                                 optional: true,
                                 button: this.inputButton,
                             },
+                            { name: 'coordinates', type: 'COORDINATES', optional: true, button: this.inputButton },
                         ],
                     },
                     {

@@ -7,6 +7,9 @@
 @use './theme/material/theme-m3';
 @use './theme/material/override';
 
+// OL
+@use '../../node_modules/ol/ol.css';
+
 // NGX
 @use '../../node_modules/@webilix/ngx-calendar-m3/ngx-calendar-m3.css';
 @use '../../node_modules/@webilix/ngx-helper-m3/ngx-helper-m3.css';
