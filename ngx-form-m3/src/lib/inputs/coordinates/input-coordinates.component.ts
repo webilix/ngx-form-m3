@@ -47,4 +47,10 @@ export class InputCoordinatesComponent {
             () => this.formControl.markAsTouched(),
         );
     }
+
+    resetCoordinates(): void {
+        this.coordinates = undefined;
+        this.formControl.setValue(null);
+        this.formControl.markAsTouched();
+    }
 }

@@ -8,7 +8,7 @@
     <!--  SUFFIX -->
     <span matTextSuffix class="ngx-form-m3-input-suffix click" [class.ngx-form-m3-disabled-input]="formControl.disabled">
         <span>&nbsp;</span>
-        <mat-icon (click)="formControl.value ? formControl.setValue(null) : setCoordinates(); formControl.markAsTouched()">
+        <mat-icon (click)="formControl.value ? resetCoordinates() : setCoordinates(); formControl.markAsTouched()">
             {{ formControl.value ? 'close' : 'calendar_month' }}
         </mat-icon>
     </span>
@@ -36,7 +36,7 @@
         type="text"
         matInput
         [readonly]="true"
-        class="ngx-form-m3-en"
+        class="ngx-helper-form-m3-coordinates-input ngx-form-m3-en"
         [disabled]="formControl.disabled"
         (click)="setCoordinates()"
         [value]="formControl.value ? coordinates?.latitude + ', ' + coordinates?.longitude : ''"

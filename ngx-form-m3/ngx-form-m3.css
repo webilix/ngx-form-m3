@@ -107,6 +107,11 @@
     }
 }
 
+/* INPUTS: COORDINATES */
+.ngx-helper-form-m3-coordinates-input {
+    cursor: pointer;
+}
+
 /* INPUTS: ICON */
 .ngx-helper-form-m3-icon-input {
     display: flex;
