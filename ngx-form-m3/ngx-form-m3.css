@@ -59,6 +59,21 @@
     cursor: default;
 }
 
+/* INPUTS: BANK-CARD */
+.ngx-helper-form-m3-bank-card-input {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .bank {
+        font-size: 80%;
+    }
+
+    input {
+        flex: 1;
+    }
+}
+
 /* INPUTS: CHECKBOX */
 .ngx-helper-form-m3-checkbox-input {
     display: inline-flex;

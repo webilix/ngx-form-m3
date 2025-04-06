@@ -7,6 +7,7 @@ import { AppService } from '../../app.service';
 
 import {
     AutoCompleteInputs,
+    BankCardInputs,
     CheckboxInputs,
     ColorInputs,
     ComponentInputs,
@@ -40,6 +41,7 @@ export class PageInputComponent implements OnInit {
 
     public inputs: { [key in NgxFormInputs['type']]: { columns: { rows: NgxFormInputs[] }[] }[] } = {
         'AUTO-COMPLETE': AutoCompleteInputs,
+        'BANK-CARD': BankCardInputs,
         CHECKBOX: CheckboxInputs,
         COLOR: ColorInputs,
         COMPONENT: ComponentInputs,

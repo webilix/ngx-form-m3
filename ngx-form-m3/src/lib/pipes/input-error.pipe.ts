@@ -57,6 +57,9 @@ export class InputErrorPipe implements PipeTransform {
             case 'maxcount':
                 return `امکان انتخاب بیشتر از ${Helper.NUMBER.format(value)} گزینه وجود ندارد.`;
 
+            case 'bank-card':
+                return `شماره کارت بانکی صحیح مشخص نشده است.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':
@@ -78,6 +81,8 @@ export class InputErrorPipe implements PipeTransform {
 
             case 'mask':
                 switch (type) {
+                    case 'BANK-CARD':
+                        return 'شماره کارت بانکی دارای ۱۶ رقم است.';
                     case 'MOBILE':
                         return 'شماره موبایل دارای ۱۱ رقم است.';
                 }

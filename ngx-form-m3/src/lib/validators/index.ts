@@ -11,4 +11,5 @@ export * from './number/max-number.validator';
 export * from './number/min-number.validator';
 export * from './number/multiply-of.validator';
 
+export * from './bank-card.validator';
 export * from './length.validator';

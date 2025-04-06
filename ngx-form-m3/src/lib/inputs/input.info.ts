@@ -6,6 +6,8 @@ import { InputMethods } from './input.interface';
 import {
     InputAutoCompleteComponent,
     InputAutoCompleteMethods,
+    InputBankCardComponent,
+    InputBankCardMethods,
     InputCheckboxComponent,
     InputCheckboxMethods,
     InputColorComponent,
@@ -58,6 +60,7 @@ export const InputInfo: {
         methods: new InputAutoCompleteMethods(),
         component: InputAutoCompleteComponent,
     },
+    'BANK-CARD': { title: 'شماره کارت بانکی', methods: new InputBankCardMethods(), component: InputBankCardComponent },
     CHECKBOX: { title: 'یک انتخابی', methods: new InputCheckboxMethods(), component: InputCheckboxComponent },
     COLOR: { title: 'رنگ', methods: new InputColorMethods(), component: InputColorComponent },
     COMPONENT: { title: 'کامپوننت', methods: new InputComponentMethods(), component: InputComponentComponent },

@@ -1,6 +1,9 @@
 export * from './auto-complete/input-auto-complete.component';
 export * from './auto-complete/input-auto-complete.interface';
 
+export * from './bank-card/input-bank-card.component';
+export * from './bank-card/input-bank-card.interface';
+
 export * from './checkbox/input-checkbox.component';
 export * from './checkbox/input-checkbox.interface';
 

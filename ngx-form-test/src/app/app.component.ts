@@ -23,6 +23,7 @@ type ColorMode = 'LIGHT' | 'DARK';
 export class AppComponent implements OnInit, OnDestroy {
     public inputs: { title: string; type: NgxFormInputs['type'] }[] = [
         { title: 'لیست تکمیلی', type: 'AUTO-COMPLETE' },
+        { title: 'کارت بانکی', type: 'BANK-CARD' },
         { title: 'یک انتخابی', type: 'CHECKBOX' },
         { title: 'رنگ', type: 'COLOR' },
         { title: 'کامپوننت', type: 'COMPONENT' },

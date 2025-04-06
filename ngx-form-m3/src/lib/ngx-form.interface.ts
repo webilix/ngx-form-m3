@@ -5,6 +5,7 @@ import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 import {
     IInputAutoComplete,
+    IInputBankCard,
     IInputCheckbox,
     IInputColor,
     IInputComponent,
@@ -28,6 +29,7 @@ import {
 
 export type NgxFormInputs =
     | IInputAutoComplete
+    | IInputBankCard
     | IInputCheckbox
     | IInputColor
     | IInputComponent
