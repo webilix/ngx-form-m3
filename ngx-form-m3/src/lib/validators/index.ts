@@ -1,3 +1,6 @@
+export * from './bank/card.validator';
+export * from './bank/sheba.validator';
+
 export * from './count/max-count.validator';
 export * from './count/min-count.validator';
 
@@ -11,5 +14,4 @@ export * from './number/max-number.validator';
 export * from './number/min-number.validator';
 export * from './number/multiply-of.validator';
 
-export * from './bank-card.validator';
 export * from './length.validator';

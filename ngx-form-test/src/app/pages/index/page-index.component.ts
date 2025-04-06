@@ -89,6 +89,7 @@ export class PageIndexComponent implements OnInit {
                             },
                             { name: 'coordinates', type: 'COORDINATES', optional: true, button: this.inputButton },
                             { name: 'bank-card', type: 'BANK-CARD', optional: true, button: this.inputButton },
+                            { name: 'bank-sheba', type: 'BANK-SHEBA', optional: true, button: this.inputButton },
                         ],
                     },
                     {

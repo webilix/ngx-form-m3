@@ -1,5 +1,6 @@
 export * from './auto-complete';
 export * from './bank-card';
+export * from './bank-sheba';
 export * from './checkbox';
 export * from './color';
 export * from './component';

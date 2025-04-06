@@ -60,6 +60,9 @@ export class InputErrorPipe implements PipeTransform {
             case 'bank-card':
                 return `شماره کارت بانکی صحیح مشخص نشده است.`;
 
+            case 'bank-sheba':
+                return `شماره شبا صحیح مشخص نشده است.`;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':
@@ -83,6 +86,8 @@ export class InputErrorPipe implements PipeTransform {
                 switch (type) {
                     case 'BANK-CARD':
                         return 'شماره کارت بانکی دارای ۱۶ رقم است.';
+                    case 'BANK-SHEBA':
+                        return 'شماره شبا دارای ۲۴ رقم است.';
                     case 'MOBILE':
                         return 'شماره موبایل دارای ۱۱ رقم است.';
                 }
