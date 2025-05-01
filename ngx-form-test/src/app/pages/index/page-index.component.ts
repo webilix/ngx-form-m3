@@ -43,6 +43,14 @@ export class PageIndexComponent implements OnInit {
                             },
                             { name: 'age', type: 'NUMBER', title: 'سن', optional: true, button: this.inputButton },
                             {
+                                name: 'income',
+                                type: 'PRICE',
+                                title: 'درآمد',
+                                currency: 'تومان',
+                                optional: true,
+                                button: this.inputButton,
+                            },
+                            {
                                 name: 'gender',
                                 type: 'SELECT',
                                 title: 'جنسیت',
