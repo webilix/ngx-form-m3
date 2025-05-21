@@ -1,5 +1,5 @@
 import { NgComponentOutlet } from '@angular/common';
-import { Component, inject, Injector, Input } from '@angular/core';
+import { Component, HostBinding, inject, Injector, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -29,7 +29,9 @@ import { IInputComponent } from './input-component.interface';
     templateUrl: './input-component.component.html',
     styleUrl: './input-component.component.scss',
 })
-export class InputComponentComponent {
+export class InputComponentComponent implements OnChanges {
+    @HostBinding('style.--padding') paddig!: string;
+
     public formControl: FormControl = inject(INPUT_CONTROL);
     public input: IInputComponent = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
@@ -46,4 +48,8 @@ export class InputComponentComponent {
             },
         ],
     });
+
+    ngOnChanges(changes: SimpleChanges): void {
+        this.paddig = this.input.zeroPadding ? '0' : '16px';
+    }
 }

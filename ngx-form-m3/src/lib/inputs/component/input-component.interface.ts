@@ -8,6 +8,7 @@ export interface IInputComponent extends Omit<IInput, 'value' | 'english' | 'aut
     readonly value?: any;
     readonly component: ComponentType<any>;
     readonly componentInputs?: { [key: string]: any };
+    readonly zeroPadding?: boolean;
 }
 
 export class InputComponentMethods extends InputMethods<IInputComponent, any> {
