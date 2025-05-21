@@ -5,8 +5,15 @@
     <!-- HINT -->
     @if (input.hint|| (isFocused && hintText)) { <mat-hint>{{ isFocused && hintText ? hintText : input.hint }}</mat-hint> }
 
+    <!-- CURRENCY -->
+    @if (input.suffix) {
+    <span matTextSuffix class="ngx-form-m3-input-suffix text" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+        <span>{{ input.suffix }}</span>
+    </span>
+    }
+
     <!-- ICON -->
-    @if (input.showIcon) {
+    @if (input.showIcon && !input.suffix) {
     <span matTextSuffix class="ngx-form-m3-input-suffix" [class.ngx-form-m3-disabled-input]="formControl.disabled">
         <span>&nbsp;</span>
         <mat-icon>tag</mat-icon>

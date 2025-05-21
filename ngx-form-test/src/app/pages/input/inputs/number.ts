@@ -47,6 +47,15 @@ export const NumberInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         allowNegatives: true,
                         fractionDigits: 5,
                     },
+                    {
+                        name: 'number-suffix',
+                        type: 'NUMBER',
+                        title: 'نمایش متن پسوند',
+                        optional: true,
+                        showText: true,
+                        showIcon: true,
+                        suffix: 'ثانیه',
+                    },
                 ],
             },
             {

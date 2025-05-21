@@ -12,6 +12,7 @@ export interface IInputNumber extends Omit<IInput, 'value' | 'english'> {
     readonly value?: number | null;
     readonly minimum?: number;
     readonly maximum?: number;
+    readonly suffix?: string;
     readonly multiplyOf?: number;
     readonly allowNegatives?: boolean;
     readonly fractionDigits?: boolean | number;
