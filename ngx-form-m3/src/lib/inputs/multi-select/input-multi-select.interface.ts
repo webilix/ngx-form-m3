@@ -20,6 +20,7 @@ export interface IInputMultiSelect extends Omit<IInput, 'value' | 'optional' | '
     readonly maxCount?: number;
     readonly listMaxHeight?: number;
     readonly selectButtons?: boolean;
+    readonly view?: 'SELECT';
 }
 
 export class InputMultiSelectMethods extends InputMethods<IInputMultiSelect, string[] | null> {

@@ -1,6 +1,11 @@
 <mat-form-field [appearance]="input.appearance || config.appearance">
     @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
 
+    <!-- LABEL -->
+    @if (input.view === 'SELECT') {
+    <mat-label>{{ input.title }}</mat-label>
+    }
+
     <!-- HINT -->
     @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
 
@@ -21,7 +26,8 @@
     </span>
     }
 
-    <!-- INPUT -->
+    <!-- INPUT (DEFAULT VIEW) -->
+    @if (!input.view) {
     <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
     <div class="ngx-helper-form-m3-multi-select-input" [class.ngx-form-m3-disabled-input]="formControl.disabled">
         <div class="header">
@@ -57,6 +63,24 @@
             }
         </div>
     </div>
+    }
+
+    <!-- INPUT (SELECT VIEW) -->
+    @if (input.view === 'SELECT') {
+    <mat-select
+        [formControl]="formControl"
+        [multiple]="true"
+        [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
+        [style.direction]="'rtl'"
+    >
+        <mat-select-trigger>{{ getSelectValues() }}</mat-select-trigger>
+        @for (option of input.options; track $index) {
+        <mat-option [value]="option.id">
+            <div [ngClass]="input.english ? 'ngx-form-m3-en' : ''">{{ option.title }}</div>
+        </mat-option>
+        }
+    </mat-select>
+    }
 
     <!-- DESCRIPTION -->
     @if (input.description) {

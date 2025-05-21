@@ -1,4 +1,5 @@
 import { Component, HostBinding, inject, Input, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatButton, MatIconButton } from '@angular/material/button';
@@ -6,6 +7,7 @@ import { MatFormField } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 
 import { InputErrorPipe, MultiLinePipe } from '../../pipes';
 import { INgxFormValues } from '../../ngx-form.interface';
@@ -17,6 +19,7 @@ import { IInputMultiSelect } from './input-multi-select.interface';
 @Component({
     host: { selector: 'input-multi-select' },
     imports: [
+        NgClass,
         ReactiveFormsModule,
         MatButton,
         MatFormField,
@@ -24,6 +27,7 @@ import { IInputMultiSelect } from './input-multi-select.interface';
         MatIconButton,
         MatInputModule,
         MatMenuModule,
+        MatSelectModule,
         InputErrorPipe,
         MultiLinePipe,
     ],
@@ -69,5 +73,20 @@ export class InputMultiSelectComponent implements OnInit {
 
         this.formControl.setValue(this.ids.length === 0 ? null : this.ids);
         this.formControl.markAsTouched();
+    }
+
+    getSelectValues(): string {
+        if (this.formControl.disabled) return '';
+
+        const ids: string[] = this.input.options.map((option) => option.id);
+        this.ids = Array.isArray(this.formControl.value) ? this.formControl.value : [this.formControl.value];
+        this.ids = this.ids.filter((id: string) => ids.includes(id));
+
+        if (this.ids.length > 3) return `${this.ids.length} ${this.input.english ? 'Items' : 'گزینه'}`;
+
+        return this.input.options
+            .filter((option) => this.ids.includes(option.id))
+            .map((option) => option.title)
+            .join('، ');
     }
 }

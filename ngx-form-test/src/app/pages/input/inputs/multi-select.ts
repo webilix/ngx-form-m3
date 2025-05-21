@@ -44,6 +44,13 @@ export const MultiSelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
             {
                 rows: [
                     {
+                        name: 'multi-select-view-select',
+                        type: 'MULTI-SELECT',
+                        title: 'نمایش لیست کشویی',
+                        options: faOptions,
+                        view: 'SELECT',
+                    },
+                    {
                         name: 'multi-select-min-count',
                         type: 'MULTI-SELECT',
                         title: 'حداقل انتخاب',
