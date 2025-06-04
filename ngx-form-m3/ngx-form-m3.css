@@ -1,7 +1,7 @@
 /* COLUMN AND SECTION HEADER */
 .ngx-form-m3-header {
     font-size: 15px;
-    background-color: var(--mdc-filled-text-field-container-color);
+    background-color: var(--mat-form-field-filled-container-color);
     border-width: 0;
     border-radius: 0;
     border-right: 2px solid var(--secondary-fixed);
