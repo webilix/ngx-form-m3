@@ -93,6 +93,9 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
             autoFocus,
         };
 
+        // UPDATE VALUES
+        if (this.ngxForm.updateValues) this.updateValues([]);
+
         // REGISTER VALUE CHANGE
         this.formGroup.valueChanges.subscribe({
             next: () => {
@@ -108,21 +111,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
                 this.checkInputs();
 
                 if (this.ngxForm.updateValues) {
-                    const values: INgxFormValues = this.getValues();
-                    const changes: { [key: string]: any } = this.ngxForm.updateValues(values);
-
-                    Object.keys(changes)
-                        .filter((key: string) => !changedInputs.includes(key))
-                        .forEach((key: string) => {
-                            const input = this.getInputs().find((i) => i.name === key);
-                            if (!input) return;
-
-                            const formInput = this.formGroup.get(key);
-                            if (!formInput) return;
-
-                            const value = InputInfo[input.type].methods.value(changes[key], input);
-                            formInput.setValue(value);
-                        });
+                    this.updateValues(changedInputs);
                     this.lastValues = { ...this.formGroup.value };
                 }
 
@@ -250,6 +239,26 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
         });
 
         return values;
+    }
+
+    updateValues(changedInputs: string[]): void {
+        if (!this.ngxForm.updateValues) return;
+
+        const values: INgxFormValues = this.getValues();
+        const changes: { [key: string]: any } = this.ngxForm.updateValues(values);
+
+        Object.keys(changes)
+            .filter((key: string) => !changedInputs.includes(key))
+            .forEach((key: string) => {
+                const input = this.getInputs().find((i) => i.name === key);
+                if (!input) return;
+
+                const formInput = this.formGroup.get(key);
+                if (!formInput) return;
+
+                const value = InputInfo[input.type].methods.value(changes[key], input);
+                formInput.setValue(value);
+            });
     }
 
     setInput(input: NgxFormInputs): void {

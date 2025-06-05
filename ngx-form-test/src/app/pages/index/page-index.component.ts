@@ -26,6 +26,7 @@ export class PageIndexComponent implements OnInit {
     public ngxForm: INgxForm = {
         submit: 'ثبت فرم',
         inputs: [
+            { name: 'change', type: 'TEXT', title: 'تعداد مقادیر', readonly: true },
             {
                 columns: [
                     {
@@ -136,6 +137,10 @@ export class PageIndexComponent implements OnInit {
             },
         ],
         buttons: [{ title: 'پاک کردن', action: () => this.ngForm?.resetForm() }],
+        updateValues: (values: INgxFormValues) => {
+            const count: number = Object.keys(values).filter((key: string) => key !== 'change' && !!values[key]).length;
+            return { change: count.toString() };
+        },
     };
 
     constructor(private readonly appService: AppService) {}
