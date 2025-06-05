@@ -224,6 +224,23 @@
     }
 }
 
+/* INPUTS: ROUTE */
+.ngx-helper-form-m3-route-input {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+
+    cursor: pointer;
+
+    div.distance {
+        flex: 1;
+    }
+
+    div.point {
+        font-size: 90%;
+    }
+}
+
 /* INPUTS: NAME */
 .ngx-helper-form-m3-name-input {
     display: flex;

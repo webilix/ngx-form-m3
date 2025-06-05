@@ -23,6 +23,7 @@ import {
     IInputNumber,
     IInputPassword,
     IInputPrice,
+    IInputRoute,
     IInputSelect,
     IInputText,
     IInputTextarea,
@@ -49,6 +50,7 @@ export type NgxFormInputs =
     | IInputNumber
     | IInputPassword
     | IInputPrice
+    | IInputRoute
     | IInputSelect
     | IInputText
     | IInputTextarea

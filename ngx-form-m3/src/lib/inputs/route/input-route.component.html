@@ -1,5 +1,5 @@
-<mat-form-field [appearance]="input.appearance || config.appearance" [floatLabel]="formControl.value ? 'always' : 'auto'">
-    <mat-label>{{ input.title || 'موقعیت جغرافیایی' }}</mat-label>
+<mat-form-field [appearance]="input.appearance || config.appearance" [floatLabel]="route.length > 0 ? 'always' : 'auto'">
+    <mat-label>{{ input.title || 'مسیر' }}</mat-label>
     @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
 
     <!-- HINT -->
@@ -8,8 +8,8 @@
     <!--  SUFFIX -->
     <span matTextSuffix class="ngx-form-m3-input-suffix click" [class.ngx-form-m3-disabled-input]="formControl.disabled">
         <span>&nbsp;</span>
-        <mat-icon (click)="formControl.value ? resetCoordinates() : setCoordinates(); formControl.markAsTouched()">
-            {{ formControl.value ? 'close' : 'location_on' }}
+        <mat-icon (click)="route.length > 0 ? resetRoute() : setRoute(); formControl.markAsTouched()">
+            {{ route.length > 0 ? 'close' : 'call_split' }}
         </mat-icon>
     </span>
 
@@ -32,15 +32,14 @@
 
     <!-- INPUT -->
     <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
-    <input
-        type="text"
-        matInput
-        [readonly]="true"
-        class="ngx-helper-form-m3-coordinates-input ngx-form-m3-en"
-        [disabled]="formControl.disabled"
-        (click)="setCoordinates()"
-        [value]="formControl.value ? coordinates?.latitude + ', ' + coordinates?.longitude : ''"
-    />
+    <div
+        class="ngx-helper-form-m3-route-input"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        (click)="setRoute()"
+    >
+        <div class="distance">{{ route.length > 0 ? (distance.length | ngxHelperNumber) + ' متر' : '&nbsp;' }}</div>
+        <div class="point">{{ route.length > 0 ? (route.length | ngxHelperNumber) + ' نقطه' : '&nbsp;' }}</div>
+    </div>
 
     <!-- DESCRIPTION -->
     @if (input.description) {
