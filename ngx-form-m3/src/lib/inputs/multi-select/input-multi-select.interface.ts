@@ -2,20 +2,16 @@ import { ValidatorFn, FormControl } from '@angular/forms';
 
 import { MaxCountValidator, MinCountValidator } from '../../validators';
 
+import { INgxFormOption, INgxFormOptionGroup } from '../../ngx-form.inputs';
+
 import { InputMethods, IInput } from '../input.interface';
 
 export interface IInputMultiSelect extends Omit<IInput, 'value' | 'optional' | 'autoFocus'> {
     readonly type: 'MULTI-SELECT';
     readonly title: string;
     readonly value?: string[] | null;
-    readonly options: {
-        readonly id: string;
-        readonly title: string;
-    }[];
-    readonly groups?: {
-        readonly title: string;
-        readonly ids: string[];
-    }[];
+    readonly options: INgxFormOption[];
+    readonly groups?: INgxFormOptionGroup[];
     readonly minCount?: number;
     readonly maxCount?: number;
     readonly listMaxHeight?: number;

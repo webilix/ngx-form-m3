@@ -2,33 +2,30 @@ import { ValidatorFn, FormControl } from '@angular/forms';
 
 import { Helper } from '@webilix/helper-library';
 
-import { InputMethods, IInput } from '../input.interface';
+import { INgxFormCoordinates } from '../../ngx-form.inputs';
 
-export interface ICoordinates {
-    latitude: number;
-    longitude: number;
-}
+import { InputMethods, IInput } from '../input.interface';
 
 export interface IInputCoordinates extends Omit<IInput, 'value' | 'english' | 'autoFocus'> {
     readonly type: 'COORDINATES';
-    readonly value?: ICoordinates | null;
-    readonly center?: ICoordinates;
+    readonly value?: INgxFormCoordinates | null;
+    readonly center?: INgxFormCoordinates;
     readonly zoom?: number;
 }
 
-export class InputCoordinatesMethods extends InputMethods<IInputCoordinates, ICoordinates | null> {
-    override control(input: IInputCoordinates, validators: ValidatorFn[]): FormControl<ICoordinates | null> {
-        const value: ICoordinates | null =
+export class InputCoordinatesMethods extends InputMethods<IInputCoordinates, INgxFormCoordinates | null> {
+    override control(input: IInputCoordinates, validators: ValidatorFn[]): FormControl<INgxFormCoordinates | null> {
+        const value: INgxFormCoordinates | null =
             input.value &&
             Helper.IS.object(input.value) &&
             Helper.IS.number(input.value.latitude) &&
             Helper.IS.number(input.value.longitude)
                 ? input.value
                 : null;
-        return new FormControl<ICoordinates | null>(value, validators);
+        return new FormControl<INgxFormCoordinates | null>(value, validators);
     }
 
-    override value(value: any, input: IInputCoordinates): ICoordinates | null {
+    override value(value: any, input: IInputCoordinates): INgxFormCoordinates | null {
         return Helper.IS.object(value) ? value : null;
     }
 }

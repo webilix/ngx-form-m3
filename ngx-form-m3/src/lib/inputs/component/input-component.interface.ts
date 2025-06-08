@@ -1,13 +1,15 @@
 import { ValidatorFn, FormControl } from '@angular/forms';
 import { ComponentType } from '@angular/cdk/portal';
 
+import { NgxFormComponentInputs } from '../../ngx-form.inputs';
+
 import { InputMethods, IInput } from '../input.interface';
 
 export interface IInputComponent extends Omit<IInput, 'value' | 'english' | 'autoFocus'> {
     readonly type: 'COMPONENT';
     readonly value?: any;
     readonly component: ComponentType<any>;
-    readonly componentInputs?: { [key: string]: any };
+    readonly componentInputs?: NgxFormComponentInputs;
     readonly zeroPadding?: boolean;
 }
 

@@ -1,14 +1,13 @@
 import { ValidatorFn, FormControl } from '@angular/forms';
 
+import { INgxFormOption } from '../../ngx-form.inputs';
+
 import { InputMethods, IInput } from '../input.interface';
 
 export interface IInputSelect extends IInput {
     readonly type: 'SELECT';
     readonly title: string;
-    readonly options: {
-        readonly id: string;
-        readonly title: string;
-    }[];
+    readonly options: INgxFormOption[];
     readonly hideSearch?: boolean;
 }
 

@@ -10,11 +10,12 @@ import { Helper, IGeoRouteLength } from '@webilix/helper-library';
 import { NgxHelperNumberPipe, NgxHelperRoute, NgxHelperRouteService } from '@webilix/ngx-helper-m3';
 
 import { InputErrorPipe, MultiLinePipe } from '../../pipes';
+import { NgxFormRoute } from '../../ngx-form.inputs';
 import { INgxFormValues } from '../../ngx-form.interface';
 
 import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE } from '../input.interface';
 
-import { IInputRoute, Route } from './input-route.interface';
+import { IInputRoute } from './input-route.interface';
 
 @Component({
     host: { selector: 'input-route' },
@@ -39,7 +40,7 @@ export class InputRouteComponent {
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
 
-    public route: Route = this.formControl.value || [];
+    public route: NgxFormRoute = this.formControl.value || [];
     public distance: IGeoRouteLength = Helper.GEO.routeLength(this.route);
 
     constructor(private readonly ngxHelperRouteService: NgxHelperRouteService) {}

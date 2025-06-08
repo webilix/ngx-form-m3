@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe } from '../../pipes';
+import { INgxFormName } from '../../ngx-form.inputs';
 import { INgxFormValues } from '../../ngx-form.interface';
 
 import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE } from '../input.interface';
@@ -30,7 +31,7 @@ export class InputNameComponent implements OnInit {
     public lastFormControl!: FormControl;
 
     ngOnInit(): void {
-        const value: { first: string; last: string } | null = this.formControl.value;
+        const value: INgxFormName | null = this.formControl.value;
         const first: string | null = value?.first || null;
         const last: string | null = value?.last || null;
 
