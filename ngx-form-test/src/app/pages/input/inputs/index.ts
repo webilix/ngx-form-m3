@@ -10,6 +10,7 @@ export * from './email';
 export * from './file';
 export * from './icon';
 export * from './ip';
+export * from './item-list';
 export * from './mobile';
 export * from './moment';
 export * from './multi-select';

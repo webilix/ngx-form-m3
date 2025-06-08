@@ -34,6 +34,9 @@ export * from './icon/input-icon.interface';
 export * from './ip/input-ip.component';
 export * from './ip/input-ip.interface';
 
+export * from './item-list/input-item-list.component';
+export * from './item-list/input-item-list.interface';
+
 export * from './mobile/input-mobile.component';
 export * from './mobile/input-mobile.interface';
 

@@ -266,6 +266,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
         const readonly: boolean = 'readonly' in input && !!input.readonly;
         const validators: ValidatorFn[] =
             input.type === 'CHECKBOX' ||
+            input.type === 'ITEM-LIST' ||
             input.type === 'MULTI-SELECT' ||
             input.type === 'OPTION-LIST' ||
             input.optional ||
