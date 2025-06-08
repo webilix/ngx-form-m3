@@ -1,0 +1,68 @@
+<mat-form-field [appearance]="input.appearance || config.appearance" [floatLabel]="focused ? 'always' : 'auto'">
+    <mat-label>{{ input.title }}</mat-label>
+    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <!-- BUTTON -->
+    @if (input.button) {
+    <span matIconSuffix>
+        <button
+            mat-icon-button
+            type="button"
+            [disabled]="isButtonDisabled"
+            (click)="input.button.onClick(values)"
+            [tabIndex]="-1"
+        >
+            <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                {{ input.button.icon }}
+            </mat-icon>
+        </button>
+    </span>
+    }
+
+    <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+    <!-- OPTIONS -->
+    @if (options.length > 0) {
+    <div
+        class="options"
+        cdkDropList
+        (cdkDropListDropped)="dropOption($event)"
+        [style.border-color]="formControl.disabled ? 'var(--outline-variant)' : 'var(--outline)'"
+    >
+        @for (item of options; track $index) {
+        <list-item
+            cdkDrag
+            cdkDragLockAxis="y"
+            cdkDragBoundary=".options"
+            [cdkDragDisabled]="input.disableSort"
+            class="option"
+            [value]="item.title"
+            [english]="!!input.english"
+            [disabled]="!!formControl.disabled"
+            [disableSort]="!!input.disableSort"
+            (onUpdate)="updateOption($index, $event)"
+            (onDelete)="deleteOption($index)"
+        ></list-item>
+        }
+    </div>
+    }
+    <!-- INPUT -->
+    <list-input
+        [english]="!!input.english"
+        [disabled]="!!formControl.disabled"
+        [autoFocus]="config.autoFocus === input.name"
+        (onFocus)="focused = $event"
+        (onInput)="addOption($event)"
+    ></list-input>
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <div
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        [innerHTML]="input.description | MultiLinePipe"
+    ></div>
+    }
+</mat-form-field>

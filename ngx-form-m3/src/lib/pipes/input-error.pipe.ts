@@ -57,6 +57,9 @@ export class InputErrorPipe implements PipeTransform {
             case 'maxcount':
                 return `امکان انتخاب بیشتر از ${Helper.NUMBER.format(value)} گزینه وجود ندارد.`;
 
+            case 'duplicate':
+                return 'امکان انتخاب مقادیر تکراری وجود ندارد.';
+
             case 'bank-card':
                 return `شماره کارت بانکی صحیح مشخص نشده است.`;
 

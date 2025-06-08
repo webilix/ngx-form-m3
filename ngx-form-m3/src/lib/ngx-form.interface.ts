@@ -21,6 +21,7 @@ import {
     IInputMultiSelect,
     IInputName,
     IInputNumber,
+    IInputOptionList,
     IInputPassword,
     IInputPrice,
     IInputRoute,
@@ -48,6 +49,7 @@ export type NgxFormInputs =
     | IInputMultiSelect
     | IInputName
     | IInputNumber
+    | IInputOptionList
     | IInputPassword
     | IInputPrice
     | IInputRoute

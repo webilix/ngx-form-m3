@@ -14,4 +14,5 @@ export * from './number/max-number.validator';
 export * from './number/min-number.validator';
 export * from './number/multiply-of.validator';
 
+export * from './duplicate.validator';
 export * from './length.validator';

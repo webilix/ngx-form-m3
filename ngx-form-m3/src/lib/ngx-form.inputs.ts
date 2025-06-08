@@ -3,8 +3,8 @@ export type NgxFormComponentInputs = { [key: string]: any };
 
 //COORDINATES
 export interface INgxFormCoordinates {
-    latitude: number;
-    longitude: number;
+    readonly latitude: number;
+    readonly longitude: number;
 }
 
 // MULTI-SELECT
@@ -23,6 +23,12 @@ export interface INgxFormOptionGroup {
 export interface INgxFormName {
     readonly first: string;
     readonly last: string;
+}
+
+// OPTION LIST
+export interface INgxFormOptionList {
+    readonly id: string | null;
+    readonly title: string;
 }
 
 // ROUTE

@@ -49,6 +49,9 @@ export * from './name/input-name.interface';
 export * from './number/input-number.component';
 export * from './number/input-number.interface';
 
+export * from './option-list/input-option-list.component';
+export * from './option-list/input-option-list.interface';
+
 export * from './password/input-password.component';
 export * from './password/input-password.interface';
 

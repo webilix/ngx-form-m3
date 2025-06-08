@@ -1,0 +1,12 @@
+<input
+    matInput
+    type="text"
+    [placeholder]="english ? 'New Item' : 'گزینه جدید'"
+    [class.ngx-form-m3-en]="english"
+    [AutoFocusDirective]="autoFocus"
+    [disabled]="disabled"
+    (blur)="checkValue(input); onFocus.next(false)"
+    (focus)="onFocus.next(true)"
+    (keydown.enter)="$event.preventDefault(); checkValue(input)"
+    #input
+/>

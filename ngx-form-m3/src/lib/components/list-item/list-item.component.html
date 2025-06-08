@@ -1,0 +1,55 @@
+<!--  SORT -->
+@if (view === 'VALUE' && !disableSort) {
+<mat-icon class="drag" [class.ngx-form-m3-disabled-input]="disabled" cdkDragHandle>drag_indicator</mat-icon>
+}
+
+<!-- VALUE -->
+@if (view === 'VALUE') {
+<div [class.ngx-form-m3-en]="english" [class.ngx-form-m3-disabled-input]="disabled">
+    {{ value }}
+</div>
+
+<button mat-icon-button [type]="'button'" [disabled]="disabled" (click)="view = 'UPDATE'" [tabIndex]="-1">
+    <mat-icon>edit</mat-icon>
+</button>
+
+<button mat-icon-button [type]="'button'" [disabled]="disabled" (click)="view = 'DELETE'" [tabIndex]="-1">
+    <mat-icon [style.color]="'var(--error)'" [class.ngx-form-m3-disabled-input]="disabled">delete</mat-icon>
+</button>
+}
+
+<!-- UPDATE -->
+@if (view === 'UPDATE') {
+<input
+    matInput
+    type="text"
+    [ngModel]="value"
+    [class.ngx-form-m3-en]="english"
+    [AutoFocusDirective]="true"
+    [disabled]="disabled"
+    (blur)="checkValue(input)"
+    (keydown.enter)="$event.preventDefault(); checkValue(input)"
+    #input
+/>
+
+<button mat-icon-button [type]="'button'" [disabled]="disabled" (click)="checkValue(input)" [tabIndex]="-1">
+    <mat-icon>done_all</mat-icon>
+</button>
+
+<button mat-icon-button [type]="'button'" [disabled]="disabled" (click)="view = 'VALUE'" [tabIndex]="-1">
+    <mat-icon>close</mat-icon>
+</button>
+}
+
+<!-- DELETE -->
+@if (view === 'DELETE') {
+<div [class.ngx-form-m3-disabled-input]="disabled">می‌خواهید این گزینه را حذف کنید؟</div>
+
+<button mat-icon-button [type]="'button'" [disabled]="disabled" (click)="onDelete.next(); view = 'VALUE'" [tabIndex]="-1">
+    <mat-icon [style.color]="'var(--error)'" [class.ngx-form-m3-disabled-input]="disabled">done_all</mat-icon>
+</button>
+
+<button mat-icon-button [type]="'button'" [disabled]="disabled" (click)="view = 'VALUE'" [tabIndex]="-1">
+    <mat-icon>close</mat-icon>
+</button>
+}

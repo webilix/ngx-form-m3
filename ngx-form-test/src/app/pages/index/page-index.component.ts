@@ -131,6 +131,7 @@ export class PageIndexComponent implements OnInit {
                                     title: `انتخاب ${index + 1}`,
                                 })),
                             },
+                            { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
                         ],
                     },
                 ],

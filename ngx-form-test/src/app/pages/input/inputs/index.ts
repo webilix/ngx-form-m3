@@ -15,6 +15,7 @@ export * from './moment';
 export * from './multi-select';
 export * from './name';
 export * from './number';
+export * from './option-list';
 export * from './password';
 export * from './price';
 export * from './route';
