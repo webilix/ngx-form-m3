@@ -11,6 +11,7 @@ export interface IInputMoment extends Omit<IInput, 'english' | 'value' | 'autoFo
     readonly value?: Date | null;
     readonly minDate?: Date | 'NOW';
     readonly maxDate?: Date | 'NOW';
+    readonly format?: string;
 }
 
 export class InputMomentMethods extends InputMethods<IInputMoment, Date | null> {

@@ -25,6 +25,7 @@ export const DateInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                 rows: [
                     { name: 'date-minDate', type: 'DATE', title: 'حداقل مقدار', optional: true, minDate: 'NOW' },
                     { name: 'date-maxDate', type: 'DATE', title: 'حداکثر مقدار', optional: true, maxDate: 'NOW' },
+                    { name: 'date-format', type: 'DATE', title: 'فرمت نمایش', optional: true, format: 'Y/m/d' },
                 ],
             },
             {

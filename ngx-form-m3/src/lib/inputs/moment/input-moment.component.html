@@ -38,7 +38,7 @@
         [readonly]="true"
         [disabled]="formControl.disabled"
         (click)="setMoment()"
-        [value]="formControl.value | ngxHelperDate : { format: 'FULL' }"
+        [value]="formControl.value | ngxHelperDate : { format: input.format || 'FULL' }"
     />
 
     <!-- DESCRIPTION -->

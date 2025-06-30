@@ -11,6 +11,7 @@ export interface IInputDate extends Omit<IInput, 'english' | 'value' | 'autoFocu
     readonly value?: Date | null;
     readonly minDate?: Date | 'NOW';
     readonly maxDate?: Date | 'NOW';
+    readonly format?: string;
 }
 
 export class InputDateMethods extends InputMethods<IInputDate, Date | null> {

@@ -25,6 +25,7 @@ export const MomentInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                 rows: [
                     { name: 'moment-minDate', type: 'MOMENT', title: 'حداقل مقدار', optional: true, minDate: 'NOW' },
                     { name: 'moment-maxDate', type: 'MOMENT', title: 'حداکثر مقدار', optional: true, maxDate: 'NOW' },
+                    { name: 'moment-format', type: 'MOMENT', title: 'فرمت نمایش', optional: true, format: 'd N Y H:I:S' },
                 ],
             },
             {

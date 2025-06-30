@@ -38,7 +38,7 @@
         [readonly]="true"
         [disabled]="formControl.disabled"
         (click)="setDate()"
-        [value]="formControl.value | ngxHelperDate"
+        [value]="formControl.value | ngxHelperDate : { format: input.format }"
     />
 
     <!-- DESCRIPTION -->
