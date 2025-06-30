@@ -14,6 +14,7 @@ export class ListInputComponent {
     @Input({ required: true }) english!: boolean;
     @Input({ required: true }) disabled!: boolean;
     @Input({ required: true }) autoFocus!: boolean;
+    @Input({ required: true }) placeholder?: string;
 
     @Output() onFocus: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() onInput: EventEmitter<string> = new EventEmitter<string>();

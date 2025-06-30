@@ -53,6 +53,7 @@
         [english]="!!input.english"
         [disabled]="!!formControl.disabled"
         [autoFocus]="config.autoFocus === input.name"
+        [placeholder]="input.placeholder"
         (onFocus)="focused = $event"
         (onInput)="addOption($event)"
     ></list-input>

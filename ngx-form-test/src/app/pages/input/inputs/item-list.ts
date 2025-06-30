@@ -46,6 +46,12 @@ export const ItemListInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'مقادیر تکراری',
                         allowDuplicates: true,
                     },
+                    {
+                        name: 'item-list-placeholder',
+                        type: 'ITEM-LIST',
+                        title: 'مشخص کردن placeholder',
+                        placeholder: 'مقدار مورد نظر را وارد کنید',
+                    },
                 ],
             },
             {

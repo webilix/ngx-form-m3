@@ -14,6 +14,7 @@ export interface IInputItemList extends Omit<IInput, 'value' | 'optional'> {
     readonly maxCount?: number;
     readonly disableSort?: boolean;
     readonly allowDuplicates?: boolean;
+    readonly placeholder?: string;
 }
 
 export class InputItemListMethods extends InputMethods<IInputItemList, string[] | null> {

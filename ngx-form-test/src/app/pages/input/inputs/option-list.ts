@@ -50,6 +50,12 @@ export const OptionListInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                         title: 'مقادیر تکراری',
                         allowDuplicates: true,
                     },
+                    {
+                        name: 'option-list-placeholder',
+                        type: 'OPTION-LIST',
+                        title: 'مشخص کردن placeholder',
+                        placeholder: 'مقدار مورد نظر را وارد کنید',
+                    },
                 ],
             },
             {

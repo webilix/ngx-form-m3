@@ -15,6 +15,7 @@ export interface IInputOptionList extends Omit<IInput, 'value' | 'optional'> {
     readonly maxCount?: number;
     readonly disableSort?: boolean;
     readonly allowDuplicates?: boolean;
+    readonly placeholder?: string;
 }
 
 export class InputOptionListMethods extends InputMethods<IInputOptionList, INgxFormOptionList[] | null> {
