@@ -224,6 +224,16 @@
     }
 }
 
+/* INPUTS: NAME */
+.ngx-helper-form-m3-name-input {
+    display: flex;
+    column-gap: 1rem;
+
+    mat-form-field {
+        flex: 1;
+    }
+}
+
 /* INPUTS: ROUTE */
 .ngx-helper-form-m3-route-input {
     display: flex;
@@ -238,16 +248,6 @@
 
     div.point {
         font-size: 90%;
-    }
-}
-
-/* INPUTS: NAME */
-.ngx-helper-form-m3-name-input {
-    display: flex;
-    column-gap: 1rem;
-
-    mat-form-field {
-        flex: 1;
     }
 }
 
@@ -279,5 +279,21 @@
         font-family: Yekan;
         text-align: right;
         direction: rtl;
+    }
+}
+
+/* INPUTS: TAG */
+.ngx-helper-form-m3-tag-input {
+    mat-chip-row span {
+        font-size: 85%;
+    }
+
+    mat-chip-row button mat-icon {
+        opacity: 0.5;
+        font-size: 90% !important;
+    }
+
+    mat-chip-row:hover button mat-icon {
+        opacity: 1;
     }
 }

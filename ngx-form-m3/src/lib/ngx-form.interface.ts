@@ -27,6 +27,7 @@ import {
     IInputPrice,
     IInputRoute,
     IInputSelect,
+    IInputTag,
     IInputText,
     IInputTextarea,
     IInputUrl,
@@ -56,6 +57,7 @@ export type NgxFormInputs =
     | IInputPrice
     | IInputRoute
     | IInputSelect
+    | IInputTag
     | IInputText
     | IInputTextarea
     | IInputUrl;

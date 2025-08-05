@@ -133,6 +133,7 @@ export class PageIndexComponent implements OnInit {
                             },
                             { name: 'item-list', type: 'ITEM-LIST', title: 'لیست مقادیر' },
                             { name: 'option-list', type: 'OPTION-LIST', title: 'لیست گزینه‌ها' },
+                            { name: 'tag', type: 'TAG', tags: ['اول', 'دوم', 'سوم'] },
                         ],
                     },
                 ],

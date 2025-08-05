@@ -67,6 +67,9 @@ export * from './route/input-route.interface';
 export * from './select/input-select.component';
 export * from './select/input-select.interface';
 
+export * from './tag/input-tag.component';
+export * from './tag/input-tag.interface';
+
 export * from './text/input-text.component';
 export * from './text/input-text.interface';
 

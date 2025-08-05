@@ -269,6 +269,7 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
             input.type === 'ITEM-LIST' ||
             input.type === 'MULTI-SELECT' ||
             input.type === 'OPTION-LIST' ||
+            input.type === 'TAG' ||
             input.optional ||
             readonly
                 ? []

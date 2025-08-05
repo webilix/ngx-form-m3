@@ -45,6 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'قیمت', type: 'PRICE' },
         { title: 'مسیر', type: 'ROUTE' },
         { title: 'لیست کشویی', type: 'SELECT' },
+        { title: 'تگ', type: 'TAG' },
         { title: 'متن یک خطی', type: 'TEXT' },
         { title: 'متن چند خطی', type: 'TEXTAREA' },
         { title: 'آدرس سایت', type: 'URL' },
