@@ -41,6 +41,7 @@ export const TagInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                 rows: [
                     { name: 'tag-min-count', type: 'TAG', title: 'حداقل انتخاب', tags, minCount: 2 },
                     { name: 'tag-max-count', type: 'TAG', title: 'حداکثر انتخاب', tags, maxCount: 2 },
+                    { name: 'tag-order-list', type: 'TAG', title: 'لیست مرتب', tags, orderList: true },
                 ],
             },
             {

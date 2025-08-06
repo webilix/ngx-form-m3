@@ -12,6 +12,7 @@ export interface IInputTag extends Omit<IInput, 'value' | 'optional' | 'english'
     readonly tags: string[];
     readonly minCount?: number;
     readonly maxCount?: number;
+    readonly orderList?: boolean;
 }
 
 export class InputTagMethods extends InputMethods<IInputTag, string[] | null> {

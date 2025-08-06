@@ -49,12 +49,12 @@ export class InputTagComponent {
     public tags: string[] = Array.isArray(this.formControl.value) ? this.formControl.value : [];
 
     public filteredTags = computed(() => {
-        const value: string = this.inputValue().toLowerCase();
-        const options: string[] = this.input.tags
+        let options: string[] = this.input.tags
             .filter((tag) => !this.tags.includes(tag))
-            .filter((t, i, a) => a.indexOf(t) === i)
-            .sort((t1, t2) => t1.localeCompare(t2));
+            .filter((t, i, a) => a.indexOf(t) === i);
+        if (this.input.orderList) options = options.sort((t1, t2) => t1.localeCompare(t2));
 
+        const value: string = this.inputValue().toLowerCase();
         return value ? options.filter((option) => option.toLowerCase().includes(value)) : options;
     });
 
