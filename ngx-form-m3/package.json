@@ -1,6 +1,6 @@
 {
     "name": "@webilix/ngx-form-m3",
-    "version": "0.0.43",
+    "version": "0.0.44",
     "author": "Ali Amirnezhad",
     "description": "Persian form library for Angular and Material 3",
     "repository": {
