@@ -1,6 +1,6 @@
 import { Component, computed, inject, Input, model, ModelSignal } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { COMMA, ENTER, PERIOD } from '@angular/cdk/keycodes';
 
 import { MatAutocompleteModule, MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatIconButton } from '@angular/material/button';
@@ -44,7 +44,7 @@ export class InputTagComponent {
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
 
-    public separatorKeysCodes: number[] = [ENTER, COMMA];
+    public separatorKeysCodes: number[] = [ENTER, COMMA, PERIOD];
     public inputValue: ModelSignal<string> = model('');
     public tags: string[] = Array.isArray(this.formControl.value) ? this.formControl.value : [];
 
