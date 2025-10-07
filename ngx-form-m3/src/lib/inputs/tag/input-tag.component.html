@@ -29,22 +29,20 @@
             <button matChipRemove type="button"><mat-icon>cancel</mat-icon></button>
         </mat-chip-row>
         }
+        <input
+            type="text"
+            name="inputValue"
+            [(ngModel)]="inputValue"
+            [AutoFocusDirective]="config.autoFocus === input.name"
+            [matChipInputFor]="chipGrid"
+            [matAutocomplete]="auto"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="addTag($event); tagInput.value = ''"
+            #tagInput
+        />
     </mat-chip-grid>
-    <input
-        type="text"
-        name="inputValue"
-        [(ngModel)]="inputValue"
-        [AutoFocusDirective]="config.autoFocus === input.name"
-        [matChipInputFor]="chipGrid"
-        [matAutocomplete]="auto"
-        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-        (matChipInputTokenEnd)="addTag($event); tagInput.value = ''"
-        #tagInput
-    />
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectTag($event); tagInput.value = ''">
-        @for (option of filteredTags(); track $index) {
-        <mat-option [value]="option">{{ option }}</mat-option>
-        }
+        @for (option of filteredTags(); track $index) { <mat-option [value]="option">{{ option }}</mat-option> }
     </mat-autocomplete>
 
     <!-- DESCRIPTION -->
