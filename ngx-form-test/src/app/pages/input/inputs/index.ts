@@ -25,3 +25,4 @@ export * from './tag';
 export * from './text';
 export * from './textarea';
 export * from './url';
+export * from './username';

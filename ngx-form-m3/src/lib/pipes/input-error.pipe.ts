@@ -66,6 +66,9 @@ export class InputErrorPipe implements PipeTransform {
             case 'bank-sheba':
                 return `شماره شبا صحیح مشخص نشده است.`;
 
+            case 'username':
+                return value;
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':

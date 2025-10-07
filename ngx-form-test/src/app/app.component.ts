@@ -49,6 +49,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'متن یک خطی', type: 'TEXT' },
         { title: 'متن چند خطی', type: 'TEXTAREA' },
         { title: 'آدرس سایت', type: 'URL' },
+        { title: 'نام کاربری', type: 'USERNAME' },
     ];
 
     public colorMode!: ColorMode;

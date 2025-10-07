@@ -58,6 +58,8 @@ import {
     InputTextMethods,
     InputUrlComponent,
     InputUrlMethods,
+    InputUsernameComponent,
+    InputUsernameMethods,
 } from '.';
 
 export const InputInfo: {
@@ -98,4 +100,5 @@ export const InputInfo: {
     TEXT: { title: 'متن یک خطی', methods: new InputTextMethods(), component: InputTextComponent },
     TEXTAREA: { title: 'متن چند خطی', methods: new InputTextareaMethods(), component: InputTextareaComponent },
     URL: { title: 'آدرس سایت', methods: new InputUrlMethods(), component: InputUrlComponent },
+    USERNAME: { title: 'نام کاربری', methods: new InputUsernameMethods(), component: InputUsernameComponent },
 };

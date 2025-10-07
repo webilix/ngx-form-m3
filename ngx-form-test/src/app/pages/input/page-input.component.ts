@@ -33,6 +33,7 @@ import {
     TextareaInputs,
     TextInputs,
     UrlInputs,
+    UsernameInputs,
 } from './inputs';
 
 @Component({
@@ -73,6 +74,7 @@ export class PageInputComponent implements OnInit {
         TEXT: TextInputs,
         TEXTAREA: TextareaInputs,
         URL: UrlInputs,
+        USERNAME: UsernameInputs,
     };
 
     public ngxForm: INgxForm = {

@@ -31,6 +31,7 @@ import {
     IInputText,
     IInputTextarea,
     IInputUrl,
+    IInputUsername,
 } from './inputs';
 
 export type NgxFormInputs =
@@ -60,7 +61,8 @@ export type NgxFormInputs =
     | IInputTag
     | IInputText
     | IInputTextarea
-    | IInputUrl;
+    | IInputUrl
+    | IInputUsername;
 
 type Inputs =
     | NgxFormInputs

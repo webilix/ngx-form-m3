@@ -71,6 +71,7 @@ export class PageIndexComponent implements OnInit {
                         header: 'عضویت',
                         rows: [
                             { name: 'email', type: 'EMAIL', optional: true, button: this.inputButton },
+                            { name: 'username', type: 'USERNAME', optional: true, button: this.inputButton },
                             { name: 'password', type: 'PASSWORD', optional: true, button: this.inputButton },
                             {
                                 name: 'dateComponent',
