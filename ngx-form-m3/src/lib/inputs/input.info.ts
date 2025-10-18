@@ -56,6 +56,8 @@ import {
     InputTextareaMethods,
     InputTextComponent,
     InputTextMethods,
+    InputTimeComponent,
+    InputTimeMethods,
     InputUrlComponent,
     InputUrlMethods,
     InputUsernameComponent,
@@ -99,6 +101,7 @@ export const InputInfo: {
     TAG: { title: 'تگ', methods: new InputTagMethods(), component: InputTagComponent },
     TEXT: { title: 'متن یک خطی', methods: new InputTextMethods(), component: InputTextComponent },
     TEXTAREA: { title: 'متن چند خطی', methods: new InputTextareaMethods(), component: InputTextareaComponent },
+    TIME: { title: 'ساعت', methods: new InputTimeMethods(), component: InputTimeComponent },
     URL: { title: 'آدرس سایت', methods: new InputUrlMethods(), component: InputUrlComponent },
     USERNAME: { title: 'نام کاربری', methods: new InputUsernameMethods(), component: InputUsernameComponent },
 };

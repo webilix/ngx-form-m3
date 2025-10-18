@@ -76,6 +76,9 @@ export * from './text/input-text.interface';
 export * from './textarea/input-textarea.component';
 export * from './textarea/input-textarea.interface';
 
+export * from './time/input-time.component';
+export * from './time/input-time.interface';
+
 export * from './url/input-url.component';
 export * from './url/input-url.interface';
 

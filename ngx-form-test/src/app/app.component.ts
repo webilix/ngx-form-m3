@@ -48,6 +48,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'تگ', type: 'TAG' },
         { title: 'متن یک خطی', type: 'TEXT' },
         { title: 'متن چند خطی', type: 'TEXTAREA' },
+        { title: 'ساعت', type: 'TIME' },
         { title: 'آدرس سایت', type: 'URL' },
         { title: 'نام کاربری', type: 'USERNAME' },
     ];

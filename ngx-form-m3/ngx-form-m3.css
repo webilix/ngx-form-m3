@@ -297,3 +297,88 @@
         opacity: 1;
     }
 }
+
+/* INPUTS: TIME */
+.ngx-helper-form-m3-time-input {
+    display: flex;
+    flex-direction: row-reverse;
+    column-gap: 0.75rem;
+    align-items: center;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        min-width: auto;
+        border-radius: 0;
+        color: var(--on-background) !important;
+        line-height: 0;
+    }
+}
+
+.ngx-helper-form-m3-time-input-hour {
+    .mat-mdc-menu-content {
+        padding: 0;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: fit-content !important;
+
+        button {
+            padding: 0.75rem;
+            min-width: auto;
+            min-height: auto;
+            border-radius: 0;
+
+            span.hour {
+                font-size: 90%;
+            }
+        }
+    }
+}
+
+.ngx-helper-form-m3-time-input-minute {
+    .mat-mdc-menu-content {
+        padding: 0;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: fit-content !important;
+
+        button {
+            padding: 0.75rem 0.5rem;
+            min-width: auto;
+            min-height: auto;
+            border-radius: 0;
+
+            span.minute {
+                font-size: 90%;
+            }
+        }
+    }
+}
+
+.ngx-helper-form-m3-time-input-second {
+    .mat-mdc-menu-content {
+        padding: 0;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: fit-content !important;
+
+        button {
+            padding: 0.75rem 0.5rem;
+            min-width: auto;
+            min-height: auto;
+            border-radius: 0;
+
+            span.second {
+                font-size: 90%;
+            }
+        }
+    }
+}

@@ -24,5 +24,6 @@ export * from './select';
 export * from './tag';
 export * from './text';
 export * from './textarea';
+export * from './time';
 export * from './url';
 export * from './username';

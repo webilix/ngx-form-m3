@@ -32,6 +32,7 @@ import {
     TagInputs,
     TextareaInputs,
     TextInputs,
+    TimeInputs,
     UrlInputs,
     UsernameInputs,
 } from './inputs';
@@ -73,6 +74,7 @@ export class PageInputComponent implements OnInit {
         TAG: TagInputs,
         TEXT: TextInputs,
         TEXTAREA: TextareaInputs,
+        TIME: TimeInputs,
         URL: UrlInputs,
         USERNAME: UsernameInputs,
     };

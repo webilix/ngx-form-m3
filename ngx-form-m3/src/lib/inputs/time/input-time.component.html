@@ -1,0 +1,103 @@
+<mat-form-field [appearance]="input.appearance || config.appearance" [floatLabel]="formControl.value ? 'always' : 'auto'">
+    <mat-label>{{ input.title || 'ساعت' }}</mat-label>
+    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+
+    <!-- HINT -->
+    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+
+    <!--  SUFFIX -->
+    <span matTextSuffix class="ngx-form-m3-input-suffix click" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+        <span>&nbsp;</span>
+        <mat-icon (click)="formControl.value ? resetTime() : setNow(); formControl.markAsTouched()">
+            {{ formControl.value ? 'close' : 'access_time' }}
+        </mat-icon>
+    </span>
+
+    <!-- BUTTON -->
+    @if (input.button) {
+    <span matIconSuffix>
+        <button
+            mat-icon-button
+            type="button"
+            [disabled]="isButtonDisabled"
+            (click)="input.button.onClick(values)"
+            [tabIndex]="-1"
+        >
+            <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                {{ input.button.icon }}
+            </mat-icon>
+        </button>
+    </span>
+    }
+
+    <!-- INPUT -->
+    <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+    <div class="ngx-helper-form-m3-time-input">
+        <button
+            mat-button
+            type="button"
+            [matMenuTriggerFor]="hourMenu"
+            [disabled]="formControl.disabled"
+            [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        >
+            {{ hour }}
+        </button>
+        <mat-menu #hourMenu="matMenu" class="ngx-helper-form-m3-time-input-hour">
+            @for (h of hours; track $index) {
+            <button mat-menu-item (click)="setHour(h)" [disabled]="hour === h || formControl.disabled">
+                <span class="hour">{{ h }}</span>
+            </button>
+            }
+        </mat-menu>
+
+        <div class="colon" [class.ngx-form-m3-disabled-input]="formControl.disabled">:</div>
+
+        <button
+            mat-button
+            type="button"
+            [matMenuTriggerFor]="minuteMenu"
+            [disabled]="hour === '--' || formControl.disabled"
+            [class.ngx-form-m3-disabled-input]="hour === '--' || formControl.disabled"
+        >
+            {{ minute }}
+        </button>
+        <mat-menu #minuteMenu="matMenu" class="ngx-helper-form-m3-time-input-minute">
+            @for (m of minutes; track $index) {
+            <button mat-menu-item (click)="setMinute(m)" [disabled]="minute === m || formControl.disabled">
+                <span class="minute">{{ m }}</span>
+            </button>
+            }
+        </mat-menu>
+
+        <!-- SECOND -->
+        @if (input.showSeconds) {
+        <div class="colon" [class.ngx-form-m3-disabled-input]="formControl.disabled">:</div>
+
+        <button
+            mat-button
+            type="button"
+            [matMenuTriggerFor]="secondMenu"
+            [disabled]="hour === '--' || formControl.disabled"
+            [class.ngx-form-m3-disabled-input]="hour === '--' || formControl.disabled"
+        >
+            {{ second }}
+        </button>
+        <mat-menu #secondMenu="matMenu" class="ngx-helper-form-m3-time-input-second">
+            @for (s of seconds; track $index) {
+            <button mat-menu-item (click)="setSecond(s)" [disabled]="second === s || formControl.disabled">
+                <span class="second">{{ s }}</span>
+            </button>
+            }
+        </mat-menu>
+        }
+    </div>
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+    <div
+        class="ngx-form-m3-input-description"
+        [class.ngx-form-m3-disabled-input]="formControl.disabled"
+        [innerHTML]="input.description | MultiLinePipe"
+    ></div>
+    }
+</mat-form-field>
