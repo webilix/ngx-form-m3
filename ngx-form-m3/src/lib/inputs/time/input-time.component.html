@@ -42,7 +42,7 @@
         >
             {{ hour }}
         </button>
-        <mat-menu #hourMenu="matMenu" class="ngx-helper-form-m3-time-input-hour">
+        <mat-menu #hourMenu="matMenu" class="ngx-helper-form-m3-time-input-hour" [xPosition]="'before'">
             @for (h of hours; track $index) {
             <button mat-menu-item (click)="setHour(h)" [disabled]="hour === h || formControl.disabled">
                 <span class="hour">{{ h }}</span>
@@ -61,7 +61,7 @@
         >
             {{ minute }}
         </button>
-        <mat-menu #minuteMenu="matMenu" class="ngx-helper-form-m3-time-input-minute">
+        <mat-menu #minuteMenu="matMenu" class="ngx-helper-form-m3-time-input-minute" [xPosition]="'before'">
             @for (m of minutes; track $index) {
             <button mat-menu-item (click)="setMinute(m)" [disabled]="minute === m || formControl.disabled">
                 <span class="minute">{{ m }}</span>
@@ -82,7 +82,7 @@
         >
             {{ second }}
         </button>
-        <mat-menu #secondMenu="matMenu" class="ngx-helper-form-m3-time-input-second">
+        <mat-menu #secondMenu="matMenu" class="ngx-helper-form-m3-time-input-second" [xPosition]="'before'">
             @for (s of seconds; track $index) {
             <button mat-menu-item (click)="setSecond(s)" [disabled]="second === s || formControl.disabled">
                 <span class="second">{{ s }}</span>
