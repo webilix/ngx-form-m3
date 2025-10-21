@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton, MatButton } from '@angular/material/button';
@@ -32,7 +32,7 @@ import { IInputTime } from './input-time.interface';
     templateUrl: './input-time.component.html',
     styleUrl: './input-time.component.scss',
 })
-export class InputTimeComponent implements OnInit {
+export class InputTimeComponent implements OnInit, OnChanges {
     public formControl: FormControl = inject(INPUT_CONTROL);
     public input: IInputTime = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
@@ -56,6 +56,10 @@ export class InputTimeComponent implements OnInit {
         this.hour = value[0];
         this.minute = value[1];
         this.second = this.input.showSeconds ? value[2] : '00';
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (this.hour !== '--' && !this.formControl.value) this.resetTime();
     }
 
     setValue(): void {
