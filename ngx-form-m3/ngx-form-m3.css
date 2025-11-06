@@ -326,17 +326,31 @@
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        row-gap: 0.25rem;
+        column-gap: 0.25rem;
         width: fit-content !important;
+        direction: ltr;
 
         button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             padding: 0.75rem;
             min-width: auto;
             min-height: auto;
             border-radius: 0;
 
+            text-align: center;
+
             span.hour {
                 font-size: 90%;
             }
+        }
+
+        button.selected {
+            color: var(--primary);
+            border: 1px solid var(--primary);
         }
     }
 }
@@ -347,17 +361,31 @@
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        row-gap: 0.25rem;
+        column-gap: 0.25rem;
         width: fit-content !important;
+        direction: ltr;
 
         button {
-            padding: 0.75rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0.5rem;
             min-width: auto;
             min-height: auto;
             border-radius: 0;
 
+            text-align: center;
+
             span.minute {
                 font-size: 90%;
             }
+        }
+
+        button.selected {
+            color: var(--primary);
+            border: 1px solid var(--primary);
         }
     }
 }
@@ -368,17 +396,31 @@
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        row-gap: 0.25rem;
+        column-gap: 0.25rem;
         width: fit-content !important;
+        direction: ltr;
 
         button {
-            padding: 0.75rem 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0.5rem;
             min-width: auto;
             min-height: auto;
             border-radius: 0;
 
+            text-align: center;
+
             span.second {
                 font-size: 90%;
             }
+        }
+
+        button.selected {
+            color: var(--primary);
+            border: 1px solid var(--primary);
         }
     }
 }
