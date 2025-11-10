@@ -30,7 +30,7 @@ import { IInputComponent } from './input-component.interface';
     styleUrl: './input-component.component.scss',
 })
 export class InputComponentComponent implements OnChanges {
-    @HostBinding('style.--padding') paddig!: string;
+    @HostBinding('style.--padding') protected paddig!: string;
 
     public formControl: FormControl = inject(INPUT_CONTROL);
     public input: IInputComponent = inject(INPUT_TYPE);

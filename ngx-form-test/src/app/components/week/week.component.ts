@@ -16,7 +16,7 @@ import { NgxHelperDatePipe } from '@webilix/ngx-helper-m3';
     styleUrl: './week.component.scss',
 })
 export class WeekComponent implements OnInit {
-    @HostBinding('style.--top') top: string = '-1rem';
+    @HostBinding('style.--top') protected top: string = '-1rem';
 
     public formControl: FormControl = inject(NGX_FORM_CONTROL);
     public input: NgxFormInputs = inject(NGX_FORM_INPUT);

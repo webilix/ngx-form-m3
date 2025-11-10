@@ -35,7 +35,7 @@ import { IInputMultiSelect } from './input-multi-select.interface';
     styleUrl: './input-multi-select.component.scss',
 })
 export class InputMultiSelectComponent implements OnInit {
-    @HostBinding('style.--listHeight') listHeight!: string;
+    @HostBinding('style.--listHeight') protected listHeight!: string;
 
     public formControl: FormControl = inject(INPUT_CONTROL);
     public input: IInputMultiSelect = inject(INPUT_TYPE);

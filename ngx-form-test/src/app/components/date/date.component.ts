@@ -16,7 +16,7 @@ import { NgxHelperDatePipe } from '@webilix/ngx-helper-m3';
     styleUrl: './date.component.scss',
 })
 export class DateComponent implements OnInit {
-    @HostBinding('style.--top') top: string = '-1rem';
+    @HostBinding('style.--top') protected top: string = '-1rem';
 
     @Input({ required: false }) minItems?: number;
     @Input({ required: false }) maxItems?: number;
