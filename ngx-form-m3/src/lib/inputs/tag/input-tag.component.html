@@ -38,6 +38,8 @@
             [matAutocomplete]="auto"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
             (matChipInputTokenEnd)="addTag($event); tagInput.value = ''"
+            (keydown.enter)="$event.preventDefault()"
+            enterkeyhint="done"
             #tagInput
         />
     </mat-chip-grid>

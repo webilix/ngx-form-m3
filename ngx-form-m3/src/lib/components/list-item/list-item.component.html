@@ -29,6 +29,7 @@
     [disabled]="disabled"
     (blur)="checkValue(input)"
     (keydown.enter)="$event.preventDefault(); checkValue(input)"
+    enterkeyhint="done"
     #input
 />
 

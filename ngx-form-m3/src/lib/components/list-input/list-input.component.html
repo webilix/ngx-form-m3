@@ -8,5 +8,6 @@
     (blur)="checkValue(input); onFocus.next(false)"
     (focus)="onFocus.next(true)"
     (keydown.enter)="$event.preventDefault(); checkValue(input)"
+    enterkeyhint="done"
     #input
 />
