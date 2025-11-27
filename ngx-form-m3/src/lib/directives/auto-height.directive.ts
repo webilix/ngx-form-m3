@@ -8,11 +8,11 @@ export class AutoHeightDirective {
 
     private _focused: boolean = false;
     @HostListener('focus')
-    private focus(): void {
+    protected focus(): void {
         this._focused = true;
     }
     @HostListener('blur')
-    private blur(): void {
+    protected blur(): void {
         this._focused = false;
     }
 
@@ -23,7 +23,7 @@ export class AutoHeightDirective {
     }
 
     @HostListener('input')
-    private resize(forced?: boolean): void {
+    protected resize(forced?: boolean): void {
         if (this.AutoHeightDirective !== true || (!forced && !this._focused)) return;
 
         const textarea = this.elementRef.nativeElement as HTMLTextAreaElement;
