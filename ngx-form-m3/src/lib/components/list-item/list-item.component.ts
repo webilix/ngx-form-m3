@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CdkDragHandle } from '@angular/cdk/drag-drop';
 
@@ -12,6 +12,7 @@ import { AutoFocusDirective } from '../../directives';
     selector: 'list-item',
     imports: [CdkDragHandle, FormsModule, MatIcon, MatIconButton, MatInput, AutoFocusDirective],
     templateUrl: './list-item.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './list-item.component.scss',
 })
 export class ListItemComponent {

@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -28,6 +28,7 @@ import { IInputIp } from './input-ip.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-ip.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-ip.component.scss',
 })
 export class InputIpComponent {

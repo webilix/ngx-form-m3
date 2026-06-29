@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 
@@ -31,6 +31,7 @@ import { IInputSelect } from './input-select.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-select.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-select.component.scss',
 })
 export class InputSelectComponent {

@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MaskitoOptions } from '@maskito/core';
 import { MaskitoDirective } from '@maskito/angular';
@@ -33,6 +33,7 @@ import { IInputBankSheba } from './input-bank-sheba.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-bank-sheba.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-bank-sheba.component.scss',
 })
 export class InputBankShebaComponent {

@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -28,6 +28,7 @@ import { IInputIcon } from './input-icon.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-icon.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-icon.component.scss',
 })
 export class InputIconComponent {

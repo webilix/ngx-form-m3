@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, inject, Input, OnInit, signal, WritableSignal, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MaskitoOptions } from '@maskito/core';
 import { MaskitoDirective } from '@maskito/angular';
@@ -33,6 +33,7 @@ import { IInputBankCard } from './input-bank-card.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-bank-card.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-bank-card.component.scss',
 })
 export class InputBankCardComponent implements OnInit {

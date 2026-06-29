@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 import { MatInput } from '@angular/material/input';
 
@@ -8,6 +8,7 @@ import { AutoFocusDirective } from '../../directives';
     selector: 'list-input',
     imports: [MatInput, AutoFocusDirective],
     templateUrl: './list-input.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './list-input.component.scss',
 })
 export class ListInputComponent {

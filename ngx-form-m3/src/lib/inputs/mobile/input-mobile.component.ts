@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MaskitoOptions } from '@maskito/core';
 import { MaskitoDirective } from '@maskito/angular';
@@ -33,6 +33,7 @@ import { IInputMobile } from './input-mobile.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-mobile.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-mobile.component.scss',
 })
 export class InputMobileComponent {

@@ -1,4 +1,4 @@
-import { Component, HostBinding, inject, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, inject, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -13,6 +13,7 @@ import { NgxHelperDatePipe } from '@webilix/ngx-helper-m3';
     host: { selector: 'date' },
     imports: [MatIcon, MatIconButton, NgxHelperDatePipe],
     templateUrl: './date.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './date.component.scss',
 })
 export class DateComponent implements OnInit {

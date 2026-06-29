@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatFormField } from '@angular/material/form-field';
@@ -17,6 +17,7 @@ import { IInputName } from './input-name.interface';
     host: { selector: 'input-name' },
     imports: [ReactiveFormsModule, MatFormField, MatInputModule, AutoCompleteDirective, AutoFocusDirective, InputErrorPipe],
     templateUrl: './input-name.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-name.component.scss',
 })
 export class InputNameComponent implements OnInit {

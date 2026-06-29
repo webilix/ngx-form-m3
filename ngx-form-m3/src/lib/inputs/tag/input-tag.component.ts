@@ -1,4 +1,4 @@
-import { Component, computed, inject, Input, model, ModelSignal } from '@angular/core';
+import { Component, computed, inject, Input, model, ModelSignal, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { COMMA, ENTER, PERIOD } from '@angular/cdk/keycodes';
 
@@ -34,6 +34,7 @@ import { IInputTag } from './input-tag.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-tag.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-tag.component.scss',
 })
 export class InputTagComponent {

@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -30,6 +30,7 @@ import { IInputAutoComplete } from './input-auto-complete.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-auto-complete.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-auto-complete.component.scss',
 })
 export class InputAutoCompleteComponent implements OnInit {

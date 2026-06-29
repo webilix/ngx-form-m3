@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -29,6 +29,7 @@ import { IInputDate } from './input-date.interface';
         NgxHelperDatePipe,
     ],
     templateUrl: './input-date.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-date.component.scss',
 })
 export class InputDateComponent {

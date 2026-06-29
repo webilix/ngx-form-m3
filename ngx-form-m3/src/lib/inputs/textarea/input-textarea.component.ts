@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DecimalPipe, NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -31,6 +31,7 @@ import { IInputTextarea } from './input-textarea.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-textarea.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-textarea.component.scss',
 })
 export class InputTextareaComponent {

@@ -1,4 +1,4 @@
-import { Component, HostBinding, inject, OnInit } from '@angular/core';
+import { Component, HostBinding, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -13,6 +13,7 @@ import { NgxHelperDatePipe } from '@webilix/ngx-helper-m3';
     host: { selector: 'week' },
     imports: [MatIcon, MatIconButton, NgxHelperDatePipe],
     templateUrl: './week.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './week.component.scss',
 })
 export class WeekComponent implements OnInit {

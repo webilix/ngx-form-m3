@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -17,6 +17,7 @@ import { IInputCheckbox } from './input-checkbox.interface';
     host: { selector: 'input-checkbox' },
     imports: [ReactiveFormsModule, MatFormField, MatIcon, MatIconButton, MatInputModule, InputErrorPipe, MultiLinePipe],
     templateUrl: './input-checkbox.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-checkbox.component.scss',
 })
 export class InputCheckboxComponent {

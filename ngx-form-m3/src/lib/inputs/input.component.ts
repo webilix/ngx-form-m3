@@ -1,4 +1,4 @@
-import { Component, Injector, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Injector, Input, OnChanges, OnInit, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -10,6 +10,7 @@ import { IInputConfig, INPUT_CONFIG, INPUT_CONTROL, INPUT_TYPE, InputInfo } from
     selector: 'form-input',
     imports: [NgComponentOutlet],
     templateUrl: './input.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input.component.scss',
 })
 export class InputComponent implements OnInit, OnChanges {

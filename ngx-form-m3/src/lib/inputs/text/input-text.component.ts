@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -30,6 +30,7 @@ import { IInputText } from './input-text.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-text.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-text.component.scss',
 })
 export class InputTextComponent {

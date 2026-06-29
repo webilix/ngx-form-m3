@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -27,6 +27,7 @@ import { IInputPassword } from './input-password.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-password.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-password.component.scss',
 })
 export class InputPasswordComponent {

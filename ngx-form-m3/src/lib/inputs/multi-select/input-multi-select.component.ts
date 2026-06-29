@@ -1,4 +1,4 @@
-import { Component, HostBinding, inject, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, inject, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
@@ -32,6 +32,7 @@ import { IInputMultiSelect } from './input-multi-select.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-multi-select.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-multi-select.component.scss',
 })
 export class InputMultiSelectComponent implements OnInit {

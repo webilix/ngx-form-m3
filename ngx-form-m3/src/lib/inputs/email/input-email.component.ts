@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -28,6 +28,7 @@ import { IInputEmail } from './input-email.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-email.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-email.component.scss',
 })
 export class InputEmailComponent {

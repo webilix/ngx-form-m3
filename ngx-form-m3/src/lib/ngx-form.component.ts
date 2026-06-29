@@ -11,6 +11,7 @@ import {
     Output,
     SimpleChanges,
     ViewChild,
+    ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormGroup, NgForm, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -44,6 +45,7 @@ interface ISection {
     selector: 'ngx-form',
     imports: [ReactiveFormsModule, MatButton, InputComponent, FormErrorDirective],
     templateUrl: './ngx-form.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './ngx-form.component.scss',
 })
 export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
@@ -142,8 +144,8 @@ export class NgxFormComponent implements OnInit, OnChanges, AfterViewInit {
                                           flex: row.inputs.map((_, i) => row.flex?.[i] || 1),
                                       }
                                     : 'input' in row
-                                    ? { header: row.header, inputs: [row.input], flex: [1] }
-                                    : { header: '', inputs: [row], flex: [1] },
+                                      ? { header: row.header, inputs: [row.input], flex: [1] }
+                                      : { header: '', inputs: [row], flex: [1] },
                             ),
                             flex: [],
                         };

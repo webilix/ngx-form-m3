@@ -1,9 +1,13 @@
 <mat-form-field [appearance]="input.appearance || config.appearance" [floatLabel]="formControl.value ? 'always' : 'auto'">
     <mat-label>{{ input.title || 'فایل' }}</mat-label>
-    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+    @if (formControl.invalid) {
+        <mat-error>{{ formControl.errors | InputErrorPipe: input.type }}</mat-error>
+    }
 
     <!-- HINT -->
-    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    @if (input.hint) {
+        <mat-hint>{{ input.hint }}</mat-hint>
+    }
 
     <!--  SUFFIX -->
     <span matTextSuffix class="ngx-form-m3-input-suffix click" [class.ngx-form-m3-disabled-input]="formControl.disabled">
@@ -15,19 +19,19 @@
 
     <!-- BUTTON -->
     @if (input.button) {
-    <span matIconSuffix>
-        <button
-            mat-icon-button
-            type="button"
-            [disabled]="isButtonDisabled"
-            (click)="input.button.onClick(values)"
-            [tabIndex]="-1"
-        >
-            <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
-                {{ input.button.icon }}
-            </mat-icon>
-        </button>
-    </span>
+        <span matIconSuffix>
+            <button
+                mat-icon-button
+                type="button"
+                [disabled]="isButtonDisabled"
+                (click)="input.button.onClick(values)"
+                [tabIndex]="-1"
+            >
+                <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                    {{ input.button.icon }}
+                </mat-icon>
+            </button>
+        </span>
     }
 
     <!-- INPUT -->
@@ -45,17 +49,17 @@
         [class.ngx-form-m3-disabled-input]="formControl.disabled"
         (click)="fileInput.value = ''; fileInput.click()"
     >
-        <div class="size">{{ formControl.value?.size | ngxHelperFileSize }}</div>
+        <div class="size">{{ $safeNavigationMigration(formControl.value?.size) | ngxHelperFileSize }}</div>
         <input type="text " matInput [readonly]="true" [disabled]="formControl.disabled" class="ngx-form-m3-en" />
         <div class="name ngx-form-m3-en">{{ formControl.value?.name || '&nbsp;' }}</div>
     </div>
 
     <!-- DESCRIPTION -->
     @if (input.description) {
-    <div
-        class="ngx-form-m3-input-description"
-        [class.ngx-form-m3-disabled-input]="formControl.disabled"
-        [innerHTML]="input.description | MultiLinePipe"
-    ></div>
+        <div
+            class="ngx-form-m3-input-description"
+            [class.ngx-form-m3-disabled-input]="formControl.disabled"
+            [innerHTML]="input.description | MultiLinePipe"
+        ></div>
     }
 </mat-form-field>

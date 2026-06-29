@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -30,6 +30,7 @@ import { IInputRoute } from './input-route.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-route.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-route.component.scss',
 })
 export class InputRouteComponent {

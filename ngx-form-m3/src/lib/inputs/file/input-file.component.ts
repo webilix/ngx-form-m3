@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -28,6 +28,7 @@ import { IInputFile } from './input-file.interface';
         NgxHelperFileSizePipe,
     ],
     templateUrl: './input-file.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-file.component.scss',
 })
 export class InputFileComponent {

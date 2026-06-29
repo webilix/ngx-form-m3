@@ -1,5 +1,14 @@
+import {
+    Component,
+    HostBinding,
+    inject,
+    Injector,
+    Input,
+    OnChanges,
+    SimpleChanges,
+    ChangeDetectionStrategy,
+} from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
-import { Component, HostBinding, inject, Injector, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -27,6 +36,7 @@ import { IInputComponent } from './input-component.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-component.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-component.component.scss',
 })
 export class InputComponentComponent implements OnChanges {

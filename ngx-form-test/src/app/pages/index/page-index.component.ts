@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { INgxForm, INgxFormInit, INgxFormValues, NgxFormComponent } from '@webilix/ngx-form-m3';
@@ -12,6 +12,7 @@ import { AppService } from '../../app.service';
     host: { selector: 'page-index' },
     imports: [NgxFormComponent],
     templateUrl: './page-index.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './page-index.component.scss',
 })
 export class PageIndexComponent implements OnInit {

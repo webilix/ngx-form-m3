@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -19,6 +19,7 @@ import { IInputCoordinates } from './input-coordinates.interface';
     host: { selector: 'input-coordinates' },
     imports: [ReactiveFormsModule, MatFormField, MatIcon, MatIconButton, MatInputModule, InputErrorPipe, MultiLinePipe],
     templateUrl: './input-coordinates.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-coordinates.component.scss',
 })
 export class InputCoordinatesComponent {

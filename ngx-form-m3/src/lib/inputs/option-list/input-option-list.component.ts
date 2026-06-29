@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 
@@ -32,6 +32,7 @@ import { IInputOptionList } from './input-option-list.interface';
         ListItemComponent,
     ],
     templateUrl: './input-option-list.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-option-list.component.scss',
 })
 export class InputOptionListComponent implements OnInit {

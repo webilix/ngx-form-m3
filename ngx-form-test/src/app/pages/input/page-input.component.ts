@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { INgxForm, INgxFormValues, NgxFormComponent, NgxFormInputs } from '@webilix/ngx-form-m3';
@@ -41,6 +41,7 @@ import {
     host: { selector: 'page-input' },
     imports: [NgxFormComponent],
     templateUrl: './page-input.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './page-input.component.scss',
 })
 export class PageInputComponent implements OnInit {

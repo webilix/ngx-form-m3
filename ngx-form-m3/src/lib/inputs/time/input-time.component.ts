@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, inject, Input, OnChanges, OnInit, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton, MatButton } from '@angular/material/button';
@@ -30,6 +30,7 @@ import { IInputTime } from './input-time.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-time.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-time.component.scss',
 })
 export class InputTimeComponent implements OnInit, OnChanges {

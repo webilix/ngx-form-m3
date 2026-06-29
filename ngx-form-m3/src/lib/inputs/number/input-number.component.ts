@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaskitoOptions } from '@maskito/core';
 import { MaskitoDirective } from '@maskito/angular';
@@ -35,6 +35,7 @@ import { IInputNumber } from './input-number.interface';
         MultiLinePipe,
     ],
     templateUrl: './input-number.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-number.component.scss',
 })
 export class InputNumberComponent implements OnInit {

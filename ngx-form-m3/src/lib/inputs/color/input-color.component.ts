@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { MatIconButton } from '@angular/material/button';
@@ -17,6 +17,7 @@ import { IInputColor } from './input-color.interface';
     host: { selector: 'input-color' },
     imports: [ReactiveFormsModule, MatFormField, MatIcon, MatIconButton, MatInputModule, InputErrorPipe, MultiLinePipe],
     templateUrl: './input-color.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-color.component.scss',
 })
 export class InputColorComponent {
