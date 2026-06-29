@@ -61,10 +61,31 @@ export class InputErrorPipe implements PipeTransform {
                 return 'امکان انتخاب مقادیر تکراری وجود ندارد.';
 
             case 'bank-card':
-                return `شماره کارت بانکی صحیح مشخص نشده است.`;
+                switch (value) {
+                    case 'length':
+                        return 'شماره کارت بانکی دارای ۱۶ رقم است.';
+                    case 'validate':
+                        return `شماره کارت بانکی صحیح مشخص نشده است.`;
+                }
+                break;
 
             case 'bank-sheba':
-                return `شماره شبا صحیح مشخص نشده است.`;
+                switch (value) {
+                    case 'length':
+                        return 'شماره شبا دارای ۲۴ رقم است.';
+                    case 'validate':
+                        return `شماره شبا صحیح مشخص نشده است.`;
+                }
+                break;
+
+            case 'mobile':
+                switch (value) {
+                    case 'length':
+                        return 'شماره موبایل دارای ۱۱ رقم است.';
+                    case 'validate':
+                        return `شماره موبایل صحیح مشخص نشده است.`;
+                }
+                break;
 
             case 'username':
                 return value;
@@ -85,17 +106,6 @@ export class InputErrorPipe implements PipeTransform {
                         return 'کاراکترهای الزامی در کلمه عبور استفاده نشده‌اند.';
                     case 'URL':
                         return 'فرمت استاندارد آدرس سایت رعایت نشده است.';
-                }
-                break;
-
-            case 'mask':
-                switch (type) {
-                    case 'BANK-CARD':
-                        return 'شماره کارت بانکی دارای ۱۶ رقم است.';
-                    case 'BANK-SHEBA':
-                        return 'شماره شبا دارای ۲۴ رقم است.';
-                    case 'MOBILE':
-                        return 'شماره موبایل دارای ۱۱ رقم است.';
                 }
                 break;
         }

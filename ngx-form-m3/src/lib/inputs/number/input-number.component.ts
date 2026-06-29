@@ -1,6 +1,8 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { MaskitoOptions } from '@maskito/core';
+import { MaskitoDirective } from '@maskito/angular';
+import { maskitoNumber } from '@maskito/kit';
 
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField } from '@angular/material/form-field';
@@ -26,13 +28,12 @@ import { IInputNumber } from './input-number.interface';
         MatIcon,
         MatIconButton,
         MatInputModule,
-        NgxMaskDirective,
+        MaskitoDirective,
         AutoCompleteDirective,
         AutoFocusDirective,
         InputErrorPipe,
         MultiLinePipe,
     ],
-    providers: [provideNgxMask()],
     templateUrl: './input-number.component.html',
     styleUrl: './input-number.component.scss',
 })
@@ -44,15 +45,29 @@ export class InputNumberComponent implements OnInit {
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
 
-    public maxLength: number = 15;
-    public hintText?: string;
-    public isFocused: boolean = false;
-
-    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+    protected hintText?: string;
+    protected isFocused: boolean = false;
+    protected maskitoOptions!: MaskitoOptions;
 
     ngOnInit(): void {
-        if (!this.input.fractionDigits && !this.input.allowNegatives && this.input.maximum)
-            this.maxLength = Helper.NUMBER.format(this.input.maximum, 'EN').length;
+        const numberOptions: MaskitoOptions = maskitoNumber({
+            thousandSeparator: ',',
+            // Fraction Digits
+            decimalSeparator: '.',
+            maximumFractionDigits: this.input.fractionDigits === true ? 10 : this.input.fractionDigits || 0,
+            // Allow Negatives
+            minusSign: '-',
+            min: this.input.allowNegatives ? -999_999_999_999_999 : 0,
+            max: 999_999_999_999_999,
+        });
+        this.maskitoOptions = {
+            ...numberOptions,
+            preprocessors: [
+                // CHANGE PERSIAN NUMBERS
+                ({ elementState, data }) => ({ elementState, data: Helper.STRING.changeNumbers(data.toString(), 'EN') }),
+                ...(numberOptions.preprocessors || []),
+            ],
+        };
 
         this.updateHint();
     }

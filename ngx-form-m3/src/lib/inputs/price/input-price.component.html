@@ -1,32 +1,36 @@
 <mat-form-field [appearance]="input.appearance || config.appearance">
     <mat-label>{{ input.title || 'قیمت' }}</mat-label>
-    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+    @if (formControl.invalid) {
+        <mat-error>{{ formControl.errors | InputErrorPipe: input.type }}</mat-error>
+    }
 
     <!-- HINT -->
-    @if (input.hint|| (isFocused && hintText)) { <mat-hint>{{ isFocused && hintText ? hintText : input.hint }}</mat-hint> }
+    @if (input.hint || (isFocused && hintText)) {
+        <mat-hint>{{ isFocused && hintText ? hintText : input.hint }}</mat-hint>
+    }
 
     <!-- CURRENCY -->
     @if (input.currency) {
-    <span matTextSuffix class="ngx-form-m3-input-suffix" [class.ngx-form-m3-disabled-input]="formControl.disabled">
-        <span>{{ input.currency }}</span>
-    </span>
+        <span matTextSuffix class="ngx-form-m3-input-suffix" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+            <span>{{ input.currency }}</span>
+        </span>
     }
 
     <!-- BUTTON -->
     @if (input.button) {
-    <span matIconSuffix>
-        <button
-            mat-icon-button
-            type="button"
-            [disabled]="isButtonDisabled"
-            (click)="input.button.onClick(values)"
-            [tabIndex]="-1"
-        >
-            <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
-                {{ input.button.icon }}
-            </mat-icon>
-        </button>
-    </span>
+        <span matIconSuffix>
+            <button
+                mat-icon-button
+                type="button"
+                [disabled]="isButtonDisabled"
+                (click)="input.button.onClick(values)"
+                [tabIndex]="-1"
+            >
+                <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                    {{ input.button.icon }}
+                </mat-icon>
+            </button>
+        </span>
     }
 
     <!-- INPUT -->
@@ -38,18 +42,7 @@
         class="ngx-form-m3-en"
         [ngModel]="formControl.value?.toString() || ''"
         [AutoFocusDirective]="config.autoFocus === input.name"
-        [mask]="
-            input.fractionDigits === true
-                ? 'separator.3'
-                : !!input.fractionDigits && input.fractionDigits > 0
-                ? 'separator.' + input.fractionDigits.toString()
-                : 'separator.0'
-        "
-        thousandSeparator=","
-        decimalMarker="."
-        [allowNegativeNumbers]="false"
-        [inputTransformFn]="inputTransformFn"
-        [maxlength]="maxLength"
+        [maskito]="maskitoOptions"
         (input)="setValue(numberInput.value); updateHint()"
         [disabled]="formControl.disabled"
         (focus)="isFocused = true; updateHint()"
@@ -59,10 +52,10 @@
 
     <!-- DESCRIPTION -->
     @if (input.description) {
-    <div
-        class="ngx-form-m3-input-description"
-        [class.ngx-form-m3-disabled-input]="formControl.disabled"
-        [innerHTML]="input.description | MultiLinePipe"
-    ></div>
+        <div
+            class="ngx-form-m3-input-description"
+            [class.ngx-form-m3-disabled-input]="formControl.disabled"
+            [innerHTML]="input.description | MultiLinePipe"
+        ></div>
     }
 </mat-form-field>

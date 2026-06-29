@@ -1,6 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { MaskitoOptions } from '@maskito/core';
+import { MaskitoDirective } from '@maskito/angular';
 
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField } from '@angular/material/form-field';
@@ -25,13 +26,12 @@ import { IInputBankSheba } from './input-bank-sheba.interface';
         MatIcon,
         MatIconButton,
         MatInputModule,
-        NgxMaskDirective,
+        MaskitoDirective,
         AutoCompleteDirective,
         AutoFocusDirective,
         InputErrorPipe,
         MultiLinePipe,
     ],
-    providers: [provideNgxMask()],
     templateUrl: './input-bank-sheba.component.html',
     styleUrl: './input-bank-sheba.component.scss',
 })
@@ -43,7 +43,8 @@ export class InputBankShebaComponent {
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
 
-    public bank: string = '';
-
-    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+    protected readonly maskitoOptions: MaskitoOptions = {
+        mask: Array.from({ length: 24 }, () => /\d/),
+        preprocessors: [({ elementState, data }) => ({ elementState, data: Helper.STRING.changeNumbers(data, 'EN') })],
+    };
 }

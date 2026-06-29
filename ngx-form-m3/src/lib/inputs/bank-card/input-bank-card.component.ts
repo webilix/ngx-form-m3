@@ -1,6 +1,7 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { MaskitoOptions } from '@maskito/core';
+import { MaskitoDirective } from '@maskito/angular';
 
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField } from '@angular/material/form-field';
@@ -25,13 +26,12 @@ import { IInputBankCard } from './input-bank-card.interface';
         MatIcon,
         MatIconButton,
         MatInputModule,
-        NgxMaskDirective,
+        MaskitoDirective,
         AutoCompleteDirective,
         AutoFocusDirective,
         InputErrorPipe,
         MultiLinePipe,
     ],
-    providers: [provideNgxMask()],
     templateUrl: './input-bank-card.component.html',
     styleUrl: './input-bank-card.component.scss',
 })
@@ -43,18 +43,36 @@ export class InputBankCardComponent implements OnInit {
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
 
-    public bank: string = '';
+    public bank: WritableSignal<string> = signal('');
 
-    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+    protected readonly maskitoOptions: MaskitoOptions = {
+        mask: [
+            ...Array.from<RegExp>({ length: 4 }).fill(/\d/),
+            '-',
+            ...Array.from<RegExp>({ length: 4 }).fill(/\d/),
+            '-',
+            ...Array.from<RegExp>({ length: 4 }).fill(/\d/),
+            '-',
+            ...Array.from<RegExp>({ length: 4 }).fill(/\d/),
+        ],
+        preprocessors: [
+            // CHANGE PERSIAN NUMBERS
+            ({ elementState, data }) => ({ elementState, data: Helper.STRING.changeNumbers(data.toString(), 'EN') }),
+        ],
+    };
 
     ngOnInit(): void {
-        this.setBank(this.input.value || '');
+        this.setCard(this.input.value || '');
     }
 
-    setBank(card: string): void {
-        card = card.replace(/-/g, '').substring(0, 6);
+    setValue(): void {
+        const value: string = (this.formControl.value || '').replace(/-/g, '');
+        if (Helper.IS.STRING.bankCard(value)) this.formControl.setValue(value);
+    }
 
+    setCard(card: string): void {
+        card = card.replace(/-/g, '').substring(0, 6);
         const bank: IBank | null = Helper.BANK.findCard(card);
-        this.bank = bank?.title || '';
+        this.bank.update(() => bank?.title || '');
     }
 }

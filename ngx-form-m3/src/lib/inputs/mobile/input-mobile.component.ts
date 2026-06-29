@@ -1,6 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
+import { MaskitoOptions } from '@maskito/core';
+import { MaskitoDirective } from '@maskito/angular';
 
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField } from '@angular/material/form-field';
@@ -25,13 +26,12 @@ import { IInputMobile } from './input-mobile.interface';
         MatIcon,
         MatIconButton,
         MatInputModule,
-        NgxMaskDirective,
+        MaskitoDirective,
         AutoCompleteDirective,
         AutoFocusDirective,
         InputErrorPipe,
         MultiLinePipe,
     ],
-    providers: [provideNgxMask()],
     templateUrl: './input-mobile.component.html',
     styleUrl: './input-mobile.component.scss',
 })
@@ -43,5 +43,22 @@ export class InputMobileComponent {
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
 
-    public inputTransformFn = (value: any): string => Helper.STRING.changeNumbers(value.toString(), 'EN');
+    protected readonly maskitoOptions: MaskitoOptions = {
+        mask: [
+            ...Array.from<RegExp>({ length: 2 }).fill(/\d/),
+            '-',
+            ...Array.from<RegExp>({ length: 3 }).fill(/\d/),
+            '-',
+            ...Array.from<RegExp>({ length: 4 }).fill(/\d/),
+        ],
+        preprocessors: [
+            // CHANGE PERSIAN NUMBERS
+            ({ elementState, data }) => ({ elementState, data: Helper.STRING.changeNumbers(data.toString(), 'EN') }),
+        ],
+    };
+
+    setValue(): void {
+        const value: string = (this.formControl.value || '').replace(/-/g, '');
+        if (Helper.IS.STRING.mobile('09' + value)) this.formControl.setValue(value);
+    }
 }

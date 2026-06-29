@@ -2,14 +2,14 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 import { Helper } from '@webilix/helper-library';
 
-export const BankShebaValidator = (): ValidatorFn => {
+export const MobileValidator = (): ValidatorFn => {
     return (formControl: AbstractControl): ValidationErrors | null => {
-        const value: string = formControl.value;
+        const value: string = (formControl.value || '').replace(/-/g, '');
         if (Helper.IS.empty(value) || !Helper.IS.string(value)) return null;
 
         // ERRORS
-        if (value.length !== 24) return { 'bank-sheba': 'length' };
-        if (!Helper.IS.STRING.bankSheba(`IR${value}`)) return { 'bank-sheba': 'validate' };
+        if (value.length !== 9) return { mobile: 'length' };
+        if (!Helper.IS.STRING.mobile(`09${value}`)) return { mobile: 'validate' };
 
         return null;
     };
