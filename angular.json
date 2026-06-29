@@ -21,10 +21,7 @@
                 },
                 "test": {
                     "builder": "@angular/build:karma",
-                    "options": {
-                        "tsConfig": "ngx-form-m3/tsconfig.spec.json",
-                        "polyfills": ["zone.js", "zone.js/testing"]
-                    }
+                    "options": { "tsConfig": "ngx-form-m3/tsconfig.spec.json" }
                 }
             }
         },
@@ -41,7 +38,6 @@
                         "outputPath": "dist/ngx-form-test",
                         "index": "ngx-form-test/src/index.html",
                         "browser": "ngx-form-test/src/main.ts",
-                        "polyfills": ["zone.js"],
                         "tsConfig": "ngx-form-test/tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [{ "glob": "**/*", "input": "ngx-form-test/public" }],
@@ -76,7 +72,6 @@
                 "test": {
                     "builder": "@angular/build:karma",
                     "options": {
-                        "polyfills": ["zone.js", "zone.js/testing"],
                         "tsConfig": "ngx-form-test/tsconfig.spec.json",
                         "inlineStyleLanguage": "scss",
                         "assets": [{ "glob": "**/*", "input": "ngx-form-test/public" }],

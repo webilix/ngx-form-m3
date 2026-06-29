@@ -1,4 +1,5 @@
 import { AfterViewInit, Directive, ElementRef, Input } from '@angular/core';
+import { timer } from 'rxjs';
 
 @Directive({ selector: '[AutoFocusDirective]' })
 export class AutoFocusDirective implements AfterViewInit {
@@ -12,6 +13,6 @@ export class AutoFocusDirective implements AfterViewInit {
         const input: HTMLInputElement = this.elementRef.nativeElement as HTMLInputElement;
         if (!input) return;
 
-        setTimeout(() => input.focus && input.focus(), 0);
+        timer(0).subscribe(() => input.focus && input.focus());
     }
 }

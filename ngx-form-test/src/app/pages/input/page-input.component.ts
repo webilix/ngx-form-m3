@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { timer } from 'rxjs';
 
 import { INgxForm, INgxFormValues, NgxFormComponent, NgxFormInputs } from '@webilix/ngx-form-m3';
 
@@ -102,12 +103,12 @@ export class PageInputComponent implements OnInit {
                     return;
                 }
 
-                setTimeout(() => {
+                timer(0).subscribe(() => {
                     this.init = true;
                     this.type = type as NgxFormInputs['type'];
                     this.ngxForm = { ...this.ngxForm, inputs: this.inputs[this.type] };
                     this.appService.setHeader(this.type);
-                }, 0);
+                });
             },
         });
     }

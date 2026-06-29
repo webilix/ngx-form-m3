@@ -1,16 +1,20 @@
 import { Directive, ElementRef, HostListener, Optional } from '@angular/core';
 import { FormGroupDirective } from '@angular/forms';
+import { timer } from 'rxjs';
 
 @Directive({ selector: 'form.ngx-form' })
 export class FormErrorDirective {
     @HostListener('submit') onSubmit(): void {
-        setTimeout(() => {
+        timer(150).subscribe(() => {
             const invalidControl: HTMLElement = this.elementRef.nativeElement.querySelector('.mat-form-field-invalid');
             if (invalidControl) return this.scrollToElement(invalidControl);
-        }, 150);
+        });
     }
 
-    constructor(private elementRef: ElementRef, @Optional() private formGroupDirective: FormGroupDirective) {}
+    constructor(
+        private elementRef: ElementRef,
+        @Optional() private formGroupDirective: FormGroupDirective,
+    ) {}
 
     private getElementTop(element: HTMLElement): number {
         return element.getBoundingClientRect().top + window.scrollY - 100;
