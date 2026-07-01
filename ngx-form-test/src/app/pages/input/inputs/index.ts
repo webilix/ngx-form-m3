@@ -9,6 +9,7 @@ export * from './date';
 export * from './email';
 export * from './file';
 export * from './icon';
+export * from './id';
 export * from './ip';
 export * from './item-list';
 export * from './mobile';

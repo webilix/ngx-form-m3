@@ -15,7 +15,6 @@ export const UsernameValidator = (verify?: {
 
         // MINLENGTH
         const minLength: number | undefined = verify?.minLength;
-
         if (minLength && minLength > 0 && value.length < minLength)
             return { username: `مقدار باید حداقل داری ${Helper.NUMBER.format(minLength)} کاراکتر باشد.` };
 
@@ -33,11 +32,11 @@ export const UsernameValidator = (verify?: {
 
         // USE DASH
         if (!verify?.useDash && value.indexOf('-') !== -1)
-            return { username: `امکان استفاده از خط فاصله در کلمه عبور وجود ندارد.` };
+            return { username: `امکان استفاده از خط فاصله در نام کاربری وجود ندارد.` };
 
         // USE DOT
         if (!verify?.useDot && value.indexOf('.') !== -1)
-            return { username: `امکان استفاده از نقطه در کلمه عبور وجود ندارد.` };
+            return { username: `امکان استفاده از نقطه در نام کاربری وجود ندارد.` };
 
         // START WITH CHAR
         if (!!verify?.startWithChar) {

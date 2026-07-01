@@ -67,6 +67,7 @@ export class PageIndexComponent implements OnInit {
                             { name: 'color', type: 'COLOR', title: 'رنگ چشم', optional: true, button: this.inputButton },
                             { name: 'file', type: 'FILE', title: 'رزومه', optional: true, button: this.inputButton },
                             { name: 'url', type: 'URL', optional: true, button: this.inputButton },
+                            { name: 'id', type: 'ID', optional: true, button: this.inputButton },
                         ],
                     },
                     {

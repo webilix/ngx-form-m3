@@ -31,6 +31,9 @@ export * from './file/input-file.interface';
 export * from './icon/input-icon.component';
 export * from './icon/input-icon.interface';
 
+export * from './id/input-id.component';
+export * from './id/input-id.interface';
+
 export * from './ip/input-ip.component';
 export * from './ip/input-ip.interface';
 

@@ -15,6 +15,7 @@ export * from './number/min-number.validator';
 export * from './number/multiply-of.validator';
 
 export * from './duplicate.validator';
+export * from './id.validator';
 export * from './length.validator';
 export * from './mobile.validator';
 export * from './username.validator';

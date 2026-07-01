@@ -87,6 +87,9 @@ export class InputErrorPipe implements PipeTransform {
                 }
                 break;
 
+            case 'id':
+                return value;
+
             case 'username':
                 return value;
 
