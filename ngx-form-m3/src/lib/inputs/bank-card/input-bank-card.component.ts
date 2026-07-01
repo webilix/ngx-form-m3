@@ -74,6 +74,6 @@ export class InputBankCardComponent implements OnInit {
     setCard(card: string): void {
         card = card.replace(/-/g, '').substring(0, 6);
         const bank: IBank | null = Helper.BANK.findCard(card);
-        this.bank.update(() => bank?.title || '');
+        this.bank.set(bank?.title || '');
     }
 }
