@@ -44,6 +44,11 @@
     }
 }
 
+/* INPUT PREFIX */
+.ngx-form-m3-input-prefix {
+    display: inline-flex;
+}
+
 /* INPUT DESCRIPTION */
 .ngx-form-m3-input-description {
     font-size: 12px;

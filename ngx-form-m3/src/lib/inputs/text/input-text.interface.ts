@@ -12,6 +12,10 @@ export interface IInputText extends IInput {
     readonly minLength?: number;
     readonly maxLength?: number;
     readonly readonly?: boolean;
+    readonly prefix?: string;
+    readonly prefixEnglish?: boolean;
+    readonly suffix?: string;
+    readonly suffixEnglish?: boolean;
 }
 
 export class InputTextMethods extends InputMethods<IInputText, string | null> {
