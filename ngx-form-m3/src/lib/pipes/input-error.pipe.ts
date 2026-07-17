@@ -109,6 +109,8 @@ export class InputErrorPipe implements PipeTransform {
                         return 'کاراکترهای الزامی در کلمه عبور استفاده نشده‌اند.';
                     case 'URL':
                         return 'فرمت استاندارد آدرس سایت رعایت نشده است.';
+                    default:
+                        return 'فرمت مقدار وارد شده صحیح نیست.';
                 }
                 break;
         }

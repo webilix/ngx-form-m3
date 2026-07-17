@@ -47,6 +47,7 @@
         [formControl]="formControl"
         [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
         [maxLength]="input.maxLength || 524288"
+        [maskito]="maskitoOptions"
         [AutoFocusDirective]="config.autoFocus === input.name"
         [readonly]="input.readonly"
     />

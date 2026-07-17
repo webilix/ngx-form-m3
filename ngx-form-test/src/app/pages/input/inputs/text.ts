@@ -1,3 +1,4 @@
+import { Helper } from '@webilix/helper-library';
 import { INgxFormValues, NgxFormInputs } from '@webilix/ngx-form-m3';
 
 export const TextInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
@@ -22,12 +23,12 @@ export const TextInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                     { name: 'text-optional', type: 'TEXT', title: 'اختیاری', optional: true },
                     { name: 'text-autoFocus', type: 'TEXT', title: 'فوکوس', optional: true, autoFocus: true },
                     { name: 'text-english', type: 'TEXT', title: 'انگلیسی', optional: true, english: true },
-                    { name: 'text-prefix', type: 'TEXT', title: 'پیشوند', optional: true, prefix: 'پیشوند' },
-                    { name: 'text-suffix', type: 'TEXT', title: 'پسوند', optional: true, suffix: 'پسوند' },
+                    { name: 'text-prefix', type: 'TEXT', title: 'دارای پیشوند', optional: true, prefix: 'پیشوند' },
+                    { name: 'text-suffix', type: 'TEXT', title: 'دارای پسوند', optional: true, suffix: 'پسوند' },
                     {
                         name: 'text-prefix-suffix',
                         type: 'TEXT',
-                        title: 'پیشوند و پسوند',
+                        title: 'دارای پیشوند و پسوند',
                         optional: true,
                         suffix: '/^',
                         suffixEnglish: true,
@@ -43,6 +44,18 @@ export const TextInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                     { name: 'text-minLength', type: 'TEXT', title: 'حداقل طول متن', optional: true, minLength: 5 },
                     { name: 'text-maxLength', type: 'TEXT', title: 'حداکثر طول متن', optional: true, maxLength: 5 },
                     { name: 'text-readonly', type: 'TEXT', title: 'فقط خواندنی', value: 'فقط خواندنی', readonly: true },
+                    {
+                        name: 'text-pattern',
+                        type: 'TEXT',
+                        title: 'الگو (تاریخ شمسی)',
+                        optional: true,
+                        pattern: Helper.RE.DATE.get(),
+                        mask: [/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/],
+                        maskChangeNumbers: true,
+                        english: true,
+                        minLength: 10,
+                        maxLength: 10,
+                    },
                 ],
             },
             {

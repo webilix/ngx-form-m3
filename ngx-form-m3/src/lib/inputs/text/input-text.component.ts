@@ -1,11 +1,15 @@
 import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MaskitoOptions } from '@maskito/core';
+import { MaskitoDirective } from '@maskito/angular';
 
 import { MatIconButton } from '@angular/material/button';
 import { MatFormField } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+
+import { Helper } from '@webilix/helper-library';
 
 import { AutoCompleteDirective, AutoFocusDirective } from '../../directives';
 import { InputErrorPipe, MultiLinePipe } from '../../pipes';
@@ -24,6 +28,7 @@ import { IInputText } from './input-text.interface';
         MatIcon,
         MatIconButton,
         MatInputModule,
+        MaskitoDirective,
         AutoCompleteDirective,
         AutoFocusDirective,
         InputErrorPipe,
@@ -40,4 +45,19 @@ export class InputTextComponent {
 
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
+
+    protected maskitoOptions: MaskitoOptions | null = this.input.mask
+        ? {
+              mask: this.input.mask,
+              preprocessors: this.input.maskChangeNumbers
+                  ? [
+                        // CHANGE PERSIAN NUMBERS
+                        ({ elementState, data }) => ({
+                            elementState,
+                            data: Helper.STRING.changeNumbers(data.toString(), 'EN'),
+                        }),
+                    ]
+                  : [],
+          }
+        : null;
 }

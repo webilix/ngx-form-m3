@@ -1,4 +1,5 @@
 import { ValidatorFn, FormControl, Validators } from '@angular/forms';
+import { MaskitoMask } from '@maskito/core';
 
 import { Helper } from '@webilix/helper-library';
 
@@ -12,6 +13,9 @@ export interface IInputText extends IInput {
     readonly minLength?: number;
     readonly maxLength?: number;
     readonly readonly?: boolean;
+    readonly pattern?: RegExp;
+    readonly mask?: MaskitoMask;
+    readonly maskChangeNumbers?: boolean;
     readonly prefix?: string;
     readonly prefixEnglish?: boolean;
     readonly suffix?: string;
@@ -27,6 +31,7 @@ export class InputTextMethods extends InputMethods<IInputText, string | null> {
             if (minLength && minLength > 0) validators.push(Validators.minLength(minLength));
             if (maxLength && maxLength > 0) validators.push(Validators.maxLength(maxLength));
         }
+        if (input.pattern) validators.push(Validators.pattern(input.pattern));
 
         return new FormControl<string | null>(input.value || null, validators);
     }
