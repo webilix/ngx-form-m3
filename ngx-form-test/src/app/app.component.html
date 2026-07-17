@@ -6,9 +6,12 @@
         <mat-menu #inputMenu="matMenu" [dir]="'rtl'" class="input-menu">
             <div class="content">
                 @for (item of inputs; track $index) {
-                <button mat-menu-item [routerLink]="['/input', item.type]" [disabled]="header === item.type">
-                    {{ item.title }}
-                </button>
+                    <button mat-menu-item [routerLink]="['/input', item.type]" [disabled]="header === item.type">
+                        <div class="input-item">
+                            <div class="input-item-title">{{ item.title }}</div>
+                            <div class="input-item-type en">{{ item.type }}</div>
+                        </div>
+                    </button>
                 }
             </div>
             <mat-divider></mat-divider>
@@ -18,7 +21,7 @@
         <div class="library en">
             <div class="library-title en" [class.hasHeader]="!!header">ngx-form-m3</div>
             @if (header) {
-            <div class="library-header">{{ header }}</div>
+                <div class="library-header">{{ header }}</div>
             }
         </div>
         <div [style.flex]="1"></div>

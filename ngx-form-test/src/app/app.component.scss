@@ -92,5 +92,15 @@ body.dark {
     .mat-mdc-menu-item {
         direction: rtl;
         text-align: right;
+
+        .input-item {
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+
+            .input-item-title {
+                flex: 1;
+            }
+        }
     }
 }

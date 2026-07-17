@@ -18,4 +18,5 @@ export * from './duplicate.validator';
 export * from './id.validator';
 export * from './length.validator';
 export * from './mobile.validator';
+export * from './national-code.validator';
 export * from './username.validator';

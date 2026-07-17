@@ -35,6 +35,7 @@ export class PageIndexComponent implements OnInit {
                         rows: [
                             { name: 'name', type: 'NAME', optional: true },
                             { name: 'mobile', type: 'MOBILE', optional: true, button: this.inputButton },
+                            { name: 'national-code', type: 'NATIONAL-CODE', optional: true, button: this.inputButton },
                             { name: 'date', type: 'DATE', title: 'تاریخ تولد', optional: true, button: this.inputButton },
                             { name: 'time', type: 'TIME', title: 'ساعت تولد', optional: true, button: this.inputButton },
                             {

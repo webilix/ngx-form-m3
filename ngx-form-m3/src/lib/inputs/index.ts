@@ -52,6 +52,9 @@ export * from './multi-select/input-multi-select.interface';
 export * from './name/input-name.component';
 export * from './name/input-name.interface';
 
+export * from './national-code/input-national-code.component';
+export * from './national-code/input-national-code.interface';
+
 export * from './number/input-number.component';
 export * from './number/input-number.interface';
 

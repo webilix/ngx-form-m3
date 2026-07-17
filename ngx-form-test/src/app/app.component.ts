@@ -41,6 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'زمان', type: 'MOMENT' },
         { title: 'چند انتخابی', type: 'MULTI-SELECT' },
         { title: 'نام و نام خانوادگی', type: 'NAME' },
+        { title: 'کدملی', type: 'NATIONAL-CODE' },
         { title: 'مقدار عددی', type: 'NUMBER' },
         { title: 'لیست گزینه‌ها', type: 'OPTION-LIST' },
         { title: 'کلمه عبور', type: 'PASSWORD' },

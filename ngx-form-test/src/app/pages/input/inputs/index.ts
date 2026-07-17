@@ -16,6 +16,7 @@ export * from './mobile';
 export * from './moment';
 export * from './multi-select';
 export * from './name';
+export * from './national-code';
 export * from './number';
 export * from './option-list';
 export * from './password';
