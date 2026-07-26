@@ -27,4 +27,11 @@ export class InputColorComponent {
 
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
+
+    protected showPalette: boolean = false;
+
+    setPalette(color: string): void {
+        this.formControl.setValue(color);
+        this.showPalette = false;
+    }
 }

@@ -6,6 +6,7 @@ import { InputMethods, IInput } from '../input.interface';
 
 export interface IInputColor extends Omit<IInput, 'english' | 'autoFocus'> {
     readonly type: 'COLOR';
+    readonly palette?: string[];
 }
 
 export class InputColorMethods extends InputMethods<IInputColor, string | null> {

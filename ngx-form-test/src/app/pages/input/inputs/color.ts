@@ -22,7 +22,18 @@ export const ColorInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
                 ],
             },
             {
-                rows: [],
+                rows: [
+                    {
+                        name: 'color-palette',
+                        type: 'COLOR',
+                        title: 'دارای لیست',
+                        palette: ['CC', '77', '33']
+                            .map((r) => ['CC', '77', '33'].map((g) => ['CC', '77', '33'].map((b) => `#${r}${g}${b}`)))
+                            .flat()
+                            .flat(),
+                        optional: true,
+                    },
+                ],
             },
             {
                 rows: [

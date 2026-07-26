@@ -127,6 +127,32 @@
     }
 }
 
+.ngx-helper-form-m3-color-palette {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 4px;
+
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.32s ease-in-out;
+
+    .color {
+        width: 1.5rem;
+        height: 0px;
+        cursor: pointer;
+        transition: all 0.32s ease-in-out;
+        margin-top: 4px;
+    }
+}
+
+.ngx-helper-form-m3-color-palette.open {
+    height: auto;
+
+    .color {
+        height: 1.5rem;
+    }
+}
+
 /* INPUTS: COORDINATES */
 .ngx-helper-form-m3-coordinates-input {
     cursor: pointer;
