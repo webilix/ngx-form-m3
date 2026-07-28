@@ -1,7 +1,14 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
-import { INgxForm, INgxFormInit, INgxFormValues, NgxFormComponent } from '@webilix/ngx-form-m3';
+import {
+    INgxForm,
+    INgxFormInit,
+    INgxFormValues,
+    NgxFormComponent,
+    NgxFormFooterDirective,
+    NgxFormHeaderDirective,
+} from '@webilix/ngx-form-m3';
 
 import { DateComponent } from '../../components/date/date.component';
 import { WeekComponent } from '../../components/week/week.component';
@@ -10,7 +17,7 @@ import { AppService } from '../../app.service';
 
 @Component({
     host: { selector: 'page-index' },
-    imports: [NgxFormComponent],
+    imports: [NgxFormComponent, NgxFormHeaderDirective, NgxFormFooterDirective],
     templateUrl: './page-index.component.html',
     changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './page-index.component.scss',

@@ -1,59 +1,67 @@
 <form [formGroup]="formGroup" (ngSubmit)="checkSubmit()" dir="rtl" class="ngx-form" #formObject="ngForm">
+    <ng-content select="[ngx-form-header]"></ng-content>
+
     <section class="sections">
         @for (section of sections; track $index) {
-        <!-- CHECK SECTION VIEW -->
-        @if (showSection(section)) {
-        <!-- SECTION HEADER -->
-        @if (section.header) {
-        <div class="ngx-form-m3-header section-header">{{ section.header }}</div>
-        }
-
-        <div class="section" [class.section-mobile]="isMobile">
-            <!-- SECTIONS -->
-            @for (column of section.columns; track $index) {
-            <!-- CHECK COLUMN VIEW -->
-            @if (showColumn(column)) {
-            <div class="column" [style.flex]="section.flex[$index]">
-                <!-- COLUMN HEADER -->
-                @if (column.header) {
-                <div class="ngx-form-m3-header column-header">{{ column.header }}</div>
+            <!-- CHECK SECTION VIEW -->
+            @if (showSection(section)) {
+                <!-- SECTION HEADER -->
+                @if (section.header) {
+                    <div class="ngx-form-m3-header section-header">{{ section.header }}</div>
                 }
 
-                <!-- ROWS -->
-                @for (row of column.rows; track $index) {
-                <!-- CHECK Row VIEW -->
-                @if (showRow(row)) {
-                <!-- ROW HEADER -->
-                @if (row.header) {
-                <div class="ngx-form-m3-header row-header">{{ row.header }}</div>
-                }
+                <div class="section" [class.section-mobile]="isMobile">
+                    <!-- SECTIONS -->
+                    @for (column of section.columns; track $index) {
+                        <!-- CHECK COLUMN VIEW -->
+                        @if (showColumn(column)) {
+                            <div class="column" [style.flex]="section.flex[$index]">
+                                <!-- COLUMN HEADER -->
+                                @if (column.header) {
+                                    <div class="ngx-form-m3-header column-header">{{ column.header }}</div>
+                                }
 
-                <div class="inputs">
-                    <!-- INPUTS -->
-                    @for (input of row.inputs; track $index) {
-                    <!-- CHECK Row VIEW -->
-                    @if (showInput(input)) {
-                    <div class="input" [style.flex]="row.flex[$index]">
-                        <form-input
-                            [formGroup]="formGroup"
-                            [input]="input"
-                            [config]="inputConfig"
-                            [values]="values"
-                        ></form-input>
-                    </div>
-                    } }
+                                <!-- ROWS -->
+                                @for (row of column.rows; track $index) {
+                                    <!-- CHECK Row VIEW -->
+                                    @if (showRow(row)) {
+                                        <!-- ROW HEADER -->
+                                        @if (row.header) {
+                                            <div class="ngx-form-m3-header row-header">{{ row.header }}</div>
+                                        }
+
+                                        <div class="inputs">
+                                            <!-- INPUTS -->
+                                            @for (input of row.inputs; track $index) {
+                                                <!-- CHECK Row VIEW -->
+                                                @if (showInput(input)) {
+                                                    <div class="input" [style.flex]="row.flex[$index]">
+                                                        <form-input
+                                                            [formGroup]="formGroup"
+                                                            [input]="input"
+                                                            [config]="inputConfig"
+                                                            [values]="values"
+                                                        ></form-input>
+                                                    </div>
+                                                }
+                                            }
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        }
+                    }
                 </div>
-                } }
-            </div>
-            } }
-        </div>
-        } }
+            }
+        }
     </section>
+
+    <ng-content select="[ngx-form-footer]"></ng-content>
 
     <section class="ngx-form-m3-form-buttons" [class.mobile-view]="isMobile">
         <!-- EXTRA BUTTONS -->
-        @for (item of (ngxForm.buttons || []); track $index) {
-        <button type="button" mat-stroked-button (click)="onClick(item.action)">{{ item.title }}</button>
+        @for (item of ngxForm.buttons || []; track $index) {
+            <button type="button" mat-stroked-button (click)="onClick(item.action)">{{ item.title }}</button>
         }
         <!-- SUBMIT BUTTON -->
         <button type="submit" mat-flat-button>{{ ngxForm.submit }}</button>

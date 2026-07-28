@@ -1,6 +1,4 @@
-<ngx-form
-    [ngxForm]="ngxForm"
-    (onInit)="onInit($event)"
-    (onSubmit)="onSubmit($event)"
-    (onChange)="onChange($event)"
-></ngx-form>
+<ngx-form [ngxForm]="ngxForm" (onInit)="onInit($event)" (onSubmit)="onSubmit($event)" (onChange)="onChange($event)">
+    <div class="content" ngx-form-header>HEADER</div>
+    <div class="content" ngx-form-footer>FOOTER</div>
+</ngx-form>
