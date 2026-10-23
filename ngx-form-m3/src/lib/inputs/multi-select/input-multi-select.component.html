@@ -1,93 +1,99 @@
 <mat-form-field [appearance]="input.appearance || config.appearance">
-    @if (formControl.invalid) { <mat-error>{{ formControl.errors | InputErrorPipe : input.type }}</mat-error> }
+    @if (formControl.invalid) {
+        <mat-error>{{ formControl.errors | InputErrorPipe: input.type }}</mat-error>
+    }
 
     <!-- LABEL -->
     @if (input.view === 'SELECT') {
-    <mat-label>{{ input.title }}</mat-label>
+        <mat-label>{{ input.title }}</mat-label>
     }
 
     <!-- HINT -->
-    @if (input.hint) { <mat-hint>{{ input.hint }}</mat-hint> }
+    @if (input.hint) {
+        <mat-hint>{{ input.hint }}</mat-hint>
+    }
 
     <!-- BUTTON -->
     @if (input.button) {
-    <span matIconSuffix>
-        <button
-            mat-icon-button
-            type="button"
-            [disabled]="isButtonDisabled"
-            (click)="input.button.onClick(values)"
-            [tabIndex]="-1"
-        >
-            <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
-                {{ input.button.icon }}
-            </mat-icon>
-        </button>
-    </span>
+        <span matIconSuffix>
+            <button
+                mat-icon-button
+                type="button"
+                [disabled]="isButtonDisabled"
+                (click)="input.button.onClick(values)"
+                [tabIndex]="-1"
+            >
+                <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                    {{ input.button.icon }}
+                </mat-icon>
+            </button>
+        </span>
     }
 
     <!-- INPUT (DEFAULT VIEW) -->
     @if (!input.view) {
-    <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
-    <div class="ngx-helper-form-m3-multi-select-input" [class.ngx-form-m3-disabled-input]="formControl.disabled">
-        <div class="header">
-            <div class="title">
-                {{ input.title }}
-                @if (input.minCount) { <span class="asterisk">*</span> }
-            </div>
-            <!-- SELECT BUTTONS -->
-            @if (input.selectButtons) {
-            <button mat-button type="button" (click)="select('ALL')">همه</button>
-            <button mat-button type="button" (click)="select('NONE')">هیچ</button>
-            }
-            <!-- GROUPS -->
-            @if ((input.groups || []).length !== 0) {
-            <button mat-button type="button" [matMenuTriggerFor]="groupMenu">انتخاب</button>
-            <mat-menu #groupMenu="matMenu" [xPosition]="'before'" class="ngx-helper-form-m3-multi-select-input-menu">
-                @for (item of input.groups || []; track $index) {
-                <button mat-menu-item (click)="selectGroup($index)">{{ item.title }}</button>
-                }
-            </mat-menu>
-            }
-        </div>
-        <div class="options">
-            @for (item of input.options; track $index) {
-            <div>
-                <div class="option" (click)="toggleValue(item.id)">
-                    <mat-icon [class.selected]="ids.includes(item.id)">
-                        {{ ids.includes(item.id) ? 'check_box' : 'check_box_outline_blank' }}
-                    </mat-icon>
-                    <div class="message" [class.ngx-form-m3-en]="!!input.english">{{ item.title }}</div>
+        <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+        <div class="ngx-helper-form-m3-multi-select-input" [class.ngx-form-m3-disabled-input]="formControl.disabled">
+            <div class="header">
+                <div class="title">
+                    {{ input.title }}
+                    @if (input.minCount) {
+                        <span class="asterisk">*</span>
+                    }
                 </div>
+                <!-- SELECT BUTTONS -->
+                @if (input.selectButtons) {
+                    <button mat-button type="button" (click)="select('ALL')">همه</button>
+                    <button mat-button type="button" (click)="select('NONE')">هیچ</button>
+                }
+                <!-- GROUPS -->
+                @if ((input.groups || []).length !== 0) {
+                    <button mat-button type="button" [matMenuTriggerFor]="groupMenu">انتخاب</button>
+                    <mat-menu #groupMenu="matMenu" [xPosition]="'before'" class="ngx-helper-form-m3-multi-select-input-menu">
+                        @for (item of input.groups || []; track $index) {
+                            <button mat-menu-item (click)="selectGroup($index)">{{ item.title }}</button>
+                        }
+                    </mat-menu>
+                }
             </div>
-            }
+            <div class="options">
+                @for (item of input.options; track $index) {
+                    <div>
+                        <div class="option" (click)="toggleValue(item.id)">
+                            <mat-icon [class.selected]="ids.includes(item.id)">
+                                {{ ids.includes(item.id) ? 'check_box' : 'check_box_outline_blank' }}
+                            </mat-icon>
+                            <div class="message" [class.ngx-form-m3-en]="!!input.english">{{ item.title }}</div>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
-    </div>
     }
 
     <!-- INPUT (SELECT VIEW) -->
     @if (input.view === 'SELECT') {
-    <mat-select
-        [formControl]="formControl"
-        [multiple]="true"
-        [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
-        [style.direction]="'rtl'"
-    >
-        <mat-select-trigger>{{ getSelectValues() }}</mat-select-trigger>
-        @for (option of input.options; track $index) {
-        <mat-option [value]="option.id">
-            <div [ngClass]="input.english ? 'ngx-form-m3-en' : ''">{{ option.title }}</div>
-        </mat-option>
-        }
-    </mat-select>
+        <mat-select
+            [formControl]="formControl"
+            [multiple]="true"
+            [ngClass]="input.english ? 'ngx-form-m3-en' : ''"
+            [style.direction]="'rtl'"
+        >
+            <mat-select-trigger>{{ getSelectValues() }}</mat-select-trigger>
+            @for (option of input.options; track $index) {
+                <mat-option [value]="option.id">
+                    <div [ngClass]="input.english ? 'ngx-form-m3-en' : ''">{{ option.title }}</div>
+                </mat-option>
+            }
+        </mat-select>
     }
 
     <!-- DESCRIPTION -->
     @if (input.description) {
-    <div
-        class="ngx-form-m3-input-description"
-        [class.ngx-form-m3-disabled-input]="formControl.disabled"
-        [innerHTML]="input.description | MultiLinePipe"
-    ></div>
+        <div
+            class="ngx-form-m3-input-description"
+            [class.ngx-form-m3-disabled-input]="formControl.disabled"
+            [innerHTML]="input.description | MultiLinePipe"
+        ></div>
     }
 </mat-form-field>

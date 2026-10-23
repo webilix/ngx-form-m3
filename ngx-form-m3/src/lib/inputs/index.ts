@@ -64,6 +64,9 @@ export * from './option-list/input-option-list.interface';
 export * from './password/input-password.component';
 export * from './password/input-password.interface';
 
+export * from './plate/input-plate.component';
+export * from './plate/input-plate.interface';
+
 export * from './price/input-price.component';
 export * from './price/input-price.interface';
 

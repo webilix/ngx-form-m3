@@ -31,5 +31,13 @@ export interface INgxFormOptionList {
     readonly title: string;
 }
 
+// PLATE
+export interface INgxFormPlate {
+    readonly regional: string;
+    readonly letter: string;
+    readonly serial: string;
+    readonly iran: string;
+}
+
 // ROUTE
 export type NgxFormRoute = INgxFormCoordinates[];

@@ -45,6 +45,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'مقدار عددی', type: 'NUMBER' },
         { title: 'لیست گزینه‌ها', type: 'OPTION-LIST' },
         { title: 'کلمه عبور', type: 'PASSWORD' },
+        { title: 'شماره پلاک', type: 'PLATE' },
         { title: 'قیمت', type: 'PRICE' },
         { title: 'مسیر', type: 'ROUTE' },
         { title: 'لیست کشویی', type: 'SELECT' },

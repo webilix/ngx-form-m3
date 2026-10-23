@@ -56,7 +56,7 @@ export class InputNameComponent implements OnInit {
         const first: string = (this.firstFormControl.value || '').trim();
         const last: string = (this.lastFormControl.value || '').trim();
 
-        const value: { first: string; last: string } | null = first !== '' && last !== '' ? { first, last } : null;
+        const value: INgxFormName | null = first !== '' && last !== '' ? { first, last } : null;
         this.formControl.setValue(value);
     }
 }

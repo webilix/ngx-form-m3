@@ -96,6 +96,9 @@ export class InputErrorPipe implements PipeTransform {
             case 'nationalCode':
                 return 'کدملی صحیح مشخص نشده است.';
 
+            case 'plate':
+                return 'شماره پلاک به صورت کامل مشخص نشده است.';
+
             case 'pattern':
                 switch (type) {
                     case 'EMAIL':

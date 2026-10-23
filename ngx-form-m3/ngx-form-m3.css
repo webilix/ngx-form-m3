@@ -265,6 +265,40 @@
     }
 }
 
+/* INPUTS: PLATE */
+.ngx-helper-form-m3-plate-input {
+    direction: ltr;
+
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    padding-top: 0.5rem;
+
+    input,
+    mat-select {
+        padding: 0.25rem 0.5rem;
+        background-color: var(--surface-container-highest) !important;
+    }
+
+    input.regional,
+    input.iran {
+        flex: 2;
+    }
+
+    input.serial {
+        flex: 3;
+    }
+
+    mat-select.letter {
+        flex: 1.5;
+
+        .mat-mdc-select-arrow-wrapper {
+            transform: none !important;
+        }
+    }
+}
+
 /* INPUTS: ROUTE */
 .ngx-helper-form-m3-route-input {
     display: flex;

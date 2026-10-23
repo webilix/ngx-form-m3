@@ -112,6 +112,7 @@ export class PageIndexComponent implements OnInit {
                             { name: 'route', type: 'ROUTE', optional: true, button: this.inputButton },
                             { name: 'bank-card', type: 'BANK-CARD', optional: true, button: this.inputButton },
                             { name: 'bank-sheba', type: 'BANK-SHEBA', optional: true, button: this.inputButton },
+                            { name: 'plate', type: 'PLATE', optional: true, button: this.inputButton },
                         ],
                     },
                     {

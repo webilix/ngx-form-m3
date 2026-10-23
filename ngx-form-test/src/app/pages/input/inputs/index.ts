@@ -20,6 +20,7 @@ export * from './national-code';
 export * from './number';
 export * from './option-list';
 export * from './password';
+export * from './plate';
 export * from './price';
 export * from './route';
 export * from './select';

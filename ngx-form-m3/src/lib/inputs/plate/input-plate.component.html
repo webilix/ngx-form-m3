@@ -1,0 +1,114 @@
+<mat-form-field [appearance]="input.appearance || config.appearance" [floatLabel]="isFocused() ? 'always' : 'auto'">
+    <mat-label>{{ input.title || 'شماره پلاک' }}</mat-label>
+    @if (formControl.invalid) {
+        <mat-error>{{ formControl.errors | InputErrorPipe: input.type }}</mat-error>
+    }
+
+    <!-- HINT -->
+    @if (input.hint) {
+        <mat-hint>{{ input.hint }}</mat-hint>
+    }
+
+    <!-- BUTTON -->
+    @if (input.button) {
+        <span matIconSuffix>
+            <button
+                mat-icon-button
+                type="button"
+                [disabled]="isButtonDisabled"
+                (click)="input.button.onClick(values)"
+                [tabIndex]="-1"
+            >
+                <mat-icon [style.color]="isButtonDisabled ? undefined : input.button.color">
+                    {{ input.button.icon }}
+                </mat-icon>
+            </button>
+        </span>
+    }
+
+    <!-- INPUT -->
+    <input matInput type="text" [name]="input.name" [formControl]="formControl" [style.display]="'none !important'" />
+
+    <div class="ngx-helper-form-m3-plate-input">
+        <!-- REGIONAL -->
+        <input
+            matInput
+            type="text"
+            inputmode="numeric"
+            [name]="input.name + 'regional'"
+            [formControl]="regionalFormControl"
+            class="ngx-form-m3-en regional"
+            [maskito]="regionalOptions"
+            [AutoFocusDirective]="config.autoFocus === input.name"
+            (focus)="isFocused.set(true)"
+            (blur)="isFocused.set(false); setPlate()"
+            (keyup)="setPlate()"
+            (input)="
+                (regionalFormControl.value || '').length === 2
+                    ? input.defaultLetter || !!letterFormControl.value
+                        ? serialInput.focus()
+                        : letterInput.focus()
+                    : null
+            "
+            #regionalInput
+        />
+        <!-- LETTER -->
+        <mat-select
+            [formControl]="letterFormControl"
+            class="letter"
+            [style.direction]="'rtl'"
+            (focus)="isFocused.set(true)"
+            (blur)="isFocused.set(false)"
+            (opened)="isFocused.set(true)"
+            (closed)="isFocused.set(false)"
+            (selectionChange)="setPlate()"
+            #letterInput
+        >
+            <mat-option [value]="null"></mat-option>
+            <!-- LETTERS -->
+            @for (letter of letters; track $index) {
+                <mat-option [value]="letter">{{ letter === 'ا' ? 'الف' : letter }}</mat-option>
+            }
+        </mat-select>
+        <!-- SERIAL -->
+        <input
+            matInput
+            type="text"
+            inputmode="numeric"
+            [name]="input.name + 'serial'"
+            [formControl]="serialFormControl"
+            class="ngx-form-m3-en serial"
+            [maskito]="serialOptions"
+            (focus)="isFocused.set(true)"
+            (blur)="isFocused.set(false); setPlate()"
+            (keyup)="setPlate()"
+            (keyup.backspace)="serialInput.value.length === 0 && regionalInput.focus()"
+            (input)="(serialFormControl.value || '').length === 3 ? iranInput.focus() : null"
+            #serialInput
+        />
+        <!-- IRAN -->
+        <input
+            matInput
+            type="text"
+            inputmode="numeric"
+            [name]="input.name + 'iran'"
+            [formControl]="iranFormControl"
+            class="ngx-form-m3-en iran"
+            [maskito]="iranOptions"
+            (focus)="isFocused.set(true)"
+            (keyup)="setPlate()"
+            (keyup.backspace)="iranInput.value.length === 0 && serialInput.focus()"
+            (blur)="isFocused.set(false); setPlate()"
+            #iranInput
+        />
+    </div>
+
+    <!-- DESCRIPTION -->
+    @if (input.description) {
+        <div
+            class="ngx-form-m3-input-description"
+            [class.ngx-form-m3-disabled-input]="formControl.disabled"
+            [innerHTML]="input.description | MultiLinePipe"
+        ></div>
+    }
+</mat-form-field>
