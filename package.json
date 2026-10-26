@@ -22,10 +22,10 @@
         "@maskito/angular": "^5.6.0",
         "@maskito/core": "^5.6.0",
         "@maskito/kit": "^5.6.0",
-        "@webilix/helper-library": "^6.2.1",
+        "@webilix/helper-library": "^6.3.1",
         "@webilix/jalali-date-time": "^2.0.11",
         "@webilix/ngx-calendar-m3": "^0.0.34",
-        "@webilix/ngx-helper-m3": "^0.0.69",
+        "@webilix/ngx-helper-m3": "^0.0.70",
         "rxjs": "~7.8.2",
         "tslib": "^2.8.1"
     },

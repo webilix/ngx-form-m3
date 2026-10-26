@@ -31,6 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
         { title: 'کامپوننت', type: 'COMPONENT' },
         { title: 'موقعیت جغرافیایی', type: 'COORDINATES' },
         { title: 'تاریخ', type: 'DATE' },
+        { title: 'روز شمسی', type: 'DAY' },
         { title: 'ایمیل', type: 'EMAIL' },
         { title: 'فایل', type: 'FILE' },
         { title: 'آیکون', type: 'ICON' },

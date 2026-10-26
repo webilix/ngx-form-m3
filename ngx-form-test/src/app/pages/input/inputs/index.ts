@@ -6,6 +6,7 @@ export * from './color';
 export * from './component';
 export * from './coordinates';
 export * from './date';
+export * from './day';
 export * from './email';
 export * from './file';
 export * from './icon';

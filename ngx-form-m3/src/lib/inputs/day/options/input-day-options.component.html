@@ -1,0 +1,5 @@
+<div class="options" [style.grid-template-columns]="'repeat(' + column + ', 1fr)'">
+    @for (option of options; track $index) {
+        <div class="option" [class.current]="option.id === current" (click)="select(option.id)">{{ option.title }}</div>
+    }
+</div>

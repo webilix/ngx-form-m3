@@ -22,6 +22,9 @@ export * from './coordinates/input-coordinates.interface';
 export * from './date/input-date.component';
 export * from './date/input-date.interface';
 
+export * from './day/input-day.component';
+export * from './day/input-day.interface';
+
 export * from './email/input-email.component';
 export * from './email/input-email.interface';
 

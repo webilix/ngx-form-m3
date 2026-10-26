@@ -1,0 +1,17 @@
+.options {
+    display: grid;
+    gap: 0.5rem;
+
+    .option {
+        padding: 0.5rem 0;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .option.current {
+        font-weight: bold;
+        border-radius: 4px;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+    }
+}
