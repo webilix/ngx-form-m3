@@ -9,6 +9,14 @@ export interface INgxFormCoordinates {
 
 // MULTI-SELECT
 // SELECT
+export interface INgxFormGroupOption {
+    readonly group: string;
+    readonly options: {
+        readonly id: string;
+        readonly title: string;
+    }[];
+}
+
 export interface INgxFormOption {
     readonly id: string;
     readonly title: string;

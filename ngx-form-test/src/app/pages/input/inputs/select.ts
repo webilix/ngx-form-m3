@@ -11,6 +11,26 @@ const enOptions: { id: string; title: string }[] = [...Array(5)].map((_, index: 
     title: `Option ${index + 1}`,
 }));
 
+const faGroupOptions: { group: string; options: { id: string; title: string }[] }[] = [...Array(5)].map(
+    (_, group: number) => ({
+        group: `گروه ${Helper.NUMBER.getTitle(group + 1)}`,
+        options: [...Array(10)].map((_, index: number) => ({
+            id: `OPT${group * 10 + index}`,
+            title: `گزینه ${group * 10 + index}`,
+        })),
+    }),
+);
+
+const enGroupOptions: { group: string; options: { id: string; title: string }[] }[] = [...Array(5)].map(
+    (_, group: number) => ({
+        group: `GROUP ${group + 1}`,
+        options: [...Array(10)].map((_, index: number) => ({
+            id: `OPT${group * 10 + index}`,
+            title: `Option ${group * 10 + index}`,
+        })),
+    }),
+);
+
 export const SelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
     {
         columns: [
@@ -52,6 +72,21 @@ export const SelectInputs: { columns: { rows: NgxFormInputs[] }[] }[] = [
             },
             {
                 rows: [
+                    {
+                        name: 'select-group-fa',
+                        type: 'SELECT',
+                        title: 'دارای گروه (فارسی)',
+                        options: faGroupOptions,
+                        optional: true,
+                    },
+                    {
+                        name: 'select-group-en',
+                        type: 'SELECT',
+                        title: 'دارای گروه (انگلیسی)',
+                        options: enGroupOptions,
+                        english: true,
+                        optional: true,
+                    },
                     { name: 'select-1option-required', type: 'SELECT', title: 'یک انتخابی الزامی', options: [faOptions[0]] },
                     {
                         name: 'select-1option-optional',

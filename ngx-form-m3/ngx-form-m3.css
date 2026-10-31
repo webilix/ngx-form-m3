@@ -347,6 +347,26 @@
     }
 }
 
+.ngx-helper-form-m3-select-group {
+    .ngx-helper-form-m3-select-group-title {
+        width: 100%;
+        display: block;
+        padding: 1rem;
+        color: var(--secondary);
+        background-color: var(--surface-container-low);
+    }
+
+    .mat-mdc-optgroup-label {
+        padding: 0 !important;
+    }
+
+    .mdc-list-item__primary-text {
+        width: 100%;
+        padding: 0 !important;
+        display: block;
+    }
+}
+
 /* INPUTS: TAG */
 .ngx-helper-form-m3-tag-input {
     mat-chip-row span {

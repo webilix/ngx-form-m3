@@ -1,4 +1,4 @@
-import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 
@@ -34,7 +34,7 @@ import { IInputSelect } from './input-select.interface';
     changeDetection: ChangeDetectionStrategy.Eager,
     styleUrl: './input-select.component.scss',
 })
-export class InputSelectComponent {
+export class InputSelectComponent implements OnInit {
     public formControl: FormControl = inject(INPUT_CONTROL);
     public input: IInputSelect = inject(INPUT_TYPE);
     public config: IInputConfig = inject(INPUT_CONFIG);
@@ -42,9 +42,28 @@ export class InputSelectComponent {
     @Input({ required: true }) values!: INgxFormValues;
     @Input({ required: true }) isButtonDisabled!: boolean;
 
-    public searchQuery: string = '';
+    protected searchQuery: string = '';
+    protected optionCount: number = 0;
+
+    ngOnInit(): void {
+        this.input.options.forEach((option) => {
+            this.optionCount += 'group' in option ? option.options.length : 1;
+        });
+    }
 
     getTitle(): string {
-        return this.input.options.find((option) => option.id === this.formControl.value)?.title || '';
+        const value = this.formControl.value;
+        let title: string = '';
+        this.input.options.forEach((option) => {
+            // GROUP
+            if ('group' in option) {
+                const item = option.options.find((o) => o.id === value);
+                if (item) title = item.title;
+            }
+            // OPTION
+            if ('id' in option && option.id === value) title = option.title;
+        });
+
+        return title;
     }
 }
